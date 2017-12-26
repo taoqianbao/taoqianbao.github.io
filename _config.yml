@@ -79,4 +79,4 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/taoqianbao/taoqianbao.github.io.git
-  branch: master
+  branch: gh-pages
