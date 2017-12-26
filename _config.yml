@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
+title: 致力于拯救世界的IT农民工
+subtitle: 朱胜峰的网络事件
+description: I love programming and I am very passionate about it. I have been coding for 10+ years now. Like C,ASP,PHP,C#,JavaScript...
+author: Peter Zhu
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://taoqianbao.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -79,4 +79,4 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/taoqianbao/taoqianbao.github.io.git
-  branch: gh-pages
+  branch: master
