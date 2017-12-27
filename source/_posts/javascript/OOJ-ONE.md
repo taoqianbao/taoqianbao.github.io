@@ -292,7 +292,7 @@ buddy 所引用的对象将从它的原型继承属性和方法，尽管仅从�
 
 在 JavaScript 中，每个函数都有名为“prototype”的属性，用于引用原型对象。此原型对象又有名为“constructor”的属性，它反过来引用函数本身。这是一种循环引用，图A1 更好地说明了这种循环关系。
 
-![图A1 每个函数的原型都有一个 Constructor 属性](https://images.cnblogs.com/cnblogs_com/taoqianbao/1.gif)
+![图A1 每个函数的原型都有一个 Constructor 属性](/imgs/ooj-1.gif)
 
 现在，通过“new”运算符用函数（上面示例中为 Dog）创建对象时，所获得的对象将继承 Dog.prototype 的属性。在图A1 中，可以看到 Dog.prototype 对象有一个回指 Dog 函数的构造函数属性。这样，每个 Dog 对象（从 Dog.prototype 继承而来）都有一个回指 Dog 函数的构造函数属性。代码段B1 中的代码证实了这一点。图A2 显示了构造函数、原型对象以及用它们创建的对象之间的这一关系。
 
@@ -318,7 +318,7 @@ alert(spot.hasOwnProperty(“constructor”));
 alert(Dog.prototype.hasOwnProperty(“constructor”));
 ```
 
-![图A2-实例继承其原型](https://images.cnblogs.com/cnblogs_com/taoqianbao/2.gif)
+![图A2-实例继承其原型](/imgs/ooj-2.gif)
 
 某些读者可能已经注意到代码段B1 中对 hasOwnProperty 和 isPrototypeOf 方法的调用。这些方法是从哪里来的呢？它们不是来自 Dog.prototype。实际上，在 Dog.prototype 和 Dog 实例中还可以调用其他方法，比如 toString、toLocaleString 和 valueOf，但它们都不来自 Dog.prototype。您会发现，就像 .NET Framework 中的 System.Object 充当所有类的最终基类一样，JavaScript 中的 Object.prototype 是所有原型的最终基础原型。（Object.prototype 的原型是 null。）
 在此示例中，请记住 Dog.prototype 是对象。它是通过调用 Object 构造函数创建的（尽管它不可见）：
@@ -332,7 +332,7 @@ Dog.prototype = new Object();
 图A3 说明了此解析过程。
 
 
-![图A3 在原型链中解析 toString() 方法](https://images.cnblogs.com/cnblogs_com/taoqianbao/3.gif)
+![图A3 在原型链中解析 toString() 方法](/imgs/ooj-3.gif)
 
 
 JavaScript 动态地解析属性访问和方法调用的方式产生了一些特殊效果：
@@ -508,7 +508,7 @@ Douglas Crockford 是著名的发现（或者也许是发布）使用闭包来�
 例如，有一个基类 Pet，它有一个派生类 Dog，如图A4 所示。这个在 JavaScript 中如何实现呢？Pet 类很容易。您已经看见如何实现它了：
 
 
-![图A4-类图](https://images.cnblogs.com/cnblogs_com/taoqianbao/4.gif)
+![图A4-类图](/imgs/ooj-4.gif)
 
 ``` JS
 // class Pet
