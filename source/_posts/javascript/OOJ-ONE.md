@@ -1,7 +1,7 @@
 ---
 title: OOJ-面向对象的JAVASCRIPT（一）
 p: javascript/OOJ-ONE
-date: 2010-05-31 16:52:05
+date: 2010-05-15 16:52:05
 tags:
     -   JS
     -   Javascript
