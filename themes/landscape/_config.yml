@@ -3,9 +3,13 @@ menu:
   Home: /
   About: /about
   Archives: /archives
+
 rss: /atom.xml
 
+baidu_analytics: true
+
 # Content
+excerpt: true
 excerpt_link: Read More
 fancybox: true
 
@@ -36,3 +40,21 @@ twitter:
 google_plus:
 fb_admins:
 fb_app_id:
+
+
+
+# Writing 写作配置
+new_post_name: :title.md # 新文章的文件名称
+default_layout: post #默认布局
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0 #把文件名称转换为 (1) 小写或 (2) 大写
+render_drafts: false #显示草稿
+post_asset_folder: false #是否启动资源文件夹
+relative_link: false #把链接改为与根目录的相对位址
+future: true
+highlight: #代码块的设置
+enable: true
+line_number: true
+auto_detect: true
+tab_replace:
