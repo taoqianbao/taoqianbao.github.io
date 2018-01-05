@@ -29,6 +29,7 @@
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- theme.favicon %>">
   <% } %>
+  <meta name="test" value="<%= JSON.stringify(config) %>" />
   <% if (config.highlight.enable){ %>
     <link href="https://adobe-fonts.github.io/source-code-pro/source-code-pro.css" rel="stylesheet" type="text/css">
   <% } %>

@@ -4,7 +4,7 @@ p: itpmp/lesson1
 date: 2018-01-04 17:35:09
 tags: [ITPMP]
 categories: ITPMP
-description: Information Technology Project Management Professional
+description: 系统集成项目管理工程师
 ---
 ## 目的
 本章节目的是自学考取 系统集成项目管理工程师 - System integrated project management engineer 为目的，读书笔记
@@ -12,6 +12,8 @@ description: Information Technology Project Management Professional
 ## 背景
 
 很多朋友需要两个月时间拿下软考中“系统集成项目管理工程师”的考试，笔者通过两个月每天五小时的复习，顺利通过了考试，相信你也可以。这两个月需要对自己狠一点，丝毫不要放松。
+
+<!--more-->
 
 以下内容转载自2016年
 

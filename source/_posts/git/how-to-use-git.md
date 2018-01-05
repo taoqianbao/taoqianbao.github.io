@@ -3,6 +3,7 @@ title: Git使用基础教程
 p: git/how-to-use-git
 date: 2017-12-27 20:45:44
 tags: [git]
+categories: Tools
 ---
 
 ## 目录
@@ -15,6 +16,8 @@ tags: [git]
 六：创建与合并分支
 七：bug分支
 八：多人协作
+
+<!--more-->
 
 ### 一：Git是什么？
 Git是目前世界上最先进的分布式版本控制系统。
