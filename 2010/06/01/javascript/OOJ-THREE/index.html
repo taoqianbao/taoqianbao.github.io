@@ -7,25 +7,24 @@
   
   <title>OOJ-面向对象编程的三大特点-封装，继承，多态分析与实例 | 致力于拯救世界的IT农民工</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天谈谈面向对象编程的三个主要的关键词：封装、继承、多态。 javascript面向对象编程，既然是面向对象编程不得不提到面向对象的几大关键字：封装，继承，多态。 首先：封装在前几篇的文章中我们已经了解到JAVASCRIPT需要通过模拟实现一些类似C++,C#语言面向对象的特征。 今天我们重新温习加强理解下实现的要点与注意事项： javascript中创建对象的模式中，一般认为通过闭包才算的上是真">
+  <meta name="description" content="今天谈谈面向对象编程的三个主要的关键词：封装、继承、多态。 javascript面向对象编程，既然是面向对象编程不得不提到面向对象的几大关键字：封装，继承，多态。">
 <meta name="keywords" content="JS,Javascript,OOP,OOJ,H5,WEB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OOJ-面向对象编程的三大特点-封装，继承，多态分析与实例">
 <meta property="og:url" content="http://taoqianbao.github.io/2010/06/01/javascript/OOJ-THREE/index.html">
 <meta property="og:site_name" content="致力于拯救世界的IT农民工">
-<meta property="og:description" content="今天谈谈面向对象编程的三个主要的关键词：封装、继承、多态。 javascript面向对象编程，既然是面向对象编程不得不提到面向对象的几大关键字：封装，继承，多态。 首先：封装在前几篇的文章中我们已经了解到JAVASCRIPT需要通过模拟实现一些类似C++,C#语言面向对象的特征。 今天我们重新温习加强理解下实现的要点与注意事项： javascript中创建对象的模式中，一般认为通过闭包才算的上是真">
-<meta property="og:updated_time" content="2017-12-27T06:06:47.000Z">
+<meta property="og:description" content="今天谈谈面向对象编程的三个主要的关键词：封装、继承、多态。 javascript面向对象编程，既然是面向对象编程不得不提到面向对象的几大关键字：封装，继承，多态。">
+<meta property="og:updated_time" content="2018-01-05T03:56:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOJ-面向对象编程的三大特点-封装，继承，多态分析与实例">
-<meta name="twitter:description" content="今天谈谈面向对象编程的三个主要的关键词：封装、继承、多态。 javascript面向对象编程，既然是面向对象编程不得不提到面向对象的几大关键字：封装，继承，多态。 首先：封装在前几篇的文章中我们已经了解到JAVASCRIPT需要通过模拟实现一些类似C++,C#语言面向对象的特征。 今天我们重新温习加强理解下实现的要点与注意事项： javascript中创建对象的模式中，一般认为通过闭包才算的上是真">
+<meta name="twitter:description" content="今天谈谈面向对象编程的三个主要的关键词：封装、继承、多态。 javascript面向对象编程，既然是面向对象编程不得不提到面向对象的几大关键字：封装，继承，多态。">
   
     <link rel="alternate" href="/atom.xml" title="致力于拯救世界的IT农民工" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  
-    <link href="https://adobe-fonts.github.io/source-code-pro/source-code-pro.css" rel="stylesheet" type="text/css">
+  <meta name="test" value="{&#34;title&#34;:&#34;致力于拯救世界的IT农民工&#34;,&#34;subtitle&#34;:&#34;朱胜峰的网络事件&#34;,&#34;description&#34;:&#34;I love programming and I am very passionate about it. I have been coding for 10+ years now. Like C,ASP,PHP,C#,JavaScript...&#34;,&#34;author&#34;:&#34;Peter Zhu&#34;,&#34;language&#34;:null,&#34;timezone&#34;:null,&#34;url&#34;:&#34;http://taoqianbao.github.io&#34;,&#34;root&#34;:&#34;/&#34;,&#34;permalink&#34;:&#34;:year/:month/:day/:title/&#34;,&#34;permalink_defaults&#34;:null,&#34;source_dir&#34;:&#34;source&#34;,&#34;public_dir&#34;:&#34;public&#34;,&#34;tag_dir&#34;:&#34;tags&#34;,&#34;archive_dir&#34;:&#34;archives&#34;,&#34;category_dir&#34;:&#34;categories&#34;,&#34;code_dir&#34;:&#34;downloads/code&#34;,&#34;i18n_dir&#34;:&#34;:lang&#34;,&#34;skip_render&#34;:null,&#34;new_post_name&#34;:&#34;:title.md&#34;,&#34;default_layout&#34;:&#34;post&#34;,&#34;titlecase&#34;:false,&#34;external_link&#34;:true,&#34;filename_case&#34;:0,&#34;render_drafts&#34;:false,&#34;post_asset_folder&#34;:false,&#34;relative_link&#34;:false,&#34;future&#34;:true,&#34;highlight&#34;:{&#34;enable&#34;:false,&#34;auto_detect&#34;:false,&#34;line_number&#34;:true,&#34;tab_replace&#34;:null},&#34;default_category&#34;:&#34;uncategorized&#34;,&#34;category_map&#34;:null,&#34;tag_map&#34;:null,&#34;date_format&#34;:&#34;YYYY-MM-DD&#34;,&#34;time_format&#34;:&#34;HH:mm:ss&#34;,&#34;per_page&#34;:10,&#34;pagination_dir&#34;:&#34;page&#34;,&#34;theme&#34;:&#34;landscape&#34;,&#34;deploy&#34;:{&#34;type&#34;:&#34;git&#34;,&#34;repo&#34;:&#34;https://github.com/taoqianbao/taoqianbao.github.io.git&#34;,&#34;branch&#34;:&#34;master&#34;},&#34;ignore&#34;:[],&#34;index_generator&#34;:{&#34;per_page&#34;:10,&#34;order_by&#34;:&#34;-date&#34;,&#34;path&#34;:&#34;&#34;},&#34;feed&#34;:{&#34;type&#34;:&#34;atom&#34;,&#34;limit&#34;:20,&#34;hub&#34;:&#34;&#34;,&#34;content&#34;:true,&#34;content_limit&#34;:140,&#34;content_limit_delim&#34;:&#34;&#34;,&#34;path&#34;:&#34;atom.xml&#34;},&#34;archive_generator&#34;:{&#34;per_page&#34;:10,&#34;yearly&#34;:true,&#34;monthly&#34;:true,&#34;daily&#34;:false},&#34;category_generator&#34;:{&#34;per_page&#34;:10},&#34;sitemap&#34;:{&#34;path&#34;:&#34;sitemap.xml&#34;},&#34;tag_generator&#34;:{&#34;per_page&#34;:10},&#34;marked&#34;:{&#34;gfm&#34;:true,&#34;pedantic&#34;:false,&#34;sanitize&#34;:false,&#34;tables&#34;:true,&#34;breaks&#34;:true,&#34;smartLists&#34;:true,&#34;smartypants&#34;:true,&#34;modifyAnchors&#34;:&#34;&#34;,&#34;autolink&#34;:true},&#34;server&#34;:{&#34;port&#34;:4000,&#34;log&#34;:false,&#34;ip&#34;:&#34;0.0.0.0&#34;,&#34;compress&#34;:false,&#34;header&#34;:true}}" />
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -105,36 +104,173 @@ var _hmt = _hmt || [];
 
       </header>
     
-    <!--more-->
+    
     <div class="article-entry" itemprop="articleBody">
-      
+
       
         <p>今天谈谈面向对象编程的三个主要的关键词：封装、继承、多态。</p>
 <p>javascript面向对象编程，既然是面向对象编程不得不提到面向对象的几大关键字：封装，继承，多态。</p>
+<a id="more"></a>
 <h3 id="首先：封装"><a href="#首先：封装" class="headerlink" title="首先：封装"></a>首先：封装</h3><p>在前几篇的文章中我们已经了解到JAVASCRIPT需要通过模拟实现一些类似C++,C#语言面向对象的特征。</p>
 <p>今天我们重新温习加强理解下实现的要点与注意事项：</p>
 <p>javascript中创建对象的模式中，一般认为通过闭包才算的上是真正意义上的封装，所以首先我们先来简单介绍一下闭包，看下面这个例子：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">// &lt;![CDATA[</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">myInfo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name =<span class="string">"Hello"</span>,age =<span class="number">27</span>;</span><br><span class="line">    <span class="keyword">var</span> myInfo = <span class="string">"my name is"</span> + name + <span class="string">"i am"</span> + age +<span class="string">"years old"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showInfo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      alert(myInfo);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> showInfo;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> oldFish = myInfo();</span><br><span class="line">  oldFish();</span><br><span class="line"><span class="comment">// ]]&gt;</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="JS">&lt;script type=&quot;text/javascript&quot;&gt;
+// &lt;![CDATA[
+  function myInfo(){
+    var name =&quot;Hello&quot;,age =27;
+    var myInfo = &quot;my name is&quot; + name + &quot;i am&quot; + age +&quot;years old&quot;;
+    function showInfo(){
+      alert(myInfo);
+    }
+    return showInfo;
+  }
+  var oldFish = myInfo();
+  oldFish();
+// ]]&gt;
+&lt;/script&gt;
+</code></pre>
 <p>上面的代码段其实就是一个简单的闭包应用。<br>简单解释一下：上面的函数myInfo中定义的变量，在它的内嵌函数showInfo中是可访问的（这个很好理解），但是当我们把这个内嵌函数的返回引用赋值给一个变量oldFish，这个时候函数showInfo是在myInfo函数体外被调用，但是同样可以访问到定义在函数体内的变量。<br>总结一下闭包的原理吧：函数是运行在定义他们的作用域中而不是调用他们的作用域中。其实返回一个内嵌函数也是创建闭包最常用的一种方法！ </p>
 <p>如果觉得上面的解释太抽象的话，那么我们一起重塑上面的函数，看看这样是否层次鲜明一些：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> ioldFish = <span class="function"><span class="keyword">function</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = name,age = age;</span><br><span class="line">  <span class="keyword">var</span> myInfo = <span class="string">"my name is"</span> + name + <span class="string">"i am"</span> + age +<span class="string">""</span>&gt;years old<span class="string">";</span></span><br><span class="line"><span class="string">  return &#123;</span></span><br><span class="line"><span class="string">    showInfo: function()&#123;</span></span><br><span class="line"><span class="string">      alert(myInfo);  </span></span><br><span class="line"><span class="string">    &#125; </span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">ioldFish("</span>Hello<span class="string">",27).showInfo();</span></span><br></pre></td></tr></table></figure>
-<p>上例中的编码风格是ext yui中比较常见的，公私分明，一目了然。通过闭包，我们可以很方便的把一些不希望被外部直接访问到的东西隐藏起来，你要访问函数内定义的变量，只能通过特定的方法才可以访问的到，直接从外部访问是访问不到的，写的挺累，饶了一圈终于转回来了，封装嘛，不就是把不希望被别人看到的东西隐藏起来嘛！<br>上例如果转换成JQ的风格的话，应该如下例所写， 这样的封装模式属于门户大开型模式，里面定义的变量是可以被外部访问到的（下面的例子如果你先实例化一个对象，然后在函数外部访问对象的name或者age属性都是可以读取到的）当然这种模式下我们可以设置一些”潜规则”，让团队开发成员明白哪些变量是私用的，通常我们人为的在私有变量和方法前加下划线”_”，标识警戒讯号！从而实现”封装”！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">// &lt;![CDATA[</span></span><br><span class="line">    <span class="keyword">var</span> ioldFish = <span class="function"><span class="keyword">function</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> ioldFish.func.init(name,age);  </span><br><span class="line">    &#125;;</span><br><span class="line">    ioldFish.func = ioldFish.prototype =&#123;</span><br><span class="line">        init:<span class="function"><span class="keyword">function</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        showInfo:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> info = <span class="string">"my name is"</span> + <span class="keyword">this</span>.name +<span class="string">"i am "</span> +<span class="keyword">this</span>.age+<span class="string">"years old"</span>;</span><br><span class="line">            alert(info);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    ioldFish.func.init.prototype = ioldFish.func;</span><br><span class="line">    ioldFish(<span class="string">"Hello"</span>,<span class="number">27</span>).showInfo();</span><br><span class="line">    <span class="comment">//var oldFish = new ioldFish("Hello",27);</span></span><br><span class="line">    <span class="comment">//alert(oldFish.name);</span></span><br><span class="line"><span class="comment">// ]]&gt;</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<pre><code class="JS">
+  var ioldFish = function(name,age){
+    var name = name,age = age;
+    var myInfo = &quot;my name is&quot; + name + &quot;i am&quot; + age +&quot;&quot;&gt;years old&quot;;
+    return {
+      showInfo: function(){
+        alert(myInfo);  
+      } 
+    }
+  }
+  ioldFish(&quot;Hello&quot;,27).showInfo();
+</code></pre>
+<p>上例中的编码风格是ext yui中比较常见的，公私分明，一目了然。通过闭包，我们可以很方便的把一些不希望被外部直接访问到的东西隐藏起来，你要访问函数内定义的变量，只能通过特定的方法才可以访问的到，直接从外部访问是访问不到的，写的挺累，饶了一圈终于转回来了，封装嘛，不就是把不希望被别人看到的东西隐藏起来嘛！<br>上例如果转换成JQ的风格的话，应该如下例所写， 这样的封装模式属于门户大开型模式，里面定义的变量是可以被外部访问到的（下面的例子如果你先实例化一个对象，然后在函数外部访问对象的name或者age属性都是可以读取到的）当然这种模式下我们可以设置一些”潜规则”，让团队开发成员明白哪些变量是私用的，通常我们人为的在私有变量和方法前加下划线”_”，标识警戒讯号！从而实现”封装”！ </p>
+<pre><code class="JS">&lt;script type=&quot;text/javascript&quot;&gt;
+// &lt;![CDATA[
+    var ioldFish = function(name,age){
+      return ioldFish.func.init(name,age);  
+    };
+    ioldFish.func = ioldFish.prototype ={
+        init:function(name,age){
+            this.name = name;
+            this.age = age;
+            return this;
+        },
+        showInfo:function(){
+            var info = &quot;my name is&quot; + this.name +&quot;i am &quot; +this.age+&quot;years old&quot;;
+            alert(info);
+        }
+    };
+    ioldFish.func.init.prototype = ioldFish.func;
+    ioldFish(&quot;Hello&quot;,27).showInfo();
+    //var oldFish = new ioldFish(&quot;Hello&quot;,27);
+    //alert(oldFish.name);
+// ]]&gt;
+&lt;/script&gt;
+</code></pre>
 <p>两种模式各有特点，大家看情况随机使用。</p>
 <h2 id="其次：继承"><a href="#其次：继承" class="headerlink" title="其次：继承"></a>其次：继承</h2><p>与闭包封装有点冲突，闭包封装不利于子类派生。</p>
 <p>在javascript中继承一般分为三种方式：”类式继承”，”原型继承”,”掺元类”。下面简单的介绍一下三类继承方式的原理。 </p>
-<p><em>A.类式继承</em>：这个是现在主流框架中常用的继承方式，看下例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">// &lt;![CDATA[</span></span><br><span class="line">  <span class="keyword">var</span> Name = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;;</span><br><span class="line">  Name.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> Fish = <span class="function"><span class="keyword">function</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">    Name.call(<span class="keyword">this</span>,name);</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;;</span><br><span class="line">  Fish.prototype = <span class="keyword">new</span> Name();</span><br><span class="line">  Fish.prototype.constructor = Fish;</span><br><span class="line">  Fish.prototype.showInfo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   alert(<span class="keyword">this</span>.age);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> ioldFish = <span class="keyword">new</span> Fish(<span class="string">"Hello"</span>,<span class="number">27</span>);</span><br><span class="line">  ioldFish.getName();</span><br><span class="line"><span class="comment">// ]]&gt;</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><em>A.类式继承</em>：这个是现在主流框架中常用的继承方式，看下例：</p>
+<pre><code class="JS">&lt;script type=&quot;text/javascript&quot;&gt;
+// &lt;![CDATA[
+  var Name = function(name){
+    this.name = name;
+  };
+  Name.prototype.getName = function(){
+    alert(this.name);
+  };
+  var Fish = function(name,age){
+    Name.call(this,name);
+    this.age = age;
+  };
+  Fish.prototype = new Name();
+  Fish.prototype.constructor = Fish;
+  Fish.prototype.showInfo = function(){
+   alert(this.age);
+  }
+  var ioldFish = new Fish(&quot;Hello&quot;,27);
+  ioldFish.getName();
+// ]]&gt;
+&lt;/script&gt;
+</code></pre>
 <p>上述子类Fish中并没定义getName方法，但是子类Fish的实例对象ioldFish依然调用到了该方法，这是因为子类Fish继承了父类Name中定义的getName方法。解释一下，这里子类Fish的prototype指到了父类的一个实例，在子类Fish中虽然没有申明getName方法，但是根据原型链原理，会向prototype指向的上一级对象中去查找是否有该方法，如果没找到该方法，会一直搜索到最初的原型对象。这其实也就是继承的原理了。这里特别说明一下，Fish.prototype.constructor = Fish;这句，由于默认子类的prototype应该是指向本身的，但是之前把prototype指向到了超类的实例对象，所以在这里要把它设置回来。当然这里可以把相关代码通过一个函数来组织起来，起到伪装extend的作用，这里不再阐述。 </p>
-<p><em>B.原型继承</em>，从内存性能上看优于类式继承。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">// &lt;![CDATA[</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">object</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    F.prototype = object;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> Name = &#123;</span><br><span class="line">    name:<span class="string">"who's name"</span>,</span><br><span class="line">    showInfo:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> Fish = clone(Name);</span><br><span class="line">  <span class="comment">//Fish.name = "Hello";</span></span><br><span class="line">  Fish.showInfo();</span><br><span class="line"><span class="comment">// ]]&gt;</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><em>B.原型继承</em>，从内存性能上看优于类式继承。</p>
+<pre><code class="JS">&lt;script type=&quot;text/javascript&quot;&gt;
+// &lt;![CDATA[
+  function clone(object){
+    var F = function(){};
+    F.prototype = object;
+    return new F();
+  };
+  var Name = {
+    name:&quot;who&#39;s name&quot;,
+    showInfo:function(){
+      alert(this.name);
+    }
+  };
+  var Fish = clone(Name);
+  //Fish.name = &quot;Hello&quot;;
+  Fish.showInfo();
+// ]]&gt;
+&lt;/script&gt;
+</code></pre>
 <p>很明显，原型继承核心就是这个clone函数，同样是原型链的原理，不同的是它直接克隆超类，这样的话子类就继承了超类的所有属性和方法.特别说一下，这类继承并不需要创建构造函数，只需要创建一个对象字变量，定义相应的属性和方法，然后在子类中只需要通过圆点”.”符号来引用属性和方法就可以了.</p>
 <p><em>C.掺元类</em>：把一些常用通用性比较大的方法统一封装在一个函数中，然后通过下面这个函数分派给要用到这些方法的类．还可以针对不同的类，选择性的传递需要的方法。 </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">agument</span>(<span class="params">receveClass,giveClass</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">2</span>])&#123;</span><br><span class="line">    <span class="keyword">var</span> len = <span class="built_in">arguments</span>.length;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;len;i++)&#123;</span><br><span class="line">      receveClass.prototype[<span class="built_in">arguments</span>[i]] = giveClass.prototype[<span class="built_in">arguments</span>[i]];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(method <span class="keyword">in</span> giveClass.prototype)&#123;</span><br><span class="line">      <span class="keyword">if</span>(!receveClass.prototype[method])&#123;</span><br><span class="line">        receveClass.prototype[method] = giveClass.prototype[method];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> Name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">Name.prototype =&#123;</span><br><span class="line">  sayLike:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"i like oldfish"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  sayLove:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"i love oldfish"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Fish = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> ioldFish = <span class="keyword">new</span> Fish();</span><br><span class="line">agument(Fish,Name,<span class="string">"sayLove"</span>);</span><br><span class="line">ioldFish.sayLove();</span><br><span class="line">ioldFish.sayLike();</span><br></pre></td></tr></table></figure>
+<pre><code class="JS">  function agument(receveClass,giveClass){
+    if(arguments[2]){
+      var len = arguments.length;
+      for(i=2;i&lt;len;i++){
+        receveClass.prototype[arguments[i]] = giveClass.prototype[arguments[i]];
+      }
+    }
+    else{
+      for(method in giveClass.prototype){
+        if(!receveClass.prototype[method]){
+          receveClass.prototype[method] = giveClass.prototype[method];
+        }
+      }
+    }
+  };
+  var Name = function(){};
+  Name.prototype ={
+    sayLike:function(){
+      alert(&quot;i like oldfish&quot;);
+    },
+    sayLove:function(){
+      alert(&quot;i love oldfish&quot;);
+    }
+  }
+  var Fish = function(){};
+  var ioldFish = new Fish();
+  agument(Fish,Name,&quot;sayLove&quot;);
+  ioldFish.sayLove();
+  ioldFish.sayLike();
+</code></pre>
 <p>多态：个人觉得这个比较抽象，很难言传，所以下面就从重载和覆盖两个方面来简单阐述一下。</p>
 <p>重载：上面这个例子中agument函数初始带了两个参数，但是在后面的调用中，agument(Fish,Name,”sayLove”)同样可以带入任意多个参数，javascript的重载，是在函数中由用户自己通过操作arguments这个属性来实现的。</p>
 <p>覆盖：这个很简单，就是子类中定义的方法如果与从超类中继承过来的的方法同名，就覆盖这个方法（这里并不是覆盖超类中的方法，注意一下），这里就不累赘了！</p>
-<p>最后重点着墨说一下this和执行上下文，在前面举的封装例子中，this都是表示this所在的类的实例化对象本身，但是并不是千篇一律的，打个比方，通过HTML属性定义的事件处理代码，见如下代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> Name = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">   <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       alert(<span class="keyword">this</span>.name);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;;</span><br><span class="line">  <span class="keyword">var</span> ioldFish = <span class="keyword">new</span> Name(<span class="string">"Hello"</span>),</span><br><span class="line">  btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</span><br><span class="line">  btn.onclick = ioldFish.getName;</span><br><span class="line">  <span class="comment">//btn.onclick = function()&#123;ioldFish.getName.call(ioldFish)&#125;;</span></span><br></pre></td></tr></table></figure></p>
+<p>最后重点着墨说一下this和执行上下文，在前面举的封装例子中，this都是表示this所在的类的实例化对象本身，但是并不是千篇一律的，打个比方，通过HTML属性定义的事件处理代码，见如下代码：</p>
+<pre><code class="JS">
+ var Name = function(name) {
+    this.name = name;
+    this.getName = function () {
+        alert(this.name);
+    }
+ };
+   var ioldFish = new Name(&quot;Hello&quot;),
+   btn = document.getElementById(&#39;btn&#39;);
+   btn.onclick = ioldFish.getName;
+   //btn.onclick = function(){ioldFish.getName.call(ioldFish)};
+</code></pre>
 <p>上例中点了按钮以后弹出框里并没有显示出实例对象的属性，这是因为this的执行上下文已经改变了，他现在所在的上下文应该是input这个HTML标签，但是该标签又不存在getName这个属性，所以自然无法输出这个属性的属性值了！从这个例子我们不难看出：执行上下文是在执行时才确定的，它随时可以变。</p>
 <p>当然你可以去掉上面我注释掉的那段代码，通过call改变this的执行上下文，从而获取getName方法。apply方法同样可以实现改变执行上下文的功能，不过在prototype框架中发现了一个更为优美的实现方法bind。看一下这个方法的实现吧，不得不感叹先人的伟大……</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> method = <span class="keyword">this</span>,</span><br><span class="line">    temp = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> method.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="JS">Function.prototype.bind = function(obj) {
+    var method = this,
+    temp = function() {
+        return method.apply(obj, arguments);
+    };
+}
+</code></pre>
 <p>循序渐进,日有所学。学习语言基本靠实践。只要不断的写才能得到提高。</p>
 <p>感谢老鱼的文章：本文引自：<a href="http://ued.alipay.com/2009/03/javascript-orient-object/" target="_blank" rel="noopener">http://ued.alipay.com/2009/03/javascript-orient-object/</a>  </p>
 
@@ -142,7 +278,7 @@ var _hmt = _hmt || [];
 
     </div>
     <footer class="article-footer">
-      <a data-url="http://taoqianbao.github.io/2010/06/01/javascript/OOJ-THREE/" data-id="cjc0atcp70006a4e3v7cpy65b" class="article-share-link">Teilen</a>
+      <a data-url="http://taoqianbao.github.io/2010/06/01/javascript/OOJ-THREE/" data-id="cjc1egehg00088oe3baea30ne" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOJ/">OOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WEB/">WEB</a></li></ul>
@@ -181,7 +317,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ITPMP/">ITPMP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ITPMP/">ITPMP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li></ul>
     </div>
   </div>
 
@@ -191,7 +327,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AMD/">AMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMD/">CMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ITPMP/">ITPMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOJ/">OOJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/">WEB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/">commonjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AMD/">AMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMD/">CMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ITPMP/">ITPMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOJ/">OOJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/">WEB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/">commonjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码段/">代码段</a></li></ul>
     </div>
   </div>
 
@@ -201,7 +337,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/H5/" style="font-size: 15px;">H5</a> <a href="/tags/ITPMP/" style="font-size: 10px;">ITPMP</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/OOJ/" style="font-size: 15px;">OOJ</a> <a href="/tags/OOP/" style="font-size: 15px;">OOP</a> <a href="/tags/WEB/" style="font-size: 15px;">WEB</a> <a href="/tags/commonjs/" style="font-size: 10px;">commonjs</a> <a href="/tags/git/" style="font-size: 10px;">git</a>
+      <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/H5/" style="font-size: 15px;">H5</a> <a href="/tags/ITPMP/" style="font-size: 10px;">ITPMP</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/OOJ/" style="font-size: 15px;">OOJ</a> <a href="/tags/OOP/" style="font-size: 15px;">OOP</a> <a href="/tags/WEB/" style="font-size: 15px;">WEB</a> <a href="/tags/commonjs/" style="font-size: 10px;">commonjs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/代码段/" style="font-size: 10px;">代码段</a>
     </div>
   </div>
 
@@ -210,7 +346,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12/">December 2006</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12/">December 2006</a></li></ul>
     </div>
   </div>
 
@@ -231,15 +367,15 @@ var _hmt = _hmt || [];
           </li>
         
           <li>
+            <a href="/2016/01/05/javascript/Code-Snippet-ONE/">Code Snippet 经典代码段收藏之一</a>
+          </li>
+        
+          <li>
             <a href="/2015/01/01/javascript/modules-one/">JavaScript模块化 --- Commonjs、AMD、CMD、ES6 Modules</a>
           </li>
         
           <li>
             <a href="/2010/06/01/javascript/OOJ-THREE/">OOJ-面向对象编程的三大特点-封装，继承，多态分析与实例</a>
-          </li>
-        
-          <li>
-            <a href="/2010/05/31/javascript/OOJ-TWO/">OOJ-面向对象的JAVASCRIPT（二）</a>
           </li>
         
       </ul>
