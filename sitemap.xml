@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://taoqianbao.github.io/2018/01/08/javascript/interview-three/</loc>
+    <loc>http://taoqianbao.github.io/2017/01/08/javascript/interview-two/</loc>
     
-    <lastmod>2018-01-08T04:08:43.000Z</lastmod>
+    <lastmod>2018-01-08T09:40:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2017/03/08/javascript/interview-three/</loc>
+    
+    <lastmod>2018-01-08T09:40:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2014/05/01/web/how-to-use-webworker/</loc>
+    
+    <lastmod>2018-01-08T09:37:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2015/06/08/web/security-one/</loc>
+    
+    <lastmod>2018-01-08T09:00:04.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://taoqianbao.github.io/2016/01/08/javascript/interview-one/</loc>
     
-    <lastmod>2018-01-08T03:40:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/2017/01/08/javascript/interview-two/</loc>
-    
-    <lastmod>2018-01-08T03:37:43.000Z</lastmod>
+    <lastmod>2018-01-08T08:49:23.000Z</lastmod>
     
   </url>
   

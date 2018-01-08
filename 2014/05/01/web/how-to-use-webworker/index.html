@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>关于Web Worker的知识点 | 致力于拯救世界的IT农民工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="背景web worker 是运行在后台的 JavaScript，不会影响页面的性能。  什么是 Web Worker？ 当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。 通过使用Web">
+<meta name="keywords" content="web,worker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Web Worker的知识点">
+<meta property="og:url" content="http://taoqianbao.github.io/2014/05/01/web/how-to-use-webworker/index.html">
+<meta property="og:site_name" content="致力于拯救世界的IT农民工">
+<meta property="og:description" content="背景web worker 是运行在后台的 JavaScript，不会影响页面的性能。  什么是 Web Worker？ 当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。 通过使用Web">
+<meta property="og:updated_time" content="2018-01-08T09:37:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于Web Worker的知识点">
+<meta name="twitter:description" content="背景web worker 是运行在后台的 JavaScript，不会影响页面的性能。  什么是 Web Worker？ 当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。 通过使用Web">
+  
+    <link rel="alternate" href="/atom.xml" title="致力于拯救世界的IT农民工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <meta name="test" value="{&#34;title&#34;:&#34;致力于拯救世界的IT农民工&#34;,&#34;subtitle&#34;:&#34;朱胜峰的网络事件&#34;,&#34;description&#34;:&#34;I love programming and I am very passionate about it. I have been coding for 10+ years now. Like C,ASP,PHP,C#,JavaScript...&#34;,&#34;author&#34;:&#34;Peter Zhu&#34;,&#34;language&#34;:null,&#34;timezone&#34;:null,&#34;url&#34;:&#34;http://taoqianbao.github.io&#34;,&#34;root&#34;:&#34;/&#34;,&#34;permalink&#34;:&#34;:year/:month/:day/:title/&#34;,&#34;permalink_defaults&#34;:null,&#34;source_dir&#34;:&#34;source&#34;,&#34;public_dir&#34;:&#34;public&#34;,&#34;tag_dir&#34;:&#34;tags&#34;,&#34;archive_dir&#34;:&#34;archives&#34;,&#34;category_dir&#34;:&#34;categories&#34;,&#34;code_dir&#34;:&#34;downloads/code&#34;,&#34;i18n_dir&#34;:&#34;:lang&#34;,&#34;skip_render&#34;:null,&#34;new_post_name&#34;:&#34;:title.md&#34;,&#34;default_layout&#34;:&#34;post&#34;,&#34;titlecase&#34;:false,&#34;external_link&#34;:true,&#34;filename_case&#34;:0,&#34;render_drafts&#34;:false,&#34;post_asset_folder&#34;:false,&#34;relative_link&#34;:false,&#34;future&#34;:true,&#34;highlight&#34;:{&#34;enable&#34;:true,&#34;auto_detect&#34;:false,&#34;line_number&#34;:true,&#34;tab_replace&#34;:null,&#34;first_line_number&#34;:&#34;always1&#34;},&#34;default_category&#34;:&#34;uncategorized&#34;,&#34;category_map&#34;:null,&#34;tag_map&#34;:null,&#34;date_format&#34;:&#34;YYYY-MM-DD&#34;,&#34;time_format&#34;:&#34;HH:mm:ss&#34;,&#34;per_page&#34;:10,&#34;pagination_dir&#34;:&#34;page&#34;,&#34;theme&#34;:&#34;landscape&#34;,&#34;deploy&#34;:{&#34;type&#34;:&#34;git&#34;,&#34;repo&#34;:&#34;https://github.com/taoqianbao/taoqianbao.github.io.git&#34;,&#34;branch&#34;:&#34;master&#34;},&#34;ignore&#34;:[],&#34;index_generator&#34;:{&#34;per_page&#34;:10,&#34;order_by&#34;:&#34;-date&#34;,&#34;path&#34;:&#34;&#34;},&#34;archive_generator&#34;:{&#34;per_page&#34;:10,&#34;yearly&#34;:true,&#34;monthly&#34;:true,&#34;daily&#34;:false},&#34;category_generator&#34;:{&#34;per_page&#34;:10},&#34;feed&#34;:{&#34;type&#34;:&#34;atom&#34;,&#34;limit&#34;:20,&#34;hub&#34;:&#34;&#34;,&#34;content&#34;:true,&#34;content_limit&#34;:140,&#34;content_limit_delim&#34;:&#34;&#34;,&#34;path&#34;:&#34;atom.xml&#34;},&#34;sitemap&#34;:{&#34;path&#34;:&#34;sitemap.xml&#34;},&#34;tag_generator&#34;:{&#34;per_page&#34;:10},&#34;marked&#34;:{&#34;gfm&#34;:true,&#34;pedantic&#34;:false,&#34;sanitize&#34;:false,&#34;tables&#34;:true,&#34;breaks&#34;:true,&#34;smartLists&#34;:true,&#34;smartypants&#34;:true,&#34;modifyAnchors&#34;:&#34;&#34;,&#34;autolink&#34;:true},&#34;server&#34;:{&#34;port&#34;:4000,&#34;log&#34;:false,&#34;ip&#34;:&#34;0.0.0.0&#34;,&#34;compress&#34;:false,&#34;header&#34;:true}}" />
+  
+    <link href="css/source-code-pro/source-code-pro.css" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fcd070861fea890c12eabf775bd8e240";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner" style="display:none">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">致力于拯救世界的IT农民工</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">朱胜峰的网络事件</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/about">About Me</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://taoqianbao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-web/how-to-use-webworker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/05/01/web/how-to-use-webworker/" class="article-date">
+  <time datetime="2014-05-01T09:04:10.000Z" itemprop="datePublished">2014-05-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WEB/">WEB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于Web Worker的知识点
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>web worker 是运行在后台的 JavaScript，不会影响页面的性能。</p>
+<p><strong><em> 什么是 Web Worker？ </em></strong><br>当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。<br>web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。</p>
+<p>通过使用Web Worker， 我们可以在浏览器后台运行Javascript， 而不占用浏览器自身线程。<br>Web Worker可以提高应用的总体性能，并且提升用户体验。如果你想在自己的Web应用中使用Web Worker， 不妨来了解一下有关Web Worker的基础知识点。</p>
+<a id="more"></a>
+<h3 id="1-Web-Worker-可以让你在后台运行Javascript"><a href="#1-Web-Worker-可以让你在后台运行Javascript" class="headerlink" title="1. Web Worker 可以让你在后台运行Javascript"></a>1. Web Worker 可以让你在后台运行Javascript</h3><p>一般来说Javascript和页面的UI会共用一个线程，所以当点击一个按钮开始运行Javascript后，在这段代码运行完毕之前，页面是无法响应用户操作的，换句话来说就是被“冻结”了。而这段代码可以交给Web Worker在后台运行，那么页面在Javascript运行期间依然可以响应用户操作。后台会启动一个worker线程来执行这段代码，用户可以创建多个worker线程。所以你可以在前台做一些小规模分布式计算之类的工作，不过Web Worker有以下一些使用限制：</p>
+<ul>
+<li>Web Worker无法访问DOM节点；</li>
+<li>Web Worker无法访问全局变量或是全局函数；</li>
+<li>Web Worker无法调用alert()或者confirm之类的函数；</li>
+<li>Web Worker无法访问window、document之类的浏览器全局变量；</li>
+</ul>
+<p>不过Web Worker中的Javascript依然可以使用setTimeout(),setInterval()之类的函数，也可以使用XMLHttpRequest对象来做Ajax通信。</p>
+<h3 id="2-有两种Web-Worker"><a href="#2-有两种Web-Worker" class="headerlink" title="2. 有两种Web Worker"></a>2. 有两种Web Worker</h3><p>Web workers可分为两种类型：专用线程dedicated web worker，以及共享线程shared web worker。<br>Dedicated web worker随当前页面的关闭而结束；这意味着Dedicated web worker只能被创建它的页面访问。与之相对应的Shared web worker可以被多个页面访问。<br>在Javascript代码中，“Work”类型代表Dedicated web worker，而“SharedWorker”类型代表Shared web worker。</p>
+<p>在绝大多数情况下，使用Dedicated web worker就足够了，因为一般来说在web worker中运行的代码是专为当前页面服务的。而在一些特定情况下，web worker可能运行的是更为普遍性的代码，可以为多个页面服务。在这种情况下，我们会创建一个共享线程的Shared web worker，它可以被与之相关联的多个页面访问，只有当所有关联的的页面都关闭的时候，该Shared web worker才会结束。相对Dedicated web worker，shared web worker稍微复杂些。</p>
+<h3 id="3-“Worker”对象代表Dedicated-Web-Worker"><a href="#3-“Worker”对象代表Dedicated-Web-Worker" class="headerlink" title="3. “Worker”对象代表Dedicated Web Worker"></a>3. “Worker”对象代表Dedicated Web Worker</h3><p>现在来看如何使用Dedicated web worker。下面的例子中用到了jQuery以及Modernizr作为Javascript库，然后往HTML页面中加入以下代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"script/modernizr.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"script/jquery-2.0.0.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!Modernizr.webworker) &#123;</span><br><span class="line">            alert(<span class="string">"This browser doesn't support Web Worker!"</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        $(<span class="string">"#btnStart"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> worker = <span class="keyword">new</span> Worker(<span class="string">"script/lengthytask.js"</span>);</span><br><span class="line">            worker.addEventListener(<span class="string">"message"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">                alert(evt.data);</span><br><span class="line">            &#125;, <span class="literal">false</span>);</span><br><span class="line">            worker.postMessage(<span class="number">10000</span>)</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form&gt;</span><br><span class="line">        &lt;input type=<span class="string">"button"</span> id=<span class="string">"btnStart"</span> value=<span class="string">"Start Processing"</span> /&gt;</span><br><span class="line">    &lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这个HTML页面中有个按钮，点击后会运行一个Javascript文件。上面的代码中首先检测当前浏览器是否支持Web Worker，不支持的话，就跳出提醒信息。<br>按钮的点击事件中创建了Worker对象，并给它指定了Javascript脚本文件——lengthytask.js(稍后会有代码)，并且给Worker对象绑定了一个“message”事件。该事件会在后台代码（lengthytask.js）向页面返回数据时触发。“message”事件可以通过event.data来获取后台代码传回的数据。最后，postMessage方法正式执行lengthytask.js，该方法还可以向后台代码传递参数， 后台代码同样通过message事件获取该参数。</p>
+<p>下面是lengthytask.js主要包含的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(<span class="string">"message"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> currentDate = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        currentDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    &#125; <span class="keyword">while</span> (currentDate - date &lt; evt.data);</span><br><span class="line">    postMessage(currentDate);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>以上代码在后台监听message时间，并获取页面传来的参数：10000；这里实际上是一个计时函数：在message事件被触发10000毫秒之后，把结果（currentDate）传给页面。<br>所以当点击“Start Processing”按钮，页面会在10秒钟后把当时的时刻alert出来。在这10秒钟内页面依然可以响应鼠标键盘事件。</p>
+<h3 id="4-“SharedWorker”对象代表Shared-Web-Worker"><a href="#4-“SharedWorker”对象代表Shared-Web-Worker" class="headerlink" title="4. “SharedWorker”对象代表Shared Web Worker"></a>4. “SharedWorker”对象代表Shared Web Worker</h3><p>前面的代码使用的是dedicated web worker。 这一节会用shared web worker代替dedicated web worker，来区别两者的不同。下面是同一个例子的shared web worker版本：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(<span class="string">"message"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> currentDate = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        currentDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    &#125; <span class="keyword">while</span> (currentDate - date &lt; evt.data);</span><br><span class="line">    postMessage(currentDate);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p>请注意加黑的代码，这里创建了一个SharedWorker对象，并把message事件绑定在shared worker的port对象上；同样由port对象发起postMessage， 开始执行后台代码sharedlengthytask.js。<br>下面是sharedlengthytask.js的主要代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> port;</span><br><span class="line">addEventListener(<span class="string">"connect"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    port = evt.ports[<span class="number">0</span>];</span><br><span class="line">    port.addEventListener(<span class="string">"message"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">        <span class="keyword">var</span> currentDate = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            currentDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">        &#125; <span class="keyword">while</span> (currentDate - date &lt; evt.data);</span><br><span class="line">        port.postMessage(currentDate);</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">    port.start();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p>使用SharedWorker对象的后台代码需要绑定connect和message事件， connect事件会在页面上的port被start时触发。之后的message事件的回调函数与之前的基本相同，最后port调用postMessage方法把结果传回给页面。</p>
+<h3 id="5-Web-Worker使用XMLHttpRequest与服务端通信"><a href="#5-Web-Worker使用XMLHttpRequest与服务端通信" class="headerlink" title="5. Web Worker使用XMLHttpRequest与服务端通信"></a>5. Web Worker使用XMLHttpRequest与服务端通信</h3><p>有些情况下，web worker还需要与服务器进行交互。比如页面可能需要处理来自数据库中的信息，我们就需要使用Ajax技术与服务器交互，下面代码包含了web worker如何从服务端获取数据：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(<span class="string">"message"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.open(<span class="string">"GET"</span>, <span class="string">"lengthytaskhandler.ashx"</span>);</span><br><span class="line">    xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        postMessage(xhr.responseText);</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.send();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码向服务端的asp.net服务lengthytaskhandler.ashx发出GET请求。并注册了获取数据后的onload事件。下面的代码是服务端的lengthytaskhandler.ashx:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">namespace WebWorkerDemo &#123;</span><br><span class="line">    public class LengthyTaskHandler: IHttpHandler &#123;</span><br><span class="line">        public void ProcessRequest(HttpContext context) &#123;</span><br><span class="line">            System.Threading.Thread.Sleep(10000);</span><br><span class="line">            context.Response.ContentType = &quot;text/plain&quot;;</span><br><span class="line">            content.Response.Write(&quot;Processing successful!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        public bool IsReusable &#123;</span><br><span class="line">            get &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如你所见，ProcessRequest模拟了一个长时间运行的任务，并返回了“Processing successful！”的消息。</p>
+<h3 id="6-通过Error事件捕捉错误信息"><a href="#6-通过Error事件捕捉错误信息" class="headerlink" title="6. 通过Error事件捕捉错误信息"></a>6. 通过Error事件捕捉错误信息</h3><p>当我们把越来越复杂的逻辑加到Web Worker里时，错误处理机制是必不可少的。而Web Worker恰恰提供了error事件，供开发者捕捉错误信息。下面的代码展示了如何绑定error事件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#btnStart"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> worker = <span class="keyword">new</span> Worker(<span class="string">"scripts/lengthytask.js"</span>);</span><br><span class="line">    worker.addEventListener(<span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"Line #"</span> + evt.lineno + <span class="string">" - "</span> + evt.message + <span class="string">" in "</span> + evt.filename);</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">    worker.postMessage(<span class="number">10000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>如上可见， Worker对象可以绑定error事件；而且evt对象中包含错误所在的代码文件（evt.filename）、错误所在的代码行数（evt.lineno）、以及错误信息（evt.message）。</p>
+<h3 id="7-通过terminate-方法终止Web-Worker"><a href="#7-通过terminate-方法终止Web-Worker" class="headerlink" title="7. 通过terminate()方法终止Web Worker"></a>7. 通过terminate()方法终止Web Worker</h3><p>有些情况下，我们可能需要强制终止执行中的Web Worker。Worker对象提供了terminate()来终止自身执行任务，被终止的Worker对象不能被重启或重用，我们只能新建另一个Worker实例来执行新的任务。</p>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><h3 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h3><p>所有主流浏览器均支持 web worker，除了 Internet Explorer。</p>
+<h3 id="如何检测-Web-Worker-支持"><a href="#如何检测-Web-Worker-支持" class="headerlink" title="如何检测 Web Worker 支持"></a>如何检测 Web Worker 支持</h3><p>在创建 web worker 之前，请检测用户的浏览器是否支持它：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span>(Worker) !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">    <span class="comment">// Yes! Web worker support!</span></span><br><span class="line">    <span class="comment">// Some code.....</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Sorry! No Web Worker support..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="完整的-Web-Worker-实例代码"><a href="#完整的-Web-Worker-实例代码" class="headerlink" title="完整的 Web Worker 实例代码"></a>完整的 Web Worker 实例代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo_workers.js</span></span><br><span class="line"><span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timedCount</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    i=i+<span class="number">1</span>;</span><br><span class="line">    postMessage(i);</span><br><span class="line">    setTimeout(<span class="string">"timedCount()"</span>,<span class="number">500</span>);</span><br><span class="line">&#125;</span><br><span class="line">timedCount();</span><br></pre></td></tr></table></figure>
+<p>我们已经看到了 .js 文件中的 Worker 代码。下面是 HTML 页面的代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    	Count numbers: <span class="tag">&lt;<span class="name">output</span> <span class="attr">id</span>=<span class="string">"result"</span>&gt;</span><span class="tag">&lt;/<span class="name">output</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"startWorker()"</span>&gt;</span>Start Worker<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"stopWorker()"</span>&gt;</span>Stop Worker<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> w;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">startWorker</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">typeof</span>(Worker) !== <span class="string">"undefined"</span>) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (<span class="keyword">typeof</span>(w) == <span class="string">"undefined"</span>) &#123;</span></span><br><span class="line"><span class="javascript">                w = <span class="keyword">new</span> Worker(<span class="string">"demo_workers.js"</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            w.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).innerHTML = event.data;</span></span><br><span class="line"><span class="undefined">            &#125;;</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).innerHTML = <span class="string">"Sorry, your browser does not support Web Workers..."</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">stopWorker</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        w.terminate();</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Web Worker可以在后台执行脚本，而不会阻塞页面交互。Worker对象分为两种：专用式Web Worker和共享式Web Worker：专用式的Web Worker只能被当个页面使用，而共享式的Web Worker可以在被多个页面使用。另外，本文还介绍了Web Worker的错误处理机制，以及使用Ajax与服务端交互。</p>
+<h2 id="文献"><a href="#文献" class="headerlink" title="文献"></a>文献</h2><ol>
+<li><p><a href="http://www.developer.com/lang/jscript/7-things-you-need-to-know-about-web-workers.html" target="_blank" rel="noopener">点击查看转转原文</a></p>
+</li>
+<li><p><a href="http://www.w3school.com.cn/html5/html_5_webworkers.asp" target="_blank" rel="noopener">参考W3C</a></p>
+</li>
+</ol>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>
+
+      
+
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://taoqianbao.github.io/2014/05/01/web/how-to-use-webworker/" data-id="cjc60sh6i0013w5e3nruhurtg" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/worker/">worker</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/01/javascript/modules-one/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript模块化 --- Commonjs、AMD、CMD、ES6 Modules
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/06/01/javascript/OOJ-THREE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">OOJ-面向对象编程的三大特点-封装，继承，多态分析与实例</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ITPMP/">ITPMP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/">WEB</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AMD/">AMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMD/">CMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ITPMP/">ITPMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOJ/">OOJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/">WEB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/">commonjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sticky/">sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/worker/">worker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码段/">代码段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/题目/">题目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AMD/" style="font-size: 12.5px;">AMD</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/CMD/" style="font-size: 12.5px;">CMD</a> <a href="/tags/CSS/" style="font-size: 12.5px;">CSS</a> <a href="/tags/ES6/" style="font-size: 12.5px;">ES6</a> <a href="/tags/H5/" style="font-size: 15px;">H5</a> <a href="/tags/ITPMP/" style="font-size: 10px;">ITPMP</a> <a href="/tags/JS/" style="font-size: 17.5px;">JS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/OOJ/" style="font-size: 15px;">OOJ</a> <a href="/tags/OOP/" style="font-size: 15px;">OOP</a> <a href="/tags/WEB/" style="font-size: 15px;">WEB</a> <a href="/tags/commonjs/" style="font-size: 12.5px;">commonjs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/sticky/" style="font-size: 10px;">sticky</a> <a href="/tags/web/" style="font-size: 12.5px;">web</a> <a href="/tags/worker/" style="font-size: 10px;">worker</a> <a href="/tags/代码段/" style="font-size: 10px;">代码段</a> <a href="/tags/面试/" style="font-size: 15px;">面试</a> <a href="/tags/题目/" style="font-size: 15px;">题目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12/">December 2006</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/07/css/hello-world/">关于CSS的一些知识点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/04/itpmp/lesson1/">软考笔记之系统集成项目管理工程师-Lesson1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/27/git/how-to-use-git/">Git使用基础教程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/08/javascript/interview-three/">前端面试题整理之资深理论篇</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/08/javascript/interview-two/">前端面试题整理之高级上机篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Peter Zhu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/about" class="mobile-nav-link">About Me</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
