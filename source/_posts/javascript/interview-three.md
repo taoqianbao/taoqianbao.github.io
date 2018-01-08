@@ -1,7 +1,7 @@
 ---
 title: 前端面试题整理之资深理论篇
 p: javascript/interview-one
-date: 2018-01-08 09:26:33
+date: 2017-03-08 09:26:33
 tags: [Javascript, 面试, 题目]
 categories: Javascript
 ---
@@ -106,6 +106,21 @@ webpack具有requireJs和browserify的功能，但仍有很多自己的新特性
 UDP适用于一次只传送少量数据、对可靠性要求不高的应用环境。
 
 
+#### Web Worker 和 WebSocket
+
+##### worker主线程：   [查看详细讲解](/2014/05/01/web/how-to-use-webworker/)
+Web Worker可以在后台执行脚本，而不会阻塞页面交互。Worker对象分为两种：专用式Web Worker和共享式Web Worker：专用式的Web Worker只能被当个页面使用，而共享式的Web Worker可以在被多个页面使用。
+
+1. 通过 worker = new Worker( url ) 加载一个JS文件来创建一个worker，同时返回一个worker实例。
+2. 通过worker.postMessage( data ) 方法来向worker发送数据。
+3. 绑定worker.onmessage方法来接收worker发送过来的数据。
+4. 可以使用 worker.terminate() 来终止一个worker的执行。
+
+##### WebSocket
+WebSocket是Web应用程序的传输协议，它提供了双向的，按序到达的数据流。他是一个Html5协议，WebSocket的连接是持久的，他通过在客户端和服务器之间保持双工连接，服务器的更新可以被及时推送给客户端，而不需要客户端以一定时间间隔去轮询。
+
 
 
 ## 关于作者
+** 珠峰
+WEB开发与管理相结合，注重技术与应用结合。现居上海。 
