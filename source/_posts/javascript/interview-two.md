@@ -11,6 +11,7 @@ categories: Javascript
 1. [前端面试题整理之基础问答篇](/2016/01/08/javascript/interview-one/)
 2. [前端面试题整理之高级上机篇](/2017/01/08/javascript/interview-two/)
 3. [前端面试题整理之资深理论篇](/2018/01/08/javascript/interview-three/)
+4. [前端面试题整理之理想篇](/2018/01/08/javascript/interview-four/)
 
 <!--more--> 
 
