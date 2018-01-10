@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://taoqianbao.github.io/2017/01/08/javascript/interview-two/</loc>
+    <loc>http://taoqianbao.github.io/about/index.html</loc>
     
-    <lastmod>2018-01-08T09:40:06.000Z</lastmod>
+    <lastmod>2018-01-09T10:47:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/01/08/javascript/interview-one/</loc>
+    
+    <lastmod>2018-01-09T09:16:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/01/09/web/performance-one/</loc>
+    
+    <lastmod>2018-01-09T08:00:29.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://taoqianbao.github.io/2017/03/08/javascript/interview-three/</loc>
     
-    <lastmod>2018-01-08T09:40:01.000Z</lastmod>
+    <lastmod>2018-01-08T09:54:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2017/01/08/javascript/interview-two/</loc>
+    
+    <lastmod>2018-01-08T09:54:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/01/08/javascript/interview-four/</loc>
+    
+    <lastmod>2018-01-08T09:54:23.000Z</lastmod>
     
   </url>
   
@@ -26,13 +54,6 @@
     <loc>http://taoqianbao.github.io/2015/06/08/web/security-one/</loc>
     
     <lastmod>2018-01-08T09:00:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/2016/01/08/javascript/interview-one/</loc>
-    
-    <lastmod>2018-01-08T08:49:23.000Z</lastmod>
     
   </url>
   
@@ -110,13 +131,6 @@
     <loc>http://taoqianbao.github.io/2018/01/04/itpmp/lesson1/</loc>
     
     <lastmod>2018-01-05T03:55:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/about/index.html</loc>
-    
-    <lastmod>2017-12-27T11:00:09.000Z</lastmod>
     
   </url>
   
