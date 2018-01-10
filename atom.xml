@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://taoqianbao.github.io/"/>
-  <updated>2018-01-09T08:00:29.000Z</updated>
+  <updated>2018-01-10T14:16:51.000Z</updated>
   <id>http://taoqianbao.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://taoqianbao.github.io/2018/01/09/web/performance-one/"/>
     <id>http://taoqianbao.github.io/2018/01/09/web/performance-one/</id>
     <published>2018-01-09T00:21:49.000Z</published>
-    <updated>2018-01-09T08:00:29.000Z</updated>
+    <updated>2018-01-10T14:16:51.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>谈谈前端性能优化问题 </p><a id="more"></a><ul><li>代码层面：避免使用css表达式，避免使用高级选择器，通配选择器。</li><li>缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加Expires头，服务端配置Etag，减少DNS查找等</li><li>请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。</li><li>请求带宽：压缩文件，开启GZIP，</li></ul><h4 id="代码层面的优化"><a href="#代码层面的优化" class="headerlink" title="代码层面的优化"></a>代码层面的优化</h4><pre><code>用hash-table来优化查找少用全局变量用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能用setTimeout来避免页面失去响应缓存DOM节点查找的结果避免使用CSS Expression避免全局查询避免使用with(with会创建自己的作用域，会增加作用域链长度)多个变量声明合并避免图片和iFrame等的空Src。空Src会重新加载当前页面，影响速度和效率尽量避免在HTML标签中写Style属性</code></pre><h4 id="移动端性能优化"><a href="#移动端性能优化" class="headerlink" title="移动端性能优化"></a>移动端性能优化</h4><pre><code>尽量使用css3动画，开启硬件加速。适当使用touch事件代替click事件。避免使用css3渐变阴影效果。可以用transform: translateZ(0)来开启硬件加速。不滥用Float。Float在渲染时计算量比较大，尽量减少使用不滥用Web字体。Web字体需要下载，解析，重绘当前页面，尽量减少使用。合理使用requestAnimationFrame动画代替setTimeoutCSS中的属性（CSS3 transitions、CSS3 3D</code></pre><p>transforms、Opacity、Canvas、WebGL、Video）会触发GPU渲染，请合理使用。过渡使用会引发手机过耗电增加<br>    PC端的在移动端同样适用</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
     
@@ -31,7 +31,7 @@
     
     </summary>
     
-      <category term="web" scheme="http://taoqianbao.github.io/categories/web/"/>
+      <category term="WEB" scheme="http://taoqianbao.github.io/categories/WEB/"/>
     
     
       <category term="web" scheme="http://taoqianbao.github.io/tags/web/"/>
@@ -177,9 +177,9 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
-    
       <category term="面试" scheme="http://taoqianbao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
     
       <category term="题目" scheme="http://taoqianbao.github.io/tags/%E9%A2%98%E7%9B%AE/"/>
     
@@ -208,11 +208,35 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
-    
       <category term="面试" scheme="http://taoqianbao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
+      <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
+    
       <category term="题目" scheme="http://taoqianbao.github.io/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>技术管理之备份策略</title>
+    <link href="http://taoqianbao.github.io/2016/11/10/itm/backup/"/>
+    <id>http://taoqianbao.github.io/2016/11/10/itm/backup/</id>
+    <published>2016-11-10T14:11:20.000Z</published>
+    <updated>2018-01-10T14:17:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>备份策略指确定需备份的内容、备份时间及备份方式。</p><a id="more"></a><h3 id="一、缺乏统一的备份策略"><a href="#一、缺乏统一的备份策略" class="headerlink" title="一、缺乏统一的备份策略"></a>一、缺乏统一的备份策略</h3><h4 id="一是备份日程表。"><a href="#一是备份日程表。" class="headerlink" title="一是备份日程表。"></a>一是备份日程表。</h4><p>IT管理人员应该分析各个信息化方案(如数据库、文件服务器等等)的数据量、数据增量、备份窗口等因素，制定可行的备份日程表。在制定备份日程表的时候，需要注意两点。首先备份日程表必须以书面的形式确认下来，特别是企业信息化应用比较多的情况下。这方便后续的追踪。其次备份日程表可能需要根据实际的情况进行调整。如可能在某天对数据库中的数据进行来大规模的更新，此时就需要做一个临时的完全备份。相关的信息需要在日程表中反映出来，以利于后续的维护。最后是日程表中要反映一些特定的日期。如对于一般企业来说，会有十一、年假等长假。这些假期中由于长期没有人员，容易出现断电等问题。在这种情况下，最好能够在放假之前对数据进行一次完全备份，以备不时之需。这些因素都应该在备份日程表中反映出来，以免到时候漏掉。</p><h4 id="二是规划系统备份的时间。"><a href="#二是规划系统备份的时间。" class="headerlink" title="二是规划系统备份的时间。"></a>二是规划系统备份的时间。</h4><p>由于备份时会耗用比较多的资源，如服务器的内存、CPU资源。进行远程备份时，还会占用带宽等等。为此对于数据备份的时候也要进行合理的规划。特别是有多个系统的数据都要进行远程备份时，最好在时间上能够错开，以提高备份的效率。如可以先估计一下某个应用备份的时间，然后可以在空闲时段内进行分段备份。建议最好能够将备份的时间设置在企业下班后。此时访问系统的人员会少的多，甚至一个用户也没有。此时进行数据备份，即使耗时比较长，也不会对用户造成很大的影响。</p><h3 id="二、缺乏有效的培训"><a href="#二、缺乏有效的培训" class="headerlink" title="二、缺乏有效的培训"></a>二、缺乏有效的培训</h3><p>在灾难恢复方案的实施过程中，有些企业缺乏对项目管理人员的培训。笔者在跟企业一些的IT人员沟通的过程中，发现不少项目管理员人对于数据备份与恢复的措施一知半解。有的甚至不清楚在数据还原之前测试的重要性。由于缺乏有效的培训，会给后续的数据恢复带来很大的安全隐患。</p><h3 id="三、没有对备份的数据不定时的进行恢复测试"><a href="#三、没有对备份的数据不定时的进行恢复测试" class="headerlink" title="三、没有对备份的数据不定时的进行恢复测试"></a>三、没有对备份的数据不定时的进行恢复测试</h3><p>备份的数据是否可用呢?很多系统管理员太过于相信自己的能力，认为备份文件不会出现问题。结果呢，等到真的需要用到备份文件时，才发现备份文件损坏了，无法使用。此时以前的一些工作就都会竹篮子打水一场空了。</p><h3 id="四、忽略了硬件设备的检查"><a href="#四、忽略了硬件设备的检查" class="headerlink" title="四、忽略了硬件设备的检查"></a>四、忽略了硬件设备的检查</h3><p>有些项目管理员会犯顾此失彼的毛病。如可能非常重视数据备份文件的安全性，但是却忽略了硬件设备的问题。虽然说通常情况下，只要系统正常运行，硬件一般不会出现问题。但是当某些意外情况发生时，就可能对硬件出现损害。此时就需要着重检查一下硬件是否出现故障。<br>为了保障硬件设备工作正常，最好能够在数据备份设备上设置一些报警系统。如当备份设备如硬盘上出现坏扇区时能够自动报告给管理员，或者当存储空间快耗竭时自动报告。这些报警措施可以简化硬件设备的监督工作。<br>总之对于数据灾难恢复策略来说，备份文件、软件、硬件一样重要，缺一不可。其中任何一项出现故障时，就可能导致在遇到意外情况时无法正常恢复数据。为此这四个环节在实际工作中，项目管理员必须一一的落实下去，切不可马虎了事。</p><h3 id="常见的备份策略类型"><a href="#常见的备份策略类型" class="headerlink" title="常见的备份策略类型"></a>常见的备份策略类型</h3><p>常见的备份策略有完全备份、增量备份、差异备份三种类型。作以简单介绍：</p><h4 id="1、完全备份-Full-Backup-："><a href="#1、完全备份-Full-Backup-：" class="headerlink" title="1、完全备份(Full Backup)："></a>1、完全备份(Full Backup)：</h4><p>　　每次对数据进行完整的备份。当发生数据丢失的灾难情况时，完全备份无需依赖其他信息，即可实现100%数据恢复，其恢复时间最短且操作最方便；</p><h4 id="2、增量备份-Incremental-Backup-："><a href="#2、增量备份-Incremental-Backup-：" class="headerlink" title="2、增量备份(Incremental Backup)："></a>2、增量备份(Incremental Backup)：</h4><p>　　只有那些在上次完全备份或者增量备份后被修改了的文件才会被备份。优点是备份数据量小，需要的时间短，缺点是恢复的时候需要依赖之前的备份记录，出问题的风险较大；</p><h4 id="3、差异备份-Differential-Backup-："><a href="#3、差异备份-Differential-Backup-：" class="headerlink" title="3、差异备份(Differential Backup)："></a>3、差异备份(Differential Backup)：</h4><p>　　备份那些自从上次完全备份之后被修改过的文件。因此从差异备份中恢复数据的时间较短，因为只需要两份数据——最后一次完全备份和最后一次差异备份，缺点是每次备份需要的时间较长。</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;备份策略指确定需备份的内容、备份时间及备份方式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="TechManage" scheme="http://taoqianbao.github.io/categories/TechManage/"/>
+    
+    
+      <category term="备份" scheme="http://taoqianbao.github.io/tags/%E5%A4%87%E4%BB%BD/"/>
+    
+      <category term="策略" scheme="http://taoqianbao.github.io/tags/%E7%AD%96%E7%95%A5/"/>
     
   </entry>
   
@@ -239,9 +263,9 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
-    
       <category term="面试" scheme="http://taoqianbao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
     
       <category term="题目" scheme="http://taoqianbao.github.io/tags/%E9%A2%98%E7%9B%AE/"/>
     
@@ -287,9 +311,9 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
-    
       <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
+    
+      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
     
       <category term="commonjs" scheme="http://taoqianbao.github.io/tags/commonjs/"/>
     
@@ -332,7 +356,7 @@
     <link href="http://taoqianbao.github.io/2015/06/08/web/security-one/"/>
     <id>http://taoqianbao.github.io/2015/06/08/web/security-one/</id>
     <published>2015-06-08T08:50:38.000Z</published>
-    <updated>2018-01-08T09:00:04.000Z</updated>
+    <updated>2018-01-10T14:16:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>常见WEB开发中的安全问题及防护原理</p><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h3><h3 id="XSS原理及防护"><a href="#XSS原理及防护" class="headerlink" title="XSS原理及防护"></a>XSS原理及防护</h3><h3 id="XSS与CSRF有什么区别吗？"><a href="#XSS与CSRF有什么区别吗？" class="headerlink" title="XSS与CSRF有什么区别吗？"></a>XSS与CSRF有什么区别吗？</h3><h3 id="CSRF的防御"><a href="#CSRF的防御" class="headerlink" title="CSRF的防御"></a>CSRF的防御</h3><a id="more"></a><h2 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h2><h3 id="sql注入原理-1"><a href="#sql注入原理-1" class="headerlink" title="sql注入原理"></a>sql注入原理</h3><p>就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。<br>总的来说有以下几点：</p><ol><li>永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双”-“进行转换等。</li><li>永远不要使用动态拼装SQL，可以使用参数化的SQL或者直接使用存储过程进行数据查询存取。</li><li>永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。</li><li>不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。</li></ol><h3 id="XSS原理及防范"><a href="#XSS原理及防范" class="headerlink" title="XSS原理及防范"></a>XSS原理及防范</h3><p>Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意html标签或者javascript代码。比如：攻击者在论坛中放一个看似安全的链接，骗取用户点击后，窃取cookie中的用户私密信息；或者攻击者在论坛中加一个恶意表单，当用户提交表单的时候，却把信息传送到攻击者的服务器中，而不是用户原本以为的信任站点。</p><h4 id="XSS防范方法"><a href="#XSS防范方法" class="headerlink" title="XSS防范方法"></a>XSS防范方法</h4><ul><li>首先代码里对用户输入的地方和变量都需要仔细检查长度和对”&lt;”,”&gt;”,”;”,”’”等字符做过滤；</li><li>其次任何内容写到页面之前都必须加以encode，避免不小心把html tag 弄出来。这一个层面做好，至少可以堵住超过一半的XSS 攻击。</li><li>其次，避免直接在cookie 中泄露用户隐私，例如email、密码等等。</li><li>再次，通过使cookie 和系统ip 绑定来降低cookie 泄露后的危险。这样攻击者得到的cookie 没有实际价值，不可能拿来重放。</li><li>如果网站不需要再浏览器端对cookie 进行操作，可以在Set-Cookie 末尾加上HttpOnly 来防止javascript 代码直接获取cookie。</li><li>最后，尽量采用POST 而非GET 提交表单</li></ul><h3 id="XSS与CSRF有什么区别吗？-1"><a href="#XSS与CSRF有什么区别吗？-1" class="headerlink" title="XSS与CSRF有什么区别吗？"></a>XSS与CSRF有什么区别吗？</h3><p>XSS是获取信息，不需要提前知道其他用户页面的代码和数据包。CSRF是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。</p><p>要完成一次CSRF攻击，受害者必须依次完成两个步骤：</p><ul><li>登录受信任网站A，并在本地生成Cookie。</li><li>在不登出A的情况下，访问危险网站B。</li></ul><h3 id="CSRF的防御-1"><a href="#CSRF的防御-1" class="headerlink" title="CSRF的防御"></a>CSRF的防御</h3><ul><li>服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。</li><li>通过验证码的方法</li></ul><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
     
@@ -346,9 +370,9 @@
       <category term="WEB" scheme="http://taoqianbao.github.io/categories/WEB/"/>
     
     
-      <category term="web" scheme="http://taoqianbao.github.io/tags/web/"/>
-    
       <category term="security" scheme="http://taoqianbao.github.io/tags/security/"/>
+    
+      <category term="web" scheme="http://taoqianbao.github.io/tags/web/"/>
     
   </entry>
   
@@ -371,9 +395,9 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
-    
       <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
+    
+      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
     
       <category term="commonjs" scheme="http://taoqianbao.github.io/tags/commonjs/"/>
     
@@ -430,9 +454,9 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
-    
       <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
+    
+      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
     
       <category term="OOP" scheme="http://taoqianbao.github.io/tags/OOP/"/>
     
@@ -462,9 +486,9 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
-    
       <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
+    
+      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
     
       <category term="OOP" scheme="http://taoqianbao.github.io/tags/OOP/"/>
     
@@ -494,9 +518,9 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
-    
       <category term="Javascript" scheme="http://taoqianbao.github.io/tags/Javascript/"/>
+    
+      <category term="JS" scheme="http://taoqianbao.github.io/tags/JS/"/>
     
       <category term="OOP" scheme="http://taoqianbao.github.io/tags/OOP/"/>
     

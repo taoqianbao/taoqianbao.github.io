@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://taoqianbao.github.io/2016/11/10/itm/backup/</loc>
+    
+    <lastmod>2018-01-10T14:17:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/01/09/web/performance-one/</loc>
+    
+    <lastmod>2018-01-10T14:16:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2015/06/08/web/security-one/</loc>
+    
+    <lastmod>2018-01-10T14:16:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://taoqianbao.github.io/about/index.html</loc>
     
     <lastmod>2018-01-09T10:47:32.000Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://taoqianbao.github.io/2016/01/08/javascript/interview-one/</loc>
     
     <lastmod>2018-01-09T09:16:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/2018/01/09/web/performance-one/</loc>
-    
-    <lastmod>2018-01-09T08:00:29.000Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>http://taoqianbao.github.io/2014/05/01/web/how-to-use-webworker/</loc>
     
     <lastmod>2018-01-08T09:37:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/2015/06/08/web/security-one/</loc>
-    
-    <lastmod>2018-01-08T09:00:04.000Z</lastmod>
     
   </url>
   
