@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://taoqianbao.github.io/"/>
-  <updated>2018-01-17T06:09:53.000Z</updated>
+  <updated>2018-01-11T04:21:23.000Z</updated>
   <id>http://taoqianbao.github.io/</id>
   
   <author>
@@ -15,101 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Vue框架之生命周期</title>
-    <link href="http://taoqianbao.github.io/2018/01/17/javascript/vue-lifecycle/"/>
-    <id>http://taoqianbao.github.io/2018/01/17/javascript/vue-lifecycle/</id>
-    <published>2018-01-17T06:08:16.000Z</published>
-    <updated>2018-01-17T06:09:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Vue 生命周期<br>学习Vue，生命周期很重要，我们了解完生命周期的各个组件，对写高性能组件会有很大的帮助.</p><a id="more"></a><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p><img src="/imgs/javascript/vue-lifecycle.png" alt="图 vue lifecycle"></p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Vue 生命周期&lt;br&gt;学习Vue，生命周期很重要，我们了解完生命周期的各个组件，对写高性能组件会有很大的帮助.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
-    
-    
-      <category term="lifecycle" scheme="http://taoqianbao.github.io/tags/lifecycle/"/>
-    
-      <category term="vue" scheme="http://taoqianbao.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React框架之生命周期</title>
-    <link href="http://taoqianbao.github.io/2018/01/17/javascript/react-lifecycle/"/>
-    <id>http://taoqianbao.github.io/2018/01/17/javascript/react-lifecycle/</id>
-    <published>2018-01-17T05:53:18.000Z</published>
-    <updated>2018-01-17T06:06:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>React 生命周期<br>学习React，生命周期很重要，我们了解完生命周期的各个组件，对写高性能组件会有很大的帮助.</p><!-- TOC --><ul><li><a href="#前言">前言</a></li><li><a href="#正文">正文</a><ul><li><a href="#初始化">初始化</a></li><li><a href="#更新">更新</a></li><li><a href="#卸载">卸载</a></li></ul></li><li><a href="#小结">小结</a></li><li><a href="#关于作者">关于作者</a></li></ul><!-- /TOC --><a id="more"></a><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>React 生命周期分为三种状态 1. 初始化 2.更新 3.销毁</p><p><img src="/imgs/javascript/react-lifecycle.jpg" alt="图 react lifecycle"></p><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>1、getDefaultProps()<br>设置默认的props，也可以用dufaultProps设置组件的默认属性.</p><p>2、getInitialState()<br>在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state。此时可以访问this.props</p><p>3、componentWillMount()<br>组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。</p><p>4、 render()<br>react最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都在此进行。此时就不能更改state了。</p><p>5、componentDidMount()<br>组件渲染之后调用，只调用一次。</p><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>6、componentWillReceiveProps(nextProps)<br>组件初始化时不调用，组件接受新的props时调用。</p><p>7、shouldComponentUpdate(nextProps, nextState)<br>react性能优化非常重要的一环。组件接受新的state或者props时调用，我们可以设置在此对比前后两个props和state是否相同，如果相同则返回false阻止更新，因为相同的属性状态一定会生成相同的dom树，这样就不需要创造新的dom树和旧的dom树进行diff算法对比，节省大量性能，尤其是在dom结构复杂的时候</p><p>8、componentWillUpdata(nextProps, nextState)<br>组件初始化时不调用，只有在组件将要更新时才调用，此时可以修改state</p><p>9、render()<br>组件渲染</p><p>10、componentDidUpdate()<br>组件初始化时不调用，组件更新完成后调用，此时可以获取dom节点。</p><h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>11、componentWillUnmount()<br>组件将要卸载时调用，一些事件监听和定时器需要在此时清除。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>以上就是React 的生命周期，大家可以自行写下code测试一下，在这里我就不贴code 了。</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;React 生命周期&lt;br&gt;学习React，生命周期很重要，我们了解完生命周期的各个组件，对写高性能组件会有很大的帮助.&lt;/p&gt;
-&lt;!-- TOC --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#前言&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#正文&quot;&gt;正文&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#初始化&quot;&gt;初始化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#更新&quot;&gt;更新&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#卸载&quot;&gt;卸载&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#小结&quot;&gt;小结&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#关于作者&quot;&gt;关于作者&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- /TOC --&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
-    
-    
-      <category term="react" scheme="http://taoqianbao.github.io/tags/react/"/>
-    
-      <category term="lifecycle" scheme="http://taoqianbao.github.io/tags/lifecycle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WEB页面自适应解决方案</title>
-    <link href="http://taoqianbao.github.io/2018/01/15/javascript/viewport-rem-one/"/>
-    <id>http://taoqianbao.github.io/2018/01/15/javascript/viewport-rem-one/</id>
-    <published>2018-01-15T02:14:46.000Z</published>
-    <updated>2018-01-15T02:23:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>目录<br>1 viewport 缩放方案<br>2 rem 布局适配方案<br>2.1 动态设置 html 标签 font-size 大小<br>2.2 元素大小取值方法<br>2.3 rem 布局方案的开发方式<br>2.4 字体使用 px 为单位<br>3 相关参考</p><p>拿到设计稿后，如何进行布局还原？</p><p>如果只需要做非精确的响应式设计，那么使用媒体查询来实现就 OK 了。如果需要精确还原设计稿，则一般通过缩放来实现。常见方案有基于 viewport 和基于 rem 的缩放方案。</p><a id="more"></a><h3 id="1-viewport-缩放方案"><a href="#1-viewport-缩放方案" class="headerlink" title="1 viewport 缩放方案"></a>1 viewport 缩放方案</h3><p>在移动端，可以通过 viewport 缩放页面大小比率达到目的。</p><p>简单来说，即所有宽高像素与视觉稿输出相同，然后通过页面宽度与视觉稿的宽度比率，动态设置 viewport。缩放方案核心代码参考：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line">    <span class="keyword">var</span> isMobile = <span class="built_in">window</span>.isMobile /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobi/i.test(navigator.userAgent);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setScale</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> pageScale = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.top !== <span class="built_in">window</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> pageScale;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> width = docEl.clientWidth || <span class="number">360</span>;</span><br><span class="line">        <span class="keyword">var</span> height = docEl.clientHeight || <span class="number">640</span>;</span><br><span class="line">        <span class="keyword">if</span> (width / height &gt;= <span class="number">360</span> / <span class="number">640</span>) &#123;</span><br><span class="line">            <span class="comment">// 高度优先</span></span><br><span class="line">            pageScale = height / <span class="number">640</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            pageScale = width / <span class="number">360</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> content = <span class="string">'width='</span> + <span class="number">360</span> + <span class="string">', initial-scale='</span> + pageScale </span><br><span class="line">          + <span class="string">', maximum-scale='</span> + pageScale + <span class="string">', user-scalable=no'</span>;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'viewport'</span>).setAttribute(<span class="string">'content'</span>, content);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">window</span>.pageScale = pageScale;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isMobile) &#123;</span><br><span class="line">        setScale();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        docEl.className += <span class="string">' pc'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure><p>但是如果希望 PC 上也能显示，由于没有 viewport 的缩放概念，只能以固定值来设定，这个效果就不太好。</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;目录&lt;br&gt;1 viewport 缩放方案&lt;br&gt;2 rem 布局适配方案&lt;br&gt;2.1 动态设置 html 标签 font-size 大小&lt;br&gt;2.2 元素大小取值方法&lt;br&gt;2.3 rem 布局方案的开发方式&lt;br&gt;2.4 字体使用 px 为单位&lt;br&gt;3 相关参考&lt;/p&gt;
-&lt;p&gt;拿到设计稿后，如何进行布局还原？&lt;/p&gt;
-&lt;p&gt;如果只需要做非精确的响应式设计，那么使用媒体查询来实现就 OK 了。如果需要精确还原设计稿，则一般通过缩放来实现。常见方案有基于 viewport 和基于 rem 的缩放方案。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="h5" scheme="http://taoqianbao.github.io/categories/h5/"/>
-    
-    
-      <category term="css" scheme="http://taoqianbao.github.io/tags/css/"/>
-    
-      <category term="javascript" scheme="http://taoqianbao.github.io/tags/javascript/"/>
-    
-      <category term="web" scheme="http://taoqianbao.github.io/tags/web/"/>
-    
-      <category term="viewport" scheme="http://taoqianbao.github.io/tags/viewport/"/>
-    
-      <category term="media" scheme="http://taoqianbao.github.io/tags/media/"/>
-    
-      <category term="rem" scheme="http://taoqianbao.github.io/tags/rem/"/>
-    
-  </entry>
   
   <entry>
     <title>postgresql安装环境</title>
@@ -364,6 +269,30 @@
   </entry>
   
   <entry>
+    <title>Vue框架之生命周期</title>
+    <link href="http://taoqianbao.github.io/2016/11/17/javascript/vue-lifecycle/"/>
+    <id>http://taoqianbao.github.io/2016/11/17/javascript/vue-lifecycle/</id>
+    <published>2016-11-17T06:08:16.000Z</published>
+    <updated>2018-01-17T06:19:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Vue 生命周期<br>学习Vue，生命周期很重要，我们了解完生命周期的各个组件，对写高性能组件会有很大的帮助.</p><a id="more"></a><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p><img src="/imgs/javascript/vue-lifecycle.png" alt="图 vue lifecycle"></p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Vue 生命周期&lt;br&gt;学习Vue，生命周期很重要，我们了解完生命周期的各个组件，对写高性能组件会有很大的帮助.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
+    
+    
+      <category term="lifecycle" scheme="http://taoqianbao.github.io/tags/lifecycle/"/>
+    
+      <category term="vue" scheme="http://taoqianbao.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>实战H5项目笔记之双11活动页</title>
     <link href="http://taoqianbao.github.io/2016/11/15/h5/pro-note-one/"/>
     <id>http://taoqianbao.github.io/2016/11/15/h5/pro-note-one/</id>
@@ -398,7 +327,7 @@
     <link href="http://taoqianbao.github.io/2016/11/15/javascript/plugins-one/"/>
     <id>http://taoqianbao.github.io/2016/11/15/javascript/plugins-one/</id>
     <published>2016-11-15T02:18:34.000Z</published>
-    <updated>2018-01-15T02:23:26.000Z</updated>
+    <updated>2018-01-17T06:19:25.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>web开发中常常有轮播图等效果，常见的开源项目很多，做一个整理</p><a id="more"></a><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><h3 id="Slider-实现"><a href="#Slider-实现" class="headerlink" title="Slider 实现"></a>Slider 实现</h3><p>多页翻屏滑动的效果有很多开源的实现，当然希望尽量的简单自己实现也不是很复杂。我们选择的是百度开源的 iSlider，iSlider 是一款非常优秀的翻页滑动组件。除此之外，还有很多成熟的开源实现可选用：</p><ul><li><a href="http://www.swiper.com.cn" target="_blank" rel="noopener">swiper</a></li><li><a href="https://github.com/cubiq/iscroll" target="_blank" rel="noopener">iscroll</a></li><li><a href="https://github.com/alvarotrigo/fullPage.js/" target="_blank" rel="noopener">fullpage.js</a> </li><li><a href="https://github.com/lukehaas/Scrollify" target="_blank" rel="noopener">Scrollify</a></li><li><a href="https://github.com/peachananr/onepage-scroll" target="_blank" rel="noopener">onepage-scroll</a> </li></ul><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
     
@@ -408,7 +337,7 @@
     
     </summary>
     
-      <category term="javascript" scheme="http://taoqianbao.github.io/categories/javascript/"/>
+      <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
       <category term="javascript" scheme="http://taoqianbao.github.io/tags/javascript/"/>
@@ -442,6 +371,40 @@
       <category term="备份" scheme="http://taoqianbao.github.io/tags/%E5%A4%87%E4%BB%BD/"/>
     
       <category term="策略" scheme="http://taoqianbao.github.io/tags/%E7%AD%96%E7%95%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WEB页面自适应解决方案</title>
+    <link href="http://taoqianbao.github.io/2016/07/15/javascript/viewport-rem-one/"/>
+    <id>http://taoqianbao.github.io/2016/07/15/javascript/viewport-rem-one/</id>
+    <published>2016-07-15T02:14:46.000Z</published>
+    <updated>2018-01-17T06:14:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>目录<br>1 viewport 缩放方案<br>2 rem 布局适配方案<br>2.1 动态设置 html 标签 font-size 大小<br>2.2 元素大小取值方法<br>2.3 rem 布局方案的开发方式<br>2.4 字体使用 px 为单位<br>3 相关参考</p><p>拿到设计稿后，如何进行布局还原？</p><p>如果只需要做非精确的响应式设计，那么使用媒体查询来实现就 OK 了。如果需要精确还原设计稿，则一般通过缩放来实现。常见方案有基于 viewport 和基于 rem 的缩放方案。</p><a id="more"></a><h3 id="1-viewport-缩放方案"><a href="#1-viewport-缩放方案" class="headerlink" title="1 viewport 缩放方案"></a>1 viewport 缩放方案</h3><p>在移动端，可以通过 viewport 缩放页面大小比率达到目的。</p><p>简单来说，即所有宽高像素与视觉稿输出相同，然后通过页面宽度与视觉稿的宽度比率，动态设置 viewport。缩放方案核心代码参考：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line">    <span class="keyword">var</span> isMobile = <span class="built_in">window</span>.isMobile /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobi/i.test(navigator.userAgent);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setScale</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> pageScale = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.top !== <span class="built_in">window</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> pageScale;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> width = docEl.clientWidth || <span class="number">360</span>;</span><br><span class="line">        <span class="keyword">var</span> height = docEl.clientHeight || <span class="number">640</span>;</span><br><span class="line">        <span class="keyword">if</span> (width / height &gt;= <span class="number">360</span> / <span class="number">640</span>) &#123;</span><br><span class="line">            <span class="comment">// 高度优先</span></span><br><span class="line">            pageScale = height / <span class="number">640</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            pageScale = width / <span class="number">360</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> content = <span class="string">'width='</span> + <span class="number">360</span> + <span class="string">', initial-scale='</span> + pageScale </span><br><span class="line">          + <span class="string">', maximum-scale='</span> + pageScale + <span class="string">', user-scalable=no'</span>;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'viewport'</span>).setAttribute(<span class="string">'content'</span>, content);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">window</span>.pageScale = pageScale;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isMobile) &#123;</span><br><span class="line">        setScale();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        docEl.className += <span class="string">' pc'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure><p>但是如果希望 PC 上也能显示，由于没有 viewport 的缩放概念，只能以固定值来设定，这个效果就不太好。</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;目录&lt;br&gt;1 viewport 缩放方案&lt;br&gt;2 rem 布局适配方案&lt;br&gt;2.1 动态设置 html 标签 font-size 大小&lt;br&gt;2.2 元素大小取值方法&lt;br&gt;2.3 rem 布局方案的开发方式&lt;br&gt;2.4 字体使用 px 为单位&lt;br&gt;3 相关参考&lt;/p&gt;
+&lt;p&gt;拿到设计稿后，如何进行布局还原？&lt;/p&gt;
+&lt;p&gt;如果只需要做非精确的响应式设计，那么使用媒体查询来实现就 OK 了。如果需要精确还原设计稿，则一般通过缩放来实现。常见方案有基于 viewport 和基于 rem 的缩放方案。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="h5" scheme="http://taoqianbao.github.io/categories/h5/"/>
+    
+    
+      <category term="css" scheme="http://taoqianbao.github.io/tags/css/"/>
+    
+      <category term="javascript" scheme="http://taoqianbao.github.io/tags/javascript/"/>
+    
+      <category term="web" scheme="http://taoqianbao.github.io/tags/web/"/>
+    
+      <category term="viewport" scheme="http://taoqianbao.github.io/tags/viewport/"/>
+    
+      <category term="media" scheme="http://taoqianbao.github.io/tags/media/"/>
+    
+      <category term="rem" scheme="http://taoqianbao.github.io/tags/rem/"/>
     
   </entry>
   
@@ -593,6 +556,32 @@
       <category term="CMD" scheme="http://taoqianbao.github.io/tags/CMD/"/>
     
       <category term="ES6" scheme="http://taoqianbao.github.io/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS语法中position:sticky的介绍</title>
+    <link href="http://taoqianbao.github.io/2016/01/01/css/position-sticky/"/>
+    <id>http://taoqianbao.github.io/2016/01/01/css/position-sticky/</id>
+    <published>2016-01-01T02:15:41.000Z</published>
+    <updated>2018-01-08T03:27:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>用户的屏幕越来越大，而页面太宽的话会不宜阅读，所以绝大部分网站的主体宽度和之前相比没有太大的变化，于是浏览器中就有越来越多的空白区域，所以你可能注意到很多网站开始在滚动的时候让一部分内容保持可见，比如，侧边栏的部分区域。position:sticky为此而生。</p><a id="more"></a><h2 id="position-sticky用法"><a href="#position-sticky用法" class="headerlink" title="position:sticky用法"></a>position:sticky用法</h2><p>position:sticky是一个新的css3属性，它的表现类似position:relative和position:fixed的合体，在目标区域在屏幕中可见时，它的行为就像position:relative; 而当页面滚动超出目标区域时，它的表现就像position:fixed，它会固定在目标位置。</p><p>使用起来也非常简单：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//目前来说还需要用私有前缀～～</span><br><span class="line"><span class="selector-class">.sticky</span> &#123; </span><br><span class="line">    <span class="attribute">position</span>: -webkit-sticky; <span class="attribute">position</span>:sticky; <span class="attribute">top</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h2><p>由于这是一个全新的属性，以至于到现在都没有一个规范，W3C也刚刚开始讨论它，而现在只有webkit nightly版本和chrome 开发版(Chrome 23.0.1247.0+ Canary)才开始支持它。</p><p>另外需要注意的是，如果同时定义了left和right值，那么left生效，right会无效，同样，同时定义了top和bottom，top赢～～</p><h2 id="polyfill"><a href="#polyfill" class="headerlink" title="polyfill"></a>polyfill</h2><p>虽然其它浏览器尚不支持，但是实现起来其实不难，我们可以用js简单实现：</p><p><a href="https://output.jsbin.com/tuxuyuj/1" target="_blank" rel="noopener">点击这里查看DEMO</a></p><h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h5 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sticky</span> &#123; <span class="attribute">position</span>: fixed; <span class="attribute">top</span>: <span class="number">0</span>; &#125; </span><br><span class="line"><span class="selector-class">.header</span> &#123; <span class="attribute">width</span>: <span class="number">100%</span>; <span class="attribute">background</span>: <span class="number">#F6D565</span>; <span class="attribute">padding</span>: <span class="number">25px</span> <span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure><h5 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> header = <span class="built_in">document</span>.querySelector(<span class="string">'.header'</span>); </span><br><span class="line"><span class="keyword">var</span> origOffsetY = header.offsetTop; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onScroll</span>(<span class="params">e</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">window</span>.scrollY &gt;= origOffsetY ? header.classList.add(<span class="string">'sticky'</span>) : header.classList.remove(<span class="string">'sticky'</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'scroll'</span>, onScroll);</span><br></pre></td></tr></table></figure><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;用户的屏幕越来越大，而页面太宽的话会不宜阅读，所以绝大部分网站的主体宽度和之前相比没有太大的变化，于是浏览器中就有越来越多的空白区域，所以你可能注意到很多网站开始在滚动的时候让一部分内容保持可见，比如，侧边栏的部分区域。position:sticky为此而生。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://taoqianbao.github.io/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://taoqianbao.github.io/tags/CSS/"/>
+    
+      <category term="position" scheme="http://taoqianbao.github.io/tags/position/"/>
+    
+      <category term="sticky" scheme="http://taoqianbao.github.io/tags/sticky/"/>
     
   </entry>
   
