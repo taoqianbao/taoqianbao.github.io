@@ -3,7 +3,7 @@ title: WEB开发常见效果插件收藏整理
 p: javascript/plugins-one
 date: 2016-11-15 10:18:34
 tags: [web, js,javascript,plugins]
-categories: [javascript]
+categories: Javascript
 ---
 
 ## 背景

@@ -1,9 +1,9 @@
 ---
 title: React框架之生命周期
 p: javascript/react-lifecycle
-date: 2018-01-17 13:53:18
+date: 2015-11-17 13:53:18
 tags: [react, lifecycle]
-categories: [Javascript]
+categories: Javascript
 ---
 
 ## 前言

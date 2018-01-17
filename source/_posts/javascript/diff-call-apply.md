@@ -1,5 +1,5 @@
 ---
-title: post
+title: JS中call与apply区别
 p: javascript/diff-call-apply
 date: 2016-04-27 10:48:03
 tags: [javascript, call, apply]

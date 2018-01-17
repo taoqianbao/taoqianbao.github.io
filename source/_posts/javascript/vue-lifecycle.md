@@ -1,9 +1,9 @@
 ---
 title: Vue框架之生命周期
 p: javascript/vue-lifecycle
-date: 2018-01-17 14:08:16
+date: 2016-11-17 14:08:16
 tags: [vue, lifecycle]
-categories: [Javascript]
+categories: Javascript
 ---
 
 ## 前言

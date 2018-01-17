@@ -3,7 +3,7 @@ title: 关于Web Worker的知识点
 p: web/how-to-use-webworker
 date: 2014-05-01 17:04:10
 tags: [web, worker]
-categories: [WEB]
+categories: WEB
 ---
 
 ## 背景
