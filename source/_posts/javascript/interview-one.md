@@ -22,6 +22,97 @@ categories: Javascript
 3. HTML基础知识
 4. DOM/BOM基础知识
 
+
+### 前端基础
+
++ prototype和__proto__的关系是什么
++ meta viewport原理
++ 域名收敛是什么
++ float和display：inline-block；的区别
++ 前端优化策略列举
++ 首屏、白屏时间如何计算
++ 闭包
++ 作用域链
++ ajax如何实现、readyState五中状态的含义
++ jsonp如何实现
++ 怎么处理跨域
++ restful的method解释
++ get和post的区别
++ 事件模型解释
++ 编写一个元素拖拽的插件
++ 编写一个contextmenu的插件
++ 编写web端cookie的设置和获取方法
++ 兼容ie６的水平垂直居中
++ 兼容ie的事件封装
++ h5和原生android的优缺点
++ 编写h5需要注意什么
++ xss和crsf的原理以及怎么预防
++ css优先级
++ 如何实现点击radio的文字描述控制radio的状态（通过label实现）
++ delegate如何实现
+
+
+
+### 框架原理
+
+#### angularjs
+
+angular的directive怎么写
+angular的脏检查（双向绑定）是如何实现的
+依赖注入如何实现
+scope如何实现
+$parse模块如何实现（主要自己写了一个类似的库）
+
+#### react
+
+react在setState后发生了什么（直接说了setState源码）
+flux解释
+对react有什么了解（直接说了react中虚拟dom内部表示，mount过程源码和同步过程源码）
+jsBridge
+
+如何说服对方使用jsBridge
+requirejs
+
+amd和cmd区别，怎么了解到这些区别的，是否是去看了规范
+requirejs那些经常用的方法，然后对其进行解释
+weex
+
+weex实现大致原理（只写过demo，面试管很好没有难为我，只问了这一个问题）
+
+http协议
+
+accept是什么，怎么用
+http协议状态码，302和303的区别
+前端缓存如何实现、etag如何实现、etag和cache-control的max-age的优先级哪个比较高以及为什么、cache-control和expire优先级哪个比较高以及为什么
+node
+
+Buffer模块是干什么的
+Stream是什么，使用的两种模式
+http模块如何将异步处理方式实现成同步处理方式，具体解析请参考http模块如何将异步处理转成同步处理
+其他问题
+
+utf8和gbk的区别
+知道页面上某个点的坐标，如何获取该坐标上的所有元素
+angular、react和jQuery适合哪些应用场景（建议查看各个框架产生背景）
+7点15分小于180度的夹角是多少
+大数相加
+给５升和６升的水杯如何倒出３升的水
+一班喜欢足球的人60%，喜欢排球的70%，喜欢篮球的80%，求喜欢足球和排球的占多少
+前端异常监测如何实现
+直播点赞按钮的冒泡功能如何实现
+js的uglify如何实现
+项目架构、如何带人（自己带过一个小团队）
+前端工程化方面做了哪些东西
+面试中的收获
+
+最开始面试时只阅读过angular源码，阿里一面完后面试官对我说react用的不熟悉没关系，弄懂原理也可以，之后三天疯狂阅读react源码，对于react中虚拟dom内在表示、mount过程、setState的同步过程有了清晰的认识。
+面试官建议去阅读node的http模块和Stream模块源码，其中node-v0.1.100的http模块源码已经阅读完，并且写了一个基于net模块的http模块。node-v6.9.1的Stream模块源码现在还在阅读中。
+初步了解了前端异常监测，并且了解了百姓网、腾讯和阿里在前端异常监测的一些方案和框架。
+阅读了大量前端工程化方面的博文，对前端工程化有了进一步的理解。
+了解了angular和react产生背景。
+
+
+
 #### CSS中position的值， relative和absolute分别是相对于谁进行定位的？
 absolute：生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
 fixed： （老IE不支持）生成绝对定位的元素，通常相对于浏览器窗口或 frame 进行定位。
