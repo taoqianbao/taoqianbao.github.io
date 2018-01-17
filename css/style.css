@@ -247,6 +247,7 @@ body {
 .article-entry cite,
 .widget cite {
   font-style: italic;
+  color: #f00;
 }
 .article-entry sup,
 .widget sup,

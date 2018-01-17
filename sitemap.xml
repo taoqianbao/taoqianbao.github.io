@@ -2,6 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://taoqianbao.github.io/2018/01/17/javascript/vue-lifecycle/</loc>
+    
+    <lastmod>2018-01-17T06:09:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/01/17/javascript/react-lifecycle/</loc>
+    
+    <lastmod>2018-01-17T06:06:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/04/27/javascript/diff-call-apply/</loc>
+    
+    <lastmod>2018-01-17T04:02:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/03/02/javascript/diff-async-defer/</loc>
+    
+    <lastmod>2018-01-17T02:56:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2015/03/17/javascript/code-snippet-queue/</loc>
+    
+    <lastmod>2018-01-17T02:45:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/11/15/h5/pro-note-one/</loc>
+    
+    <lastmod>2018-01-17T02:26:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/01/08/javascript/interview-one/</loc>
+    
+    <lastmod>2018-01-15T02:33:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/01/15/javascript/viewport-rem-one/</loc>
+    
+    <lastmod>2018-01-15T02:23:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/11/15/javascript/plugins-one/</loc>
+    
+    <lastmod>2018-01-15T02:23:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/01/11/sql/postgresql-one/</loc>
+    
+    <lastmod>2018-01-11T04:21:23.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/01/10/macos/setting-path/</loc>
+    
+    <lastmod>2018-01-10T15:27:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://taoqianbao.github.io/2016/11/10/itm/backup/</loc>
     
     <lastmod>2018-01-10T14:17:59.000Z</lastmod>
@@ -26,13 +103,6 @@
     <loc>http://taoqianbao.github.io/about/index.html</loc>
     
     <lastmod>2018-01-09T10:47:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/2016/01/08/javascript/interview-one/</loc>
-    
-    <lastmod>2018-01-09T09:16:24.000Z</lastmod>
     
   </url>
   
