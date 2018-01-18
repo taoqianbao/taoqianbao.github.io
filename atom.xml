@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://taoqianbao.github.io/"/>
-  <updated>2018-01-11T04:21:23.000Z</updated>
+  <updated>2018-01-17T08:07:37.000Z</updated>
   <id>http://taoqianbao.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML5 ARIA role</title>
+    <link href="http://taoqianbao.github.io/2018/01/17/h5/aria-role/"/>
+    <id>http://taoqianbao.github.io/2018/01/17/h5/aria-role/</id>
+    <published>2018-01-17T07:55:17.000Z</published>
+    <updated>2018-01-17T08:07:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ARIA就是可以让屏幕阅读器准确识别网页中的内容，变化，状态的技术规范，可以让盲人这类用户也能无障碍阅读！</p><a id="more"></a><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>HTML5 aria-* and role</p><p>　　在video-js的demo中看到了很多aria-<em>，不知道干嘛的。google一下，发现aria的意思是**</em> Accessible Rich Internet Application <em>*</em>。 Accessible一般是为不方便的人士提供的功能，比如windows的放大镜，语音朗读，高对比度主题等。</p><p>　　主要内容是说明并演示了HTML5针对html tag增加的属性：role 和 aria-*。</p><p>　　role的作用是描述一个非标准的tag的实际作用。比如用div做button，那么设置div 的 role=“button”，辅助工具就可以认出这实际上是个button。</p><p>　　ARIA Roles</p><p>　　Use the ARIA role attribute to indicate that a generic tag is playing the role of a standard widget like a button.</p><p>　　而aria-*的作用就是描述这个tag在可视化的情境中的具体信息。比如，</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　&lt;div role=<span class="string">"checkbox"</span> aria-checked=<span class="string">"checked"</span>$amp;&gt;amp;$lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure><p>　　辅助工具就会知道，这个div实际上是个checkbox的角色，为选中状态。</p><p>　　Add ARIA for screen readers</p><p>　　ARIA attributes provides semantic information to screen readers that is normally conveyed visually.</p><p>　　Note that using ARIA does not automatically implement the standard widget behavior, you’ll still need to add focus management and keyboard navigation yourself.</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p><a href="https://www.w3.org/TR/aria-in-html/" target="_blank" rel="noopener">https://www.w3.org/TR/aria-in-html/</a></p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;ARIA就是可以让屏幕阅读器准确识别网页中的内容，变化，状态的技术规范，可以让盲人这类用户也能无障碍阅读！&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="H5" scheme="http://taoqianbao.github.io/categories/H5/"/>
+    
+    
+      <category term="ARIA" scheme="http://taoqianbao.github.io/tags/ARIA/"/>
+    
+      <category term="H5" scheme="http://taoqianbao.github.io/tags/H5/"/>
+    
+      <category term="HTML5" scheme="http://taoqianbao.github.io/tags/HTML5/"/>
+    
+  </entry>
   
   <entry>
     <title>postgresql安装环境</title>
@@ -65,42 +91,6 @@
       <category term="macos" scheme="http://taoqianbao.github.io/tags/macos/"/>
     
       <category term="path" scheme="http://taoqianbao.github.io/tags/path/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>post</title>
-    <link href="http://taoqianbao.github.io/2018/01/09/web/performance-one/"/>
-    <id>http://taoqianbao.github.io/2018/01/09/web/performance-one/</id>
-    <published>2018-01-09T00:21:49.000Z</published>
-    <updated>2018-01-10T14:16:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>谈谈前端性能优化问题 </p><a id="more"></a><ul><li>代码层面：避免使用css表达式，避免使用高级选择器，通配选择器。</li><li>缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加Expires头，服务端配置Etag，减少DNS查找等</li><li>请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。</li><li>请求带宽：压缩文件，开启GZIP，</li></ul><h4 id="代码层面的优化"><a href="#代码层面的优化" class="headerlink" title="代码层面的优化"></a>代码层面的优化</h4><pre><code>用hash-table来优化查找少用全局变量用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能用setTimeout来避免页面失去响应缓存DOM节点查找的结果避免使用CSS Expression避免全局查询避免使用with(with会创建自己的作用域，会增加作用域链长度)多个变量声明合并避免图片和iFrame等的空Src。空Src会重新加载当前页面，影响速度和效率尽量避免在HTML标签中写Style属性</code></pre><h4 id="移动端性能优化"><a href="#移动端性能优化" class="headerlink" title="移动端性能优化"></a>移动端性能优化</h4><pre><code>尽量使用css3动画，开启硬件加速。适当使用touch事件代替click事件。避免使用css3渐变阴影效果。可以用transform: translateZ(0)来开启硬件加速。不滥用Float。Float在渲染时计算量比较大，尽量减少使用不滥用Web字体。Web字体需要下载，解析，重绘当前页面，尽量减少使用。合理使用requestAnimationFrame动画代替setTimeoutCSS中的属性（CSS3 transitions、CSS3 3D</code></pre><p>transforms、Opacity、Canvas、WebGL、Video）会触发GPU渲染，请合理使用。过渡使用会引发手机过耗电增加<br>    PC端的在移动端同样适用</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;谈谈前端性能优化问题 &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="WEB" scheme="http://taoqianbao.github.io/categories/WEB/"/>
-    
-    
-      <category term="css" scheme="http://taoqianbao.github.io/tags/css/"/>
-    
-      <category term="javascript" scheme="http://taoqianbao.github.io/tags/javascript/"/>
-    
-      <category term="js" scheme="http://taoqianbao.github.io/tags/js/"/>
-    
-      <category term="web" scheme="http://taoqianbao.github.io/tags/web/"/>
-    
-      <category term="performance" scheme="http://taoqianbao.github.io/tags/performance/"/>
-    
-      <category term="性能" scheme="http://taoqianbao.github.io/tags/%E6%80%A7%E8%83%BD/"/>
-    
-      <category term="优化" scheme="http://taoqianbao.github.io/tags/%E4%BC%98%E5%8C%96/"/>
-    
-      <category term="dom" scheme="http://taoqianbao.github.io/tags/dom/"/>
     
   </entry>
   
@@ -409,11 +399,11 @@
   </entry>
   
   <entry>
-    <title>post</title>
+    <title>JS中call与apply区别</title>
     <link href="http://taoqianbao.github.io/2016/04/27/javascript/diff-call-apply/"/>
     <id>http://taoqianbao.github.io/2016/04/27/javascript/diff-call-apply/</id>
     <published>2016-04-27T02:48:03.000Z</published>
-    <updated>2018-01-17T04:02:14.000Z</updated>
+    <updated>2018-01-17T06:46:04.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><!-- TOC --><ul><li><a href="#背景">背景</a></li><li><a href="#定义">定义</a><ul><li><a href="#call">call</a></li><li><a href="#apply">apply</a></li><li><a href="#区别">区别</a></li></ul></li><li><a href="#用法">用法</a></li><li><a href="#高级用法">高级用法</a></li><li><a href="#结束语">结束语</a></li><li><a href="#关于作者">关于作者</a></li></ul><!-- /TOC --><a id="more"></a><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>ECMAScript规范为所有函数都包含两个方法(这两个方法非继承而来), call 和 apply 。这两个函数都是在特定的作用域中调用函数,能改变函数的作用域，实际上是改变函数体内 this 的值 。</p><h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p>语法<br>    call(thisObj，Object)<br>定义<br>    调用一个对象的一个方法，以另一个对象替换当前对象。<br>说明<br>    call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象.如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj</p><h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p>语法<br>    apply(thisObj，[argArray])<br>定义<br>    应用某一对象的一个方法，用另一个对象替换当前对象。<br>说明<br>    如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数</p><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul><li>参数不同, apply 传入的是一个参数数组，也就是将多个参数组合成一个参数数组， call 从第二个参数开始依次传入.</li><li>apply 可以直接将当前函数的arguments对象作为apply的第二个参数传入</li></ul><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>调用函数，传递参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个add 方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用call 来调用 add 方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myAddCall</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//调用 add 方法 的 call 方法</span></span><br><span class="line">    <span class="keyword">return</span> add.call(<span class="keyword">this</span>, x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//apply 来调用 add 方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myAddApply</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//调用 add 方法 的 applly 方法</span></span><br><span class="line">    <span class="keyword">return</span> add.apply(<span class="keyword">this</span>, [x, y]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myAddCall(<span class="number">10</span>, <span class="number">20</span>));    <span class="comment">//输出结果30</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">console</span>.log(myAddApply(<span class="number">20</span>, <span class="number">20</span>));  <span class="comment">//输出结果40</span></span><br></pre></td></tr></table></figure></p><p>我们看到通过方法本身的call 和 apply 执行了该函数。</p><p>改变函数作用域<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> name = <span class="string">'小白'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">'小红'</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(sayName.call(<span class="keyword">this</span>));    <span class="comment">//输出小白</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(sayName.call(obj));    <span class="comment">//输入小红</span></span><br><span class="line"><span class="string">``</span><span class="string">`    </span></span><br><span class="line"><span class="string">我们改变了函数运行的作用域， 通过绑定不同的对象，函数内部 this 也不同。最终输入结果才会这样。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## 高级用法</span></span><br><span class="line"><span class="string">高级用法，实现 js 继承</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span> JS</span><br><span class="line">    <span class="comment">//父类 Person</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//子类 Chinese</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Chinese</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//借助 call 实现继承</span></span><br><span class="line">        Person.call(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.ch = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(<span class="string">'我是中国人'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//子类 America</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">America</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//借助 call 实现继承</span></span><br><span class="line">        Person.call(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.am = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(<span class="string">'我是美国人'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//测试</span></span><br><span class="line">    <span class="keyword">var</span> chinese = <span class="keyword">new</span> Chinese(<span class="string">'成龙'</span>);</span><br><span class="line">    <span class="comment">//调用 父类方法</span></span><br><span class="line">    <span class="built_in">console</span>.log(chinese.sayName());   <span class="comment">//输出 成龙</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> america = <span class="keyword">new</span> America(<span class="string">'America'</span>);</span><br><span class="line">    <span class="comment">//调用 父类方法</span></span><br><span class="line">    <span class="built_in">console</span>.log(america.sayName());   <span class="comment">//输出 America</span></span><br></pre></td></tr></table></figure></p><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>call 和 apply 最大的好处: 方便我们解耦，对象不需要和方法有任何的耦合性，能使我们写出更好的面相对象程序。<br>大家如果看一些 js 框架底层的话会看到好多地方都有大量用到。</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
     
@@ -445,32 +435,6 @@
       <category term="call" scheme="http://taoqianbao.github.io/tags/call/"/>
     
       <category term="apply" scheme="http://taoqianbao.github.io/tags/apply/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS中async与defer区别</title>
-    <link href="http://taoqianbao.github.io/2016/03/02/javascript/diff-async-defer/"/>
-    <id>http://taoqianbao.github.io/2016/03/02/javascript/diff-async-defer/</id>
-    <published>2016-03-02T02:48:32.000Z</published>
-    <updated>2018-01-17T02:56:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><a id="more"></a><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
-    
-    
-      <category term="javascript" scheme="http://taoqianbao.github.io/tags/javascript/"/>
-    
-      <category term="async" scheme="http://taoqianbao.github.io/tags/async/"/>
-    
-      <category term="defer" scheme="http://taoqianbao.github.io/tags/defer/"/>
     
   </entry>
   
@@ -582,6 +546,44 @@
       <category term="position" scheme="http://taoqianbao.github.io/tags/position/"/>
     
       <category term="sticky" scheme="http://taoqianbao.github.io/tags/sticky/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WEB性能优化之图片预加载</title>
+    <link href="http://taoqianbao.github.io/2015/11/17/web/performance-preload-images/"/>
+    <id>http://taoqianbao.github.io/2015/11/17/web/performance-preload-images/</id>
+    <published>2015-11-17T07:10:52.000Z</published>
+    <updated>2018-01-17T07:40:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>优化网络图片预加载方法</p><!-- TOC --><ul><li><a href="#前言">前言</a></li><li><a href="#正文">正文</a><pre><code>- [并行下载的好处](#并行下载的好处)- [对预加载图片而言并非为一件好事](#对预加载图片而言并非为一件好事)- [一种更好的预加载方式](#一种更好的预加载方式)- [避免过早预加载](#避免过早预加载)</code></pre></li><li><a href="#小结">小结</a></li><li><a href="#关于作者">关于作者</a></li></ul><!-- /TOC --><a id="more"></a><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>利用浏览器多线程下载的原理， 预加载一组图片的一个通用的标准方式。<br>简化形式如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 'images' is an array with image metadata including a 'url' property */</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; images.length; ++i) &#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">    img.src = images[‘url’];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这段代码遍历包含图片元数据的对象数组，为每个对象创建一个HTML Image对象，并为src属性设置url。一旦Image对象设置了src值，浏览器就会向服务器发起请求，并缓存返回的图片。</p><p>需要注意的是，浏览器请求是异步的。也就是说这段代码会遍历数组，每张图片几乎同时发起请求，并不需要等待服务器返回结果后顺序发起请求。对于现代浏览器而言，这段代码尝试并行下载4～8个张图片（当然如果来自不同域，会更多）。</p><h4 id="并行下载的好处"><a href="#并行下载的好处" class="headerlink" title="并行下载的好处"></a>并行下载的好处</h4><p>网站通常会有一些资源，浏览器必须先下载后才能显式页面。HTML本身，一两个CSS文档，一些小的图片元素，字体，偶尔会有一些不可避免的JavaScript文件（需要在页面可以绘制前执行）。每一个文件通常都相当小，但是每个请求与服务器的往返都会导致延迟开销。虽然这种延迟通常很小，每个文档的延迟都是毫秒级的，但是如果浏览器需要等待一个请求完成后才能发起另一个请求的话，这些毫秒将依次累加，并迅速增至秒级，用户必须要等待这么长时间后才能浏览页面内容。如果可以同时发起所有请求，那么整体而言延迟时间会降低为一次的往返时延，从而使页面加载时间减少几秒钟。这并不会加快每个文档的实际下载速度，你仍受特定带宽的限制，所以4～8个的并行请求使下载速度降低4～8倍。但是总体下载速度的确加快了，因为你避免了连续的延迟开销。因为浏览器必须在下载了关键元素后才能绘制页面，避免顺序延迟时间累加意味着更快的页面绘制。</p><h4 id="对预加载图片而言并非为一件好事"><a href="#对预加载图片而言并非为一件好事" class="headerlink" title="对预加载图片而言并非为一件好事"></a>对预加载图片而言并非为一件好事</h4><p>并行下载对于初始页面元素是非常有用的，因为浏览器在渲染页面前必须要先下载这些元素。一个CSS文件先于另一个CSS下载对于浏览器而言并无差别，因为浏览器需要两个文件都要下载后才能做其他事情。gallery里的图片预加载并非这种情况，你可以足够自信的预测哪个文件需要优先下载，你需要优先处理它，即使预加载的总体时间会稍长。</p><p>我网站的gallery的分析数据非常直观。虽然从一张图片切换至另一张图片的方式有多种，缩略图和上一张与下一张链接，90%的点击是在下一张链接上。几乎所有情况下，页面加载完成后的最关键因素是gallery里的下一张图片文件。如果使用标准的预加载方式，你无法控制这张图片何时加载。浏览器尝试加载gallery里的每张图片，以浏览器的最大并发请求组。这种技术很好的减少了gallery的总体加载时间，但也意味着加载最重要图片（下一张图片）的时间显著增长，因为它需要与其他并发请求竞争带宽。在相对缓慢的1.5Mbps DSL连接情况下，加载一张350K的图片需要2秒钟，浏览者有可能必须要等到4～6张图片加载完成后才能看到这种图片。也就是说gallery里的下一张图片可见前有一个潜在的12～15s的等待时间。有利的一面是这4～6张其他图片现在会被缓存起来，但是让用户盯着加载图片12秒钟，我们可能已经失去了这些用户。如果你以非「宽度连接」的方式测试你的网站的话，你可能会惊讶的发现，你的预加载器使你的网站对一些用户变得更糟。</p><h4 id="一种更好的预加载方式"><a href="#一种更好的预加载方式" class="headerlink" title="一种更好的预加载方式"></a>一种更好的预加载方式</h4><p>一旦理解了浏览者的行为，就可以设计一个预加载器，为大多数浏览者提供更好的体验。因为我知道几乎所有的浏览者是顺序浏览我的gallery，那么对我而言最好的策略是以相同的顺序加载图片。加载所有图片的总体时间可能会稍微长一些，因为我们会导致延迟开销累加，但此时的整体加载时间相对于页面的初始加载时间，并不是如此重要，因为在用户可以使用网站前，并不需要加载完所有的图片。我们只需要加载用户现在想看到的图片，javaScript如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preload</span>(<span class="params">imageArray, index</span>) </span>&#123;</span><br><span class="line">    index = index || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (imageArray &amp;&amp; imageArray.length &gt; index) &#123;</span><br><span class="line">        <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">        img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            preload(imageArray, index + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        img.src = images[index][‘serving_url’];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* images is an array with image metadata */</span></span><br><span class="line">preload(images);</span><br></pre></td></tr></table></figure><p>注意：代码已做简化，生产环境代码会针对不同设备请求不同尺寸图片，并且会考虑用户进入gallery时非第一张图片的场景。</p><p>处理数组中第一张图片(index 0)，添加onload事件处理函数，然后请求图片。只有当这张图片加载完成后，才会调用onload事件处理函数，然后为下一张图片做相同的操作，直到所有图片加载完成。</p><h4 id="避免过早预加载"><a href="#避免过早预加载" class="headerlink" title="避免过早预加载"></a>避免过早预加载</h4><p>在用户请求一个页面和浏览器可渲染这个页面之间会发生很多事情。这段时间内，你的用户只能坐在哪里看着一个空白页面。如果你珍惜你的用户，你应努力缩短这个时间。要做到这一点，需要尽可能快的传输浏览器所需的渲染页面的最少数据。你的预加载器不应参与其中。</p><p>至少对我而言，预加载代码最好放在window onload处理函数内，如果使用jQuery的：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).load(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* Preload code goes here */</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>预加载分 并行预加载（普通预加载） 和 串行预加载 （优化预加载）方式。</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;优化网络图片预加载方法&lt;/p&gt;
+&lt;!-- TOC --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#前言&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#正文&quot;&gt;正文&lt;/a&gt;&lt;pre&gt;&lt;code&gt;- [并行下载的好处](#并行下载的好处)
+- [对预加载图片而言并非为一件好事](#对预加载图片而言并非为一件好事)
+- [一种更好的预加载方式](#一种更好的预加载方式)
+- [避免过早预加载](#避免过早预加载)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#小结&quot;&gt;小结&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#关于作者&quot;&gt;关于作者&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- /TOC --&gt;
+    
+    </summary>
+    
+      <category term="WEB" scheme="http://taoqianbao.github.io/categories/WEB/"/>
+    
+    
+      <category term="web" scheme="http://taoqianbao.github.io/tags/web/"/>
+    
+      <category term="performance" scheme="http://taoqianbao.github.io/tags/performance/"/>
+    
+      <category term="preload" scheme="http://taoqianbao.github.io/tags/preload/"/>
     
   </entry>
   

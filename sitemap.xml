@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://taoqianbao.github.io/2013/03/17/javascript/code-snippet-dialog/</loc>
+    
+    <lastmod>2018-01-17T09:26:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/01/17/h5/aria-role/</loc>
+    
+    <lastmod>2018-01-17T08:07:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2015/11/17/web/performance-preload-images/</loc>
+    
+    <lastmod>2018-01-17T07:40:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2014/05/01/web/how-to-use-webworker/</loc>
+    
+    <lastmod>2018-01-17T07:25:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2014/01/09/web/performance-one/</loc>
+    
+    <lastmod>2018-01-17T07:11:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2014/01/07/javascript/diff-async-defer/</loc>
+    
+    <lastmod>2018-01-17T06:48:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/04/27/javascript/diff-call-apply/</loc>
+    
+    <lastmod>2018-01-17T06:46:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://taoqianbao.github.io/2016/11/17/javascript/vue-lifecycle/</loc>
     
     <lastmod>2018-01-17T06:19:34.000Z</lastmod>
@@ -26,20 +75,6 @@
     <loc>http://taoqianbao.github.io/2016/07/15/javascript/viewport-rem-one/</loc>
     
     <lastmod>2018-01-17T06:14:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/2016/04/27/javascript/diff-call-apply/</loc>
-    
-    <lastmod>2018-01-17T04:02:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/2016/03/02/javascript/diff-async-defer/</loc>
-    
-    <lastmod>2018-01-17T02:56:37.000Z</lastmod>
     
   </url>
   
@@ -86,13 +121,6 @@
   </url>
   
   <url>
-    <loc>http://taoqianbao.github.io/2018/01/09/web/performance-one/</loc>
-    
-    <lastmod>2018-01-10T14:16:51.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://taoqianbao.github.io/2015/06/08/web/security-one/</loc>
     
     <lastmod>2018-01-10T14:16:50.000Z</lastmod>
@@ -124,13 +152,6 @@
     <loc>http://taoqianbao.github.io/2018/01/08/javascript/interview-four/</loc>
     
     <lastmod>2018-01-08T09:54:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://taoqianbao.github.io/2014/05/01/web/how-to-use-webworker/</loc>
-    
-    <lastmod>2018-01-08T09:37:31.000Z</lastmod>
     
   </url>
   
