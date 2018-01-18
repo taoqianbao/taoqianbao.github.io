@@ -3,6 +3,7 @@ menu:
   Home: /
   About Me: /about
   Archives: /archives
+  GITHUB(@me): https://github.com/taoqianbao
 
 rss: /atom.xml
 
