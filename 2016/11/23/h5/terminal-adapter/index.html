@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>H5页面终端适配解决方案 | 致力于拯救世界的IT农民工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言无线端应用日益增长，终端机型也发展多样化，前端开发者面临的适配方案也越来越多，如何选择最佳适配方案？  前言 正文 基本概念解读 CSS尺寸单位 屏幕（screen） 视口（viewport） 缩放（scale）   解决方案-viewport 解决方案-rem 动态设置 html 标签 font-size 大小 元素大小取值方法 rem 布局方案的开发方式 字体使用 px 为单位     小">
+<meta name="keywords" content="h5,flex,media">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5页面终端适配解决方案">
+<meta property="og:url" content="http://taoqianbao.github.io/2016/11/23/h5/terminal-adapter/index.html">
+<meta property="og:site_name" content="致力于拯救世界的IT农民工">
+<meta property="og:description" content="前言无线端应用日益增长，终端机型也发展多样化，前端开发者面临的适配方案也越来越多，如何选择最佳适配方案？  前言 正文 基本概念解读 CSS尺寸单位 屏幕（screen） 视口（viewport） 缩放（scale）   解决方案-viewport 解决方案-rem 动态设置 html 标签 font-size 大小 元素大小取值方法 rem 布局方案的开发方式 字体使用 px 为单位     小">
+<meta property="og:updated_time" content="2018-01-23T03:30:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5页面终端适配解决方案">
+<meta name="twitter:description" content="前言无线端应用日益增长，终端机型也发展多样化，前端开发者面临的适配方案也越来越多，如何选择最佳适配方案？  前言 正文 基本概念解读 CSS尺寸单位 屏幕（screen） 视口（viewport） 缩放（scale）   解决方案-viewport 解决方案-rem 动态设置 html 标签 font-size 大小 元素大小取值方法 rem 布局方案的开发方式 字体使用 px 为单位     小">
+  
+    <link rel="alternate" href="/atom.xml" title="致力于拯救世界的IT农民工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <meta name="test" value="{&#34;title&#34;:&#34;致力于拯救世界的IT农民工&#34;,&#34;subtitle&#34;:&#34;朱胜峰的网络事件&#34;,&#34;description&#34;:&#34;I love programming and I am very passionate about it. I have been coding for 10+ years now. Like C,ASP,PHP,C#,JavaScript...&#34;,&#34;author&#34;:&#34;Peter Zhu&#34;,&#34;language&#34;:null,&#34;timezone&#34;:null,&#34;url&#34;:&#34;http://taoqianbao.github.io&#34;,&#34;root&#34;:&#34;/&#34;,&#34;permalink&#34;:&#34;:year/:month/:day/:title/&#34;,&#34;permalink_defaults&#34;:null,&#34;source_dir&#34;:&#34;source&#34;,&#34;public_dir&#34;:&#34;public&#34;,&#34;tag_dir&#34;:&#34;tags&#34;,&#34;archive_dir&#34;:&#34;archives&#34;,&#34;category_dir&#34;:&#34;categories&#34;,&#34;code_dir&#34;:&#34;downloads/code&#34;,&#34;i18n_dir&#34;:&#34;:lang&#34;,&#34;skip_render&#34;:null,&#34;new_post_name&#34;:&#34;:title.md&#34;,&#34;default_layout&#34;:&#34;post&#34;,&#34;titlecase&#34;:false,&#34;external_link&#34;:true,&#34;filename_case&#34;:0,&#34;render_drafts&#34;:false,&#34;post_asset_folder&#34;:false,&#34;relative_link&#34;:false,&#34;future&#34;:true,&#34;highlight&#34;:{&#34;enable&#34;:true,&#34;auto_detect&#34;:false,&#34;line_number&#34;:true,&#34;tab_replace&#34;:null},&#34;default_category&#34;:&#34;uncategorized&#34;,&#34;category_map&#34;:null,&#34;tag_map&#34;:null,&#34;date_format&#34;:&#34;YYYY-MM-DD&#34;,&#34;time_format&#34;:&#34;HH:mm:ss&#34;,&#34;per_page&#34;:10,&#34;pagination_dir&#34;:&#34;page&#34;,&#34;theme&#34;:&#34;landscape&#34;,&#34;deploy&#34;:{&#34;type&#34;:&#34;git&#34;,&#34;repo&#34;:&#34;https://github.com/taoqianbao/taoqianbao.github.io.git&#34;,&#34;branch&#34;:&#34;master&#34;},&#34;ignore&#34;:[],&#34;index_generator&#34;:{&#34;per_page&#34;:10,&#34;order_by&#34;:&#34;-date&#34;,&#34;path&#34;:&#34;&#34;},&#34;feed&#34;:{&#34;type&#34;:&#34;atom&#34;,&#34;limit&#34;:20,&#34;hub&#34;:&#34;&#34;,&#34;content&#34;:true,&#34;content_limit&#34;:140,&#34;content_limit_delim&#34;:&#34;&#34;,&#34;path&#34;:&#34;atom.xml&#34;},&#34;category_generator&#34;:{&#34;per_page&#34;:10},&#34;archive_generator&#34;:{&#34;per_page&#34;:10,&#34;yearly&#34;:true,&#34;monthly&#34;:true,&#34;daily&#34;:false},&#34;sitemap&#34;:{&#34;path&#34;:&#34;sitemap.xml&#34;},&#34;tag_generator&#34;:{&#34;per_page&#34;:10},&#34;marked&#34;:{&#34;gfm&#34;:true,&#34;pedantic&#34;:false,&#34;sanitize&#34;:false,&#34;tables&#34;:true,&#34;breaks&#34;:true,&#34;smartLists&#34;:true,&#34;smartypants&#34;:true,&#34;modifyAnchors&#34;:&#34;&#34;,&#34;autolink&#34;:true},&#34;server&#34;:{&#34;port&#34;:4000,&#34;log&#34;:false,&#34;ip&#34;:&#34;0.0.0.0&#34;,&#34;compress&#34;:false,&#34;header&#34;:true}}" />
+  
+    <link href="/source-code-pro/source-code-pro.css" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fcd070861fea890c12eabf775bd8e240";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner" style="display:none">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">致力于拯救世界的IT农民工</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">朱胜峰的网络事件</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/about">About Me</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/taoqianbao">GITHUB(@me)</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://taoqianbao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-h5/terminal-adapter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/23/h5/terminal-adapter/" class="article-date">
+  <time datetime="2016-11-23T01:43:44.000Z" itemprop="datePublished">2016-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/H5/">H5</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      H5页面终端适配解决方案
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>无线端应用日益增长，终端机型也发展多样化，前端开发者面临的适配方案也越来越多，如何选择最佳适配方案？<br><!-- TOC --></p>
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#正文">正文</a><ul>
+<li><a href="#基本概念解读">基本概念解读</a><ul>
+<li><a href="#css尺寸单位">CSS尺寸单位</a></li>
+<li><a href="#屏幕screen">屏幕（screen）</a></li>
+<li><a href="#视口viewport">视口（viewport）</a></li>
+<li><a href="#缩放scale">缩放（scale）</a></li>
+</ul>
+</li>
+<li><a href="#解决方案-viewport">解决方案-viewport</a></li>
+<li><a href="#解决方案-rem">解决方案-rem</a><ul>
+<li><a href="#动态设置-html-标签-font-size-大小">动态设置 html 标签 font-size 大小</a></li>
+<li><a href="#元素大小取值方法">元素大小取值方法</a></li>
+<li><a href="#rem-布局方案的开发方式">rem 布局方案的开发方式</a></li>
+<li><a href="#字体使用-px-为单位">字体使用 px 为单位</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#小结">小结</a></li>
+<li><a href="#关于作者">关于作者</a></li>
+</ul>
+<!-- /TOC -->
+<a id="more"></a>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="基本概念解读"><a href="#基本概念解读" class="headerlink" title="基本概念解读"></a>基本概念解读</h3><p>像素（pixels）、屏幕（screen）、视口（viewport）、缩放（scale）<br>设备像素、CSS像素、设备像素比（window.devicePixelRatio）、</p>
+<h4 id="CSS尺寸单位"><a href="#CSS尺寸单位" class="headerlink" title="CSS尺寸单位"></a>CSS尺寸单位</h4><p>1.px：绝对单位，页面按精确像素展示，英文（pixels）<br>2.em：相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。<br>3.rem：相对单位，可理解为”root em”, 相对根节点html的字体大小来计算，CSS3新加属性，chrome/firefox/IE9+支持。<br>4.vw：viewpoint width，视窗宽度，1vw等于视窗宽度的1%。<br>5.vh：viewpoint height，视窗高度，1vh等于视窗高度的1%。<br>6.vmin：vw和vh中较小的那个。<br>7.vmax：vw和vh中较大的那个。<br>8.%:百分比<br>9.in:寸<br>10.cm:厘米<br>11.mm:毫米<br>12.pt:point，大约1/72寸<br>13.pc:pica，大约6pt，1/6寸<br>14.ex：取当前作用效果的字体的x的高度，在无法确定x高度的情况下以0.5em计算(IE11及以下均不支持，firefox/chrome/safari/opera/ios safari/android browser4.4+等均需属性加么有前缀)<br>15.ch:以节点所使用字体中的“0”字符为基准，找不到时为0.5em(ie10+,chrome31+,safair7.1+,opera26+,ios safari 7.1+,android browser4.4+支持)</p>
+<h4 id="屏幕（screen）"><a href="#屏幕（screen）" class="headerlink" title="屏幕（screen）"></a>屏幕（screen）</h4><h4 id="视口（viewport）"><a href="#视口（viewport）" class="headerlink" title="视口（viewport）"></a>视口（viewport）</h4><h4 id="缩放（scale）"><a href="#缩放（scale）" class="headerlink" title="缩放（scale）"></a>缩放（scale）</h4><h3 id="解决方案-viewport"><a href="#解决方案-viewport" class="headerlink" title="解决方案-viewport"></a>解决方案-viewport</h3><p>在移动端，可以通过 viewport 缩放页面大小比率达到目的。</p>
+<p>简单来说，即所有宽高像素与视觉稿输出相同，然后通过页面宽度与视觉稿的宽度比率，动态设置 viewport。缩放方案核心代码参考：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line">    <span class="keyword">var</span> isMobile = <span class="built_in">window</span>.isMobile /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobi/i.test(navigator.userAgent);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setScale</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> pageScale = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.top !== <span class="built_in">window</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> pageScale;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> width = docEl.clientWidth || <span class="number">360</span>;</span><br><span class="line">        <span class="keyword">var</span> height = docEl.clientHeight || <span class="number">640</span>;</span><br><span class="line">        <span class="keyword">if</span> (width / height &gt;= <span class="number">360</span> / <span class="number">640</span>) &#123;</span><br><span class="line">            <span class="comment">// 高度优先</span></span><br><span class="line">            pageScale = height / <span class="number">640</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            pageScale = width / <span class="number">360</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> content = <span class="string">'width='</span> + <span class="number">360</span> + <span class="string">', initial-scale='</span> + pageScale </span><br><span class="line">          + <span class="string">', maximum-scale='</span> + pageScale + <span class="string">', user-scalable=no'</span>;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'viewport'</span>).setAttribute(<span class="string">'content'</span>, content);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">window</span>.pageScale = pageScale;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isMobile) &#123;</span><br><span class="line">        setScale();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        docEl.className += <span class="string">' pc'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>但是如果希望 PC 上也能显示，由于没有 viewport 的缩放概念，只能以固定值来设定，这个效果就不太好。</p>
+<h3 id="解决方案-rem"><a href="#解决方案-rem" class="headerlink" title="解决方案-rem"></a>解决方案-rem</h3><p>rem 布局适配方案被提到的比较多，在各大互联网企业产品中都有较为广泛的应用。</p>
+<p>简单来说其方法为：</p>
+<p>按照设计稿与设备宽度的比例，动态计算并设置 html 根标签的 font-size 大小；<br>css 中，设计稿元素的宽、高、相对位置等取值，按照同等比例换算为 rem 为单位的值；<br>设计稿中的字体使用 px 为单位，通过媒体查询稍作调整。<br>下面我们举个例子来说明。</p>
+<h4 id="动态设置-html-标签-font-size-大小"><a href="#动态设置-html-标签-font-size-大小" class="headerlink" title="动态设置 html 标签 font-size 大小"></a>动态设置 html 标签 font-size 大小</h4><p>第一个问题是 html 标签的 font-size 动态计算。这取决于如何约定换算比例，以页面宽度十等份为例，核心代码参考：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">WIN</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span>  setFontSize = WIN.setFontSize = <span class="function"><span class="keyword">function</span> (<span class="params">_width</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span>  docEl = <span class="built_in">document</span>.documentElement; </span><br><span class="line">        <span class="comment">// 获取当前窗口的宽度</span></span><br><span class="line">        <span class="keyword">var</span>  width = _width || docEl.clientWidth; <span class="comment">// docEl.getBoundingClientRect().width;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 大于 1080px 按 1080</span></span><br><span class="line">        <span class="keyword">if</span> (width &gt; <span class="number">1080</span>) &#123; </span><br><span class="line">            width = <span class="number">1080</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span>  rem = width / <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(rem);</span><br><span class="line"></span><br><span class="line">        docEl.style.fontSize = rem + <span class="string">'px'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 部分机型上的误差、兼容性处理</span></span><br><span class="line">        <span class="keyword">var</span>  actualSize = win.getComputedStyle &amp;&amp; <span class="built_in">parseFloat</span>(win.getComputedStyle(docEl)[<span class="string">"font-size"</span>]);</span><br><span class="line">        <span class="keyword">if</span> (actualSize !== rem &amp;&amp; actualSize &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">Math</span>.abs(actualSize - rem) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> remScaled = rem * rem / actualSize;</span><br><span class="line">            docEl.style.fontSize = remScaled + <span class="string">'px'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> timer;</span><br><span class="line">    <span class="comment">//函数节流</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">dbcRefresh</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        clearTimeout(timer);</span><br><span class="line">        timer = setTimeout(setFontSize, <span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//窗口更新动态改变 font-size</span></span><br><span class="line">    WIN.addEventListener(<span class="string">'resize'</span>, dbcRefresh, <span class="literal">false</span>);</span><br><span class="line">    <span class="comment">//页面显示时计算一次</span></span><br><span class="line">    WIN.addEventListener(<span class="string">'pageshow'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (e.persisted) &#123; </span><br><span class="line">            dbcRefresh() </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">    setFontSize();</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure></p>
+<p>另外，对于全屏显示的 H5 活动页，对宽高比例有所要求，此时应当做的调整。可以这么来做：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">adjustWarp</span>(<span class="params">warpId = <span class="string">'#warp'</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// if (window.isMobile) return;</span></span><br><span class="line">    <span class="keyword">const</span> $win = $(<span class="built_in">window</span>);</span><br><span class="line">    <span class="keyword">const</span> height = $win.height();</span><br><span class="line">    <span class="keyword">let</span> width = $win.width();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 考虑导航栏情况</span></span><br><span class="line">    <span class="keyword">if</span> (width / height &lt; <span class="number">360</span> / <span class="number">600</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    width = <span class="built_in">Math</span>.ceil(height * <span class="number">360</span> / <span class="number">640</span>);</span><br><span class="line"></span><br><span class="line">    $(warpId).css(&#123;</span><br><span class="line">        height,</span><br><span class="line">        width,</span><br><span class="line">        postion: <span class="string">'relative'</span>,</span><br><span class="line">        top: <span class="number">0</span>,</span><br><span class="line">        left: <span class="string">'auto'</span>,</span><br><span class="line">        margin: <span class="string">'0 auto'</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重新计算 rem</span></span><br><span class="line">    <span class="built_in">window</span>.setFontSize(width);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>按照这种缩放方法，几乎在任何设备上都可以实现等比缩放的精确布局。</p>
+<h4 id="元素大小取值方法"><a href="#元素大小取值方法" class="headerlink" title="元素大小取值方法"></a>元素大小取值方法</h4><p>第二个问题是元素大小的取值。</p>
+<p>以设计稿宽度 1080px 为例，我们将宽度分为 10 等份以便于换算，那么 1rem = 1080 / 10 = 108px。</p>
+<p>设计稿中，有一个图片大小为 460x210，相对页面位置 top: 321px; left: 70;。其换算方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> px2rem = <span class="function"><span class="keyword">function</span>(<span class="params">px, rem = <span class="number">108</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> remVal = <span class="built_in">parseFloat</span>(px) / rem;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> px === <span class="string">"string"</span> &amp;&amp; px.match(<span class="regexp">/px$/</span>)) &#123; </span><br><span class="line">        remVal += <span class="string">'rem'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> remVal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由此得到该元素最终的 css 样式应为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.img_demo &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    background-size: cover;</span><br><span class="line">    background-image: url(<span class="string">'demo.png'</span>);</span><br><span class="line">    top: <span class="number">2.97222</span>rem;</span><br><span class="line">    left: <span class="number">0.64814</span>rem;</span><br><span class="line">    width: <span class="number">4.25926</span>rem;</span><br><span class="line">    height: <span class="number">1.94444</span>rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="rem-布局方案的开发方式"><a href="#rem-布局方案的开发方式" class="headerlink" title="rem 布局方案的开发方式"></a>rem 布局方案的开发方式</h4><p>通过以上方法，rem 布局方案就得到了实现。但是手动计算 rem 的取值显然不现实。<br>通过 less/sass 预处理工具，我们只需要设置 mixins 方法，然后按照设计稿的实际大小来取值即可。以 less 为例，mixins 参考如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// px 转 rem</span></span><br><span class="line">.px2rem(@px, @attr: <span class="string">'width'</span>, @rem: <span class="number">108</span>rem) &#123;</span><br><span class="line">    @&#123;attr&#125;: (@px / @rem);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.px2remTLWH(@top, @left, @width, @height, @rem: <span class="number">108</span>rem) &#123;</span><br><span class="line">    .px2rem(@top, top, @rem);</span><br><span class="line">    .px2rem(@left, left, @rem);</span><br><span class="line">    .px2rem(@width, width, @rem);</span><br><span class="line">    .px2rem(@height, height, @rem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>针对前文的示例元素，css 样式可以这样来写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.img_demo &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    background-size: cover;</span><br><span class="line">    background-image: url(<span class="string">'demo.png'</span>);</span><br><span class="line"></span><br><span class="line">    .px2remTLWH(<span class="number">321</span>, <span class="number">70</span>, <span class="number">460</span>, <span class="number">210</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里，宽和高可以直接通过设计稿输出的图片元素大小读取到；top/left 的取值，可以通过在 Photoshop 中移动参考线定位元素快速得到。</p>
+<h4 id="字体使用-px-为单位"><a href="#字体使用-px-为单位" class="headerlink" title="字体使用 px 为单位"></a>字体使用 px 为单位</h4><p>字体使用 rem 等比缩放会出现显示上的问题，只需要针对性使用媒体查询设置几种大小即可。</p>
+<p>示例参考：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 字体响应式</span></span><br><span class="line">@media screen and (max-width: <span class="number">321</span>px) &#123;</span><br><span class="line">    body &#123;</span><br><span class="line">        font-size: <span class="number">13</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (min-width: <span class="number">321</span>px) and (max-width: <span class="number">400</span>px) &#123;</span><br><span class="line">    body &#123;</span><br><span class="line">        font-size: <span class="number">14</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (min-width: <span class="number">400</span>px) &#123;</span><br><span class="line">    body &#123;</span><br><span class="line">        font-size: <span class="number">16</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p><a href="https://zhuanlan.zhihu.com/p/25422063" target="_blank" rel="noopener">H5移动多终端适配全解 - 从原理到方案</a><br><a href="https://www.w3.org/Style/Examples/007/units.en.html" target="_blank" rel="noopener">CSS单位详解</a></p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>
+
+      
+
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://taoqianbao.github.io/2016/11/23/h5/terminal-adapter/" data-id="cjcsp7gtu000h98e3a9mdfdm0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/h5/">h5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/media/">media</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/08/javascript/interview-two/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          前端面试题整理之高级上机篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/17/javascript/vue-lifecycle/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue框架之生命周期</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ITPMP/">ITPMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TechManage/">TechManage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/">WEB</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5/">h5</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/macos/">macos</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AMD/">AMD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARIA/">ARIA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMD/">CMD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ITPMP/">ITPMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOJ/">OOJ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/">WEB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apply/">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/call/">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/">commonjs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/defer/">defer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dialog/">dialog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/h5/">h5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lifecycle/">lifecycle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/media/">media</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/news/">news</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/">package</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/path/">path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance/">performance</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pg/">pg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugins/">plugins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/preload/">preload</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snippet/">snippet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sticky/">sticky</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport/">viewport</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/worker/">worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码段/">代码段</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/优化/">优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/备份/">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能/">性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理想/">理想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略/">策略</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题/">问题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/题目/">题目</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/AMD/" style="font-size: 11.43px;">AMD</a> <a href="/tags/ARIA/" style="font-size: 10px;">ARIA</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/CMD/" style="font-size: 11.43px;">CMD</a> <a href="/tags/CSS/" style="font-size: 11.43px;">CSS</a> <a href="/tags/ES6/" style="font-size: 11.43px;">ES6</a> <a href="/tags/H5/" style="font-size: 14.29px;">H5</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/ITPMP/" style="font-size: 10px;">ITPMP</a> <a href="/tags/JS/" style="font-size: 15.71px;">JS</a> <a href="/tags/Javascript/" style="font-size: 18.57px;">Javascript</a> <a href="/tags/OOJ/" style="font-size: 12.86px;">OOJ</a> <a href="/tags/OOP/" style="font-size: 12.86px;">OOP</a> <a href="/tags/WEB/" style="font-size: 12.86px;">WEB</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/commonjs/" style="font-size: 11.43px;">commonjs</a> <a href="/tags/css/" style="font-size: 11.43px;">css</a> <a href="/tags/defer/" style="font-size: 10px;">defer</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/h5/" style="font-size: 12.86px;">h5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/js/" style="font-size: 11.43px;">js</a> <a href="/tags/lifecycle/" style="font-size: 11.43px;">lifecycle</a> <a href="/tags/macos/" style="font-size: 10px;">macos</a> <a href="/tags/media/" style="font-size: 11.43px;">media</a> <a href="/tags/news/" style="font-size: 10px;">news</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/performance/" style="font-size: 11.43px;">performance</a> <a href="/tags/pg/" style="font-size: 10px;">pg</a> <a href="/tags/plugins/" style="font-size: 10px;">plugins</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/preload/" style="font-size: 10px;">preload</a> <a href="/tags/project/" style="font-size: 10px;">project</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/snippet/" style="font-size: 10px;">snippet</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sticky/" style="font-size: 10px;">sticky</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/web/" style="font-size: 17.14px;">web</a> <a href="/tags/worker/" style="font-size: 10px;">worker</a> <a href="/tags/代码段/" style="font-size: 10px;">代码段</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/备份/" style="font-size: 10px;">备份</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/理想/" style="font-size: 10px;">理想</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a> <a href="/tags/面试/" style="font-size: 14.29px;">面试</a> <a href="/tags/题目/" style="font-size: 12.86px;">题目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12/">December 2006</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/18/h5/links-fe/">前端技术文章导航整理</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/17/h5/aria-role/">HTML5 ARIA role</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/11/sql/postgresql-one/">postgresql安装环境</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/macos/setting-path/">MAC OSX 配置PATH变量</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/08/javascript/interview-four/">前端面试题整理之理想篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Peter Zhu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/about" class="mobile-nav-link">About Me</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/taoqianbao" class="mobile-nav-link">GITHUB(@me)</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
