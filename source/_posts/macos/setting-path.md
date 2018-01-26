@@ -57,6 +57,15 @@ Mac系统的环境变量，加载顺序为：
     /Applications/XAMPP/xamppfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/Alex/.composer/vendor/bin
 
 
+## 常用mac os命令
+
+MAC OS查看端口占用情况及杀死进程
+终端命令
+sudo lsof -i :9000
+
+然后根据PID杀进程：
+sudo kill -9 716
+
 
 ## 关于作者
 ** 珠峰
