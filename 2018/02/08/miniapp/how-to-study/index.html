@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>小程序开发之入门基础知识 | 致力于拯救世界的IT农民工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言公司开始大力推广微信小程序，由于有过小程序的开发经验，自当起到带头作用，承担起学习引入人的作用。本文主要是适合基础无前端开发经验人群，有意向开发微信小程序的伙伴阅读。所有内容来自互联网和自我读后感，有任何差错，请忽略….   前言 正文 01.环境搭建 02.项目配置 JSON配置 WXML模版 WXSS样式 JS逻辑交互   03.框架介绍 04.基础入门 页面路由 数据绑定   05.开发">
+<meta name="keywords" content="小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序开发之入门基础知识">
+<meta property="og:url" content="http://taoqianbao.github.io/2018/02/08/miniapp/how-to-study/index.html">
+<meta property="og:site_name" content="致力于拯救世界的IT农民工">
+<meta property="og:description" content="前言公司开始大力推广微信小程序，由于有过小程序的开发经验，自当起到带头作用，承担起学习引入人的作用。本文主要是适合基础无前端开发经验人群，有意向开发微信小程序的伙伴阅读。所有内容来自互联网和自我读后感，有任何差错，请忽略….   前言 正文 01.环境搭建 02.项目配置 JSON配置 WXML模版 WXSS样式 JS逻辑交互   03.框架介绍 04.基础入门 页面路由 数据绑定   05.开发">
+<meta property="og:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-fileintro.png">
+<meta property="og:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-app-config.png">
+<meta property="og:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-mvvm1.png">
+<meta property="og:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-route-demo.png">
+<meta property="og:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-debug1.png">
+<meta property="og:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-debug2.jpeg">
+<meta property="og:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-debug3.jpeg">
+<meta property="og:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-debug4.jpeg">
+<meta property="og:updated_time" content="2018-02-08T04:20:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序开发之入门基础知识">
+<meta name="twitter:description" content="前言公司开始大力推广微信小程序，由于有过小程序的开发经验，自当起到带头作用，承担起学习引入人的作用。本文主要是适合基础无前端开发经验人群，有意向开发微信小程序的伙伴阅读。所有内容来自互联网和自我读后感，有任何差错，请忽略….   前言 正文 01.环境搭建 02.项目配置 JSON配置 WXML模版 WXSS样式 JS逻辑交互   03.框架介绍 04.基础入门 页面路由 数据绑定   05.开发">
+<meta name="twitter:image" content="http://taoqianbao.github.io/imgs/miniapp/miniapp-fileintro.png">
+  
+    <link rel="alternate" href="/atom.xml" title="致力于拯救世界的IT农民工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <meta name="test" value="{&#34;title&#34;:&#34;致力于拯救世界的IT农民工&#34;,&#34;subtitle&#34;:&#34;朱胜峰的网络事件&#34;,&#34;description&#34;:&#34;I love programming and I am very passionate about it. I have been coding for 10+ years now. Like C,ASP,PHP,C#,JavaScript...&#34;,&#34;author&#34;:&#34;Peter Zhu&#34;,&#34;language&#34;:null,&#34;timezone&#34;:null,&#34;url&#34;:&#34;http://taoqianbao.github.io&#34;,&#34;root&#34;:&#34;/&#34;,&#34;permalink&#34;:&#34;:year/:month/:day/:title/&#34;,&#34;permalink_defaults&#34;:null,&#34;source_dir&#34;:&#34;source&#34;,&#34;public_dir&#34;:&#34;public&#34;,&#34;tag_dir&#34;:&#34;tags&#34;,&#34;archive_dir&#34;:&#34;archives&#34;,&#34;category_dir&#34;:&#34;categories&#34;,&#34;code_dir&#34;:&#34;downloads/code&#34;,&#34;i18n_dir&#34;:&#34;:lang&#34;,&#34;skip_render&#34;:null,&#34;new_post_name&#34;:&#34;:title.md&#34;,&#34;default_layout&#34;:&#34;post&#34;,&#34;titlecase&#34;:false,&#34;external_link&#34;:true,&#34;filename_case&#34;:0,&#34;render_drafts&#34;:false,&#34;post_asset_folder&#34;:false,&#34;relative_link&#34;:false,&#34;future&#34;:true,&#34;highlight&#34;:{&#34;enable&#34;:true,&#34;auto_detect&#34;:false,&#34;line_number&#34;:true,&#34;tab_replace&#34;:null,&#34;first_line_number&#34;:&#34;always1&#34;},&#34;default_category&#34;:&#34;uncategorized&#34;,&#34;category_map&#34;:null,&#34;tag_map&#34;:null,&#34;date_format&#34;:&#34;YYYY-MM-DD&#34;,&#34;time_format&#34;:&#34;HH:mm:ss&#34;,&#34;per_page&#34;:10,&#34;pagination_dir&#34;:&#34;page&#34;,&#34;theme&#34;:&#34;landscape&#34;,&#34;deploy&#34;:{&#34;type&#34;:&#34;git&#34;,&#34;repo&#34;:&#34;https://github.com/taoqianbao/taoqianbao.github.io.git&#34;,&#34;branch&#34;:&#34;master&#34;},&#34;ignore&#34;:[],&#34;index_generator&#34;:{&#34;per_page&#34;:10,&#34;order_by&#34;:&#34;-date&#34;,&#34;path&#34;:&#34;&#34;},&#34;category_generator&#34;:{&#34;per_page&#34;:10},&#34;feed&#34;:{&#34;type&#34;:&#34;atom&#34;,&#34;limit&#34;:20,&#34;hub&#34;:&#34;&#34;,&#34;content&#34;:true,&#34;content_limit&#34;:140,&#34;content_limit_delim&#34;:&#34;&#34;,&#34;path&#34;:&#34;atom.xml&#34;},&#34;archive_generator&#34;:{&#34;per_page&#34;:10,&#34;yearly&#34;:true,&#34;monthly&#34;:true,&#34;daily&#34;:false},&#34;sitemap&#34;:{&#34;path&#34;:&#34;sitemap.xml&#34;},&#34;tag_generator&#34;:{&#34;per_page&#34;:10},&#34;marked&#34;:{&#34;gfm&#34;:true,&#34;pedantic&#34;:false,&#34;sanitize&#34;:false,&#34;tables&#34;:true,&#34;breaks&#34;:true,&#34;smartLists&#34;:true,&#34;smartypants&#34;:true,&#34;modifyAnchors&#34;:&#34;&#34;,&#34;autolink&#34;:true},&#34;server&#34;:{&#34;port&#34;:4000,&#34;log&#34;:false,&#34;ip&#34;:&#34;0.0.0.0&#34;,&#34;compress&#34;:false,&#34;header&#34;:true}}" />
+  
+    <link href="/source-code-pro/source-code-pro.css" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fcd070861fea890c12eabf775bd8e240";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner" style="display:none">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">致力于拯救世界的IT农民工</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">朱胜峰的网络事件</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/about">About Me</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/taoqianbao">GITHUB(@me)</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://taoqianbao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-miniapp/how-to-study" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/08/miniapp/how-to-study/" class="article-date">
+  <time datetime="2018-02-08T01:07:52.000Z" itemprop="datePublished">2018-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/小程序/">小程序</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小程序开发之入门基础知识
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>公司开始大力推广微信小程序，由于有过小程序的开发经验，自当起到带头作用，承担起学习引入人的作用。<br>本文主要是适合基础无前端开发经验人群，有意向开发微信小程序的伙伴阅读。<br>所有内容来自互联网和自我读后感，有任何差错，请忽略….</p>
+<!-- TOC -->
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#正文">正文</a><ul>
+<li><a href="#01环境搭建">01.环境搭建</a></li>
+<li><a href="#02项目配置">02.项目配置</a><ul>
+<li><a href="#json配置">JSON配置</a></li>
+<li><a href="#wxml模版">WXML模版</a></li>
+<li><a href="#wxss样式">WXSS样式</a></li>
+<li><a href="#js逻辑交互">JS逻辑交互</a></li>
+</ul>
+</li>
+<li><a href="#03框架介绍">03.框架介绍</a></li>
+<li><a href="#04基础入门">04.基础入门</a><ul>
+<li><a href="#页面路由">页面路由</a></li>
+<li><a href="#数据绑定">数据绑定</a></li>
+</ul>
+</li>
+<li><a href="#05开发调试">05.开发调试</a></li>
+<li><a href="#06学习资料">06.学习资料</a></li>
+</ul>
+</li>
+<li><a href="#小结">小结</a></li>
+<li><a href="#关于作者">关于作者</a></li>
+</ul>
+<!-- /TOC -->
+<a id="more"></a>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>其实入门教程系列，再好也比不了<a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">官方文档</a>，写的很全，向导也很到位，但是就当写读后感，再提炼下吧。</p>
+<p>心急吃不了豆腐，但是，还是先尝试Hello World开发吧。</p>
+<h3 id="01-环境搭建"><a href="#01-环境搭建" class="headerlink" title="01.环境搭建"></a>01.环境搭建</h3><p>首先跳入<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/index.html" target="_blank" rel="noopener">简易教程</a>，根据向导走一遍流程，我们通过开发者工具快速创建了一个 QuickStart 项目，这里完全靠官方文档走一遍，是不是很轻松？</p>
+<h3 id="02-项目配置"><a href="#02-项目配置" class="headerlink" title="02.项目配置"></a>02.项目配置</h3><p>接下来，我们讲一讲小程序的代码构成要素： <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/quickstart/basic/file.html" target="_blank" rel="noopener">官方资料</a></p>
+<p><img src="/imgs/miniapp/miniapp-fileintro.png" alt="配置文件图"></p>
+<ul>
+<li>JSON配置</li>
+<li>WXML模版</li>
+<li>WXSS样式</li>
+<li>JS逻辑交互</li>
+</ul>
+<h4 id="JSON配置"><a href="#JSON配置" class="headerlink" title="JSON配置"></a>JSON配置</h4><p>这里主要有 app.json, project.config.json, pageXXXXX.json。</p>
+<p><strong><em> app.json </em></strong> 是对当前小程序的全局配置，包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 等。<br>其他配置项细节可以参考文档 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html" target="_blank" rel="noopener">小程序的配置 app.json</a></p>
+<p><img src="/imgs/miniapp/miniapp-app-config.png" alt="app.json配置项列表"></p>
+<p><strong><em> 工具配置 project.config.json </em></strong> 其他配置项细节可以参考文档 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/edit.html#%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" target="_blank" rel="noopener">开发者工具的配置</a></p>
+<p><strong><em> 页面配置 page.json </em></strong> 其他配置项细节可以参考文档 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html" target="_blank" rel="noopener">小程序的配置 page.json</a></p>
+<h4 id="WXML模版"><a href="#WXML模版" class="headerlink" title="WXML模版"></a>WXML模版</h4><p>WXML(WeiXin Markup Language), <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/" target="_blank" rel="noopener">语法介绍</a></p>
+<p>视图层</p>
+<ul>
+<li>数据绑定</li>
+<li>条件渲染</li>
+<li>列表渲染</li>
+<li>事件</li>
+</ul>
+<h4 id="WXSS样式"><a href="#WXSS样式" class="headerlink" title="WXSS样式"></a>WXSS样式</h4><p>小程序布局</p>
+<p><strong><em> 样式的优先级 </em></strong><br>选择器的优先权:（外部样式）External style sheet &lt;（内部样式）Internal style sheet &lt;（内联样式）Inline style</p>
+<p>计算规则：</p>
+<ol>
+<li>内联样式表的权值最高 1000</li>
+<li>ID 选择器的权值为 100</li>
+<li>Class 类选择器的权值为 10</li>
+<li>HTML 标签选择器的权值为 1</li>
+</ol>
+<p>Tips:<br>CSS 优先级法则:<br>    A  选择器都有一个权值，权值越大越优先；<br>    B  当权值相等时，后出现的样式表设置要优于先出现的样式表设置；<br>    C  创作者的规则高于浏览者：即网页编写者设置的CSS 样式的优先权高于浏览器所设置的样式；<br>    D  继承的CSS 样式不如后来指定的CSS 样式；<br>    E  在同一组属性设置中标有“!important”规则的优先级最大</p>
+<hr>
+<p><strong><em> Flex布局 </em></strong></p>
+<h4 id="JS逻辑交互"><a href="#JS逻辑交互" class="headerlink" title="JS逻辑交互"></a>JS逻辑交互</h4><p>主要是页面交互事件的处理</p>
+<hr>
+<h3 id="03-框架介绍"><a href="#03-框架介绍" class="headerlink" title="03.框架介绍"></a>03.框架介绍</h3><p>框架提供了自己的视图层描述语言 WXML 和 WXSS，以及基于 JavaScript 的逻辑层框架，并在视图层与逻辑层间提供了数据传输和事件系统，可以让开发者可以方便的聚焦于数据与逻辑上。</p>
+<p>MVVM<br><img src="/imgs/miniapp/miniapp-mvvm1.png" alt="MVVM"></p>
+<hr>
+<p>小程序生命周期</p>
+<ul>
+<li>APP生命周期</li>
+<li>页面生命周期</li>
+</ul>
+<hr>
+<p>APP生命周期示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">App(&#123;</span><br><span class="line">  onLaunch: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do something initial when launch.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onShow: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// Do something when show.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onHide: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// Do something when hide.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onError: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(msg)</span><br><span class="line">  &#125;,</span><br><span class="line">  globalData: <span class="string">'I am global data'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>页面生命周期示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js  </span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    text: <span class="string">"This is page data."</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do some initialize when page load.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onReady: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do something when page ready.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onShow: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do something when page show.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onHide: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do something when page hide.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onUnload: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do something when page close.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onPullDownRefresh: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do something when pull down.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onReachBottom: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do something when page reach bottom.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onShareAppMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">// return custom share data when user share.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onPageScroll: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Do something when page scroll</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onTabItemTap(item) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item.index)</span><br><span class="line">    <span class="built_in">console</span>.log(item.pagePath)</span><br><span class="line">    <span class="built_in">console</span>.log(item.text)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Event handler.</span></span><br><span class="line">  viewTap: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      text: <span class="string">'Set some data for updating view.'</span></span><br><span class="line">    &#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// this is setData callback</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  customData: &#123;</span><br><span class="line">    hi: <span class="string">'MINA'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="04-基础入门"><a href="#04-基础入门" class="headerlink" title="04.基础入门"></a>04.基础入门</h3><h4 id="页面路由"><a href="#页面路由" class="headerlink" title="页面路由"></a>页面路由</h4><p>在小程序中所有页面的路由全部由框架进行管理。</p>
+<p>主要了解的概念：</p>
+<ul>
+<li>页面栈</li>
+<li>getCurrentPages()</li>
+<li>路由方式：</li>
+</ul>
+<p><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/route.html" target="_blank" rel="noopener">页面路由官网资料</a><br><a href="https://github.com/taoqianbao/tqb-miniapp-guide-route" target="_blank" rel="noopener">页面路由示例代码下载</a><br><img src="/imgs/miniapp/miniapp-route-demo.png" alt="示例图"></p>
+<p>Tips:</p>
+<ul>
+<li>navigateTo, redirectTo 只能打开非 tabBar 页面。</li>
+<li>switchTab 只能打开 tabBar 页面。</li>
+<li>reLaunch 可以打开任意页面。</li>
+<li>页面底部的 tabBar 由页面决定，即只要是定义为 tabBar 的页面，底部都有 tabBar。</li>
+<li>调用页面路由带的参数可以在目标页面的onLoad中获取。</li>
+</ul>
+<hr>
+<h4 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h4><hr>
+<h3 id="05-开发调试"><a href="#05-开发调试" class="headerlink" title="05.开发调试"></a>05.开发调试</h3><p>如何调试小程序，在开发过程中至关重要，下面图就是：</p>
+<p>主要有三种调试工具：</p>
+<ol>
+<li><p>小程序开发工具<br><img src="/imgs/miniapp/miniapp-debug1.png" alt="小程序开发工具调试窗口"></p>
+</li>
+<li><p>手机端调试窗口：<br><img src="/imgs/miniapp/miniapp-debug2.jpeg" alt="小程序开发工具调试窗口"><br><img src="/imgs/miniapp/miniapp-debug3.jpeg" alt="小程序开发工具调试窗口"><br><img src="/imgs/miniapp/miniapp-debug4.jpeg" alt="小程序开发工具调试窗口"></p>
+</li>
+<li><p>抓包工具 charles等 </p>
+</li>
+</ol>
+<hr>
+<h3 id="06-学习资料"><a href="#06-学习资料" class="headerlink" title="06.学习资料"></a>06.学习资料</h3><p><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/" target="_blank" rel="noopener">官方开发文档</a></p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/route.html" target="_blank" rel="noopener">页面路由官网资料</a></li>
+</ul>
+<p>学习资料</p>
+<ul>
+<li><a href="http://www.cnblogs.com/xugang/archive/2010/09/24/1833760.html" target="_blank" rel="noopener">样式优选级</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="noopener">flex布局语法</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">flex布局实战</a></li>
+</ul>
+<p><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html" target="_blank" rel="noopener">开发者工具</a></p>
+<p>示例代码</p>
+<ul>
+<li><a href="https://github.com/taoqianbao/tqb-miniapp-guide-route" target="_blank" rel="noopener">页面路由示例代码下载</a></li>
+<li><a href="https://github.com/taoqianbao/tqb-miniapp-flex" target="_blank" rel="noopener">页面布局示例代码下载</a></li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>到此，您对项目还有哪些问题吗？</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>
+
+      
+
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://taoqianbao.github.io/2018/02/08/miniapp/how-to-study/" data-id="cjddupuu3002o5se3n0hesivq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/02/javascript/javascript-concepts/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">必须知道的javascript概念题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ITPMP/">ITPMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TechManage/">TechManage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/">WEB</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5/">h5</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lesson/">lesson</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/links/">links</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/macos/">macos</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AMD/">AMD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARIA/">ARIA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMD/">CMD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ITPMP/">ITPMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOJ/">OOJ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/">WEB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apply/">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/call/">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/">commonjs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concepts/">concepts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/defer/">defer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dialog/">dialog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eventloop/">eventloop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/">frontend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/h5/">h5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/">interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lesson/">lesson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lifecycle/">lifecycle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/media/">media</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/news/">news</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/">package</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/path/">path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance/">performance</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pg/">pg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugins/">plugins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/preload/">preload</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snippet/">snippet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sticky/">sticky</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport/">viewport</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/worker/">worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码段/">代码段</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/优化/">优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/备份/">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能/">性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理想/">理想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略/">策略</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题/">问题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/题目/">题目</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/AMD/" style="font-size: 11.43px;">AMD</a> <a href="/tags/ARIA/" style="font-size: 10px;">ARIA</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/CMD/" style="font-size: 11.43px;">CMD</a> <a href="/tags/CSS/" style="font-size: 11.43px;">CSS</a> <a href="/tags/ES6/" style="font-size: 11.43px;">ES6</a> <a href="/tags/H5/" style="font-size: 14.29px;">H5</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/ITPMP/" style="font-size: 10px;">ITPMP</a> <a href="/tags/JS/" style="font-size: 15.71px;">JS</a> <a href="/tags/Javascript/" style="font-size: 18.57px;">Javascript</a> <a href="/tags/OOJ/" style="font-size: 12.86px;">OOJ</a> <a href="/tags/OOP/" style="font-size: 12.86px;">OOP</a> <a href="/tags/WEB/" style="font-size: 12.86px;">WEB</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/commonjs/" style="font-size: 11.43px;">commonjs</a> <a href="/tags/concepts/" style="font-size: 10px;">concepts</a> <a href="/tags/css/" style="font-size: 12.86px;">css</a> <a href="/tags/defer/" style="font-size: 10px;">defer</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/eventloop/" style="font-size: 10px;">eventloop</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/h5/" style="font-size: 12.86px;">h5</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/js/" style="font-size: 11.43px;">js</a> <a href="/tags/lesson/" style="font-size: 10px;">lesson</a> <a href="/tags/lifecycle/" style="font-size: 11.43px;">lifecycle</a> <a href="/tags/macos/" style="font-size: 10px;">macos</a> <a href="/tags/media/" style="font-size: 11.43px;">media</a> <a href="/tags/news/" style="font-size: 10px;">news</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/performance/" style="font-size: 11.43px;">performance</a> <a href="/tags/pg/" style="font-size: 10px;">pg</a> <a href="/tags/plugins/" style="font-size: 10px;">plugins</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/preload/" style="font-size: 10px;">preload</a> <a href="/tags/project/" style="font-size: 10px;">project</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/snippet/" style="font-size: 10px;">snippet</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sticky/" style="font-size: 10px;">sticky</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/web/" style="font-size: 17.14px;">web</a> <a href="/tags/worker/" style="font-size: 10px;">worker</a> <a href="/tags/代码段/" style="font-size: 10px;">代码段</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/备份/" style="font-size: 10px;">备份</a> <a href="/tags/小程序/" style="font-size: 10px;">小程序</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/理想/" style="font-size: 10px;">理想</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a> <a href="/tags/面试/" style="font-size: 14.29px;">面试</a> <a href="/tags/题目/" style="font-size: 12.86px;">题目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12/">December 2006</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/08/miniapp/how-to-study/">小程序开发之入门基础知识</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/02/javascript/javascript-concepts/">必须知道的javascript概念题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/18/h5/links-fe/">前端技术文章导航整理</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/17/h5/aria-role/">HTML5 ARIA role</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/11/sql/postgresql-one/">postgresql安装环境</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Peter Zhu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/about" class="mobile-nav-link">About Me</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/taoqianbao" class="mobile-nav-link">GITHUB(@me)</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
