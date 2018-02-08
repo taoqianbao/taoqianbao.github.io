@@ -16,18 +16,17 @@ categories: 小程序
 
 - [前言](#前言)
 - [正文](#正文)
-    - [01.环境搭建](#01环境搭建)
-    - [02.项目配置](#02项目配置)
-        - [JSON配置](#json配置)
-        - [WXML模版](#wxml模版)
-        - [WXSS样式](#wxss样式)
-        - [JS逻辑交互](#js逻辑交互)
-    - [03.框架介绍](#03框架介绍)
-    - [04.基础入门](#04基础入门)
-        - [页面路由](#页面路由)
-        - [数据绑定](#数据绑定)
-    - [05.开发调试](#05开发调试)
-    - [06.学习资料](#06学习资料)
+    - [01. 小程序之入门篇](#01-小程序之入门篇)
+    - [02. 小程序之目录结构](#02-小程序之目录结构)
+    - [03. 小程序之生命周期](#03-小程序之生命周期)
+    - [04. 小程序之数据绑定](#04-小程序之数据绑定)
+    - [05. 小程序之触控事件](#05-小程序之触控事件)
+    - [06. 小程序之基础组件篇——视图容器](#06-小程序之基础组件篇视图容器)
+    - [07. 小程序之基础组件篇——基础内容](#07-小程序之基础组件篇基础内容)
+    - [08. 小程序之基础组件篇——表单组件](#08-小程序之基础组件篇表单组件)
+    - [09. 小程序之基础组件篇——导航组件](#09-小程序之基础组件篇导航组件)
+    - [10. 小程序之拓展篇——调试工具](#10-小程序之拓展篇调试工具)
+    - [11. 小程序之拓展篇——weui-wxss](#11-小程序之拓展篇weui-wxss)
 - [小结](#小结)
 - [关于作者](#关于作者)
 
@@ -40,10 +39,14 @@ categories: 小程序
 
 心急吃不了豆腐，但是，还是先尝试Hello World开发吧。
 
-### 01.环境搭建
+
+### 01. 小程序之入门篇
+
+*** 环境搭建 ***
 首先跳入[简易教程](https://mp.weixin.qq.com/debug/wxadoc/dev/index.html)，根据向导走一遍流程，我们通过开发者工具快速创建了一个 QuickStart 项目，这里完全靠官方文档走一遍，是不是很轻松？
 
-### 02.项目配置
+
+*** 项目配置 ***
 接下来，我们讲一讲小程序的代码构成要素： [官方资料](https://mp.weixin.qq.com/debug/wxadoc/dev/quickstart/basic/file.html)
 
 ![配置文件图](/imgs/miniapp/miniapp-fileintro.png)
@@ -53,71 +56,35 @@ categories: 小程序
 - WXSS样式
 - JS逻辑交互
 
-#### JSON配置
-这里主要有 app.json, project.config.json, pageXXXXX.json。
+*** JSON配置 ***
+这里主要有 
+- app.json
+- project.config.json
+- page.json
 
 *** app.json *** 是对当前小程序的全局配置，包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 等。
 其他配置项细节可以参考文档 [小程序的配置 app.json](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html)
 
 ![app.json配置项列表](/imgs/miniapp/miniapp-app-config.png)
 
-
 *** 工具配置 project.config.json *** 其他配置项细节可以参考文档 [开发者工具的配置](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/edit.html#%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 
 *** 页面配置 page.json *** 其他配置项细节可以参考文档 [小程序的配置 page.json](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html)
 
-
-#### WXML模版
-WXML(WeiXin Markup Language), [语法介绍](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/)
-
-视图层
-
-- 数据绑定
-- 条件渲染
-- 列表渲染
-- 事件
-
-
-
-#### WXSS样式
-
-小程序布局
-
-*** 样式的优先级 ***
-选择器的优先权:（外部样式）External style sheet <（内部样式）Internal style sheet <（内联样式）Inline style
-
-计算规则：
-1.  内联样式表的权值最高 1000
-2.  ID 选择器的权值为 100
-3.  Class 类选择器的权值为 10
-4.  HTML 标签选择器的权值为 1
-
-Tips:
-CSS 优先级法则:
-    A  选择器都有一个权值，权值越大越优先；
-    B  当权值相等时，后出现的样式表设置要优于先出现的样式表设置；
-    C  创作者的规则高于浏览者：即网页编写者设置的CSS 样式的优先权高于浏览器所设置的样式；
-    D  继承的CSS 样式不如后来指定的CSS 样式；
-    E  在同一组属性设置中标有“!important”规则的优先级最大
-
-**************************
-
-*** Flex布局 ***
-
-
-
-#### JS逻辑交互
-主要是页面交互事件的处理
-
 *****************************
 
-### 03.框架介绍
+### 02. 小程序之目录结构
+
 框架提供了自己的视图层描述语言 WXML 和 WXSS，以及基于 JavaScript 的逻辑层框架，并在视图层与逻辑层间提供了数据传输和事件系统，可以让开发者可以方便的聚焦于数据与逻辑上。
 
 MVVM
 ![MVVM](/imgs/miniapp/miniapp-mvvm1.png)
 
 *****************************
+
+
+### 03. 小程序之生命周期
+
 
 小程序生命周期
 - APP生命周期
@@ -198,9 +165,171 @@ Page({
 ```
 *****************************
 
-### 04.基础入门
 
-#### 页面路由
+
+### 04. 小程序之数据绑定
+*****************************
+
+数据传值
+
+- 页面内
+- 页面与页面之间
+- 父组件与子组件之间
+- 
+
+
+*****************************
+
+![视图驱动视图更新](/imgs/miniapp/miniapp-mvvm2.png)
+
+简单的讲，对象状态化，只要对象状态发送变化，就通知页面更新视图元素。 通过以下三个步骤实现：
+
+- 识别哪个UI元素被绑定了相应的对象。
+- 监视对象状态的变化。
+- 将所有变化传播到绑定的视图上。
+
+  注意数据流向是单向的，即视图变化不会影响对象状态。
+
+以下将展示小程序提供的更加多元化的复杂的数据绑定方式。
+``` JS
+index.wxml
+<!--数据绑定--内容-->
+<view>{{message}}</view>
+
+<!--数据绑定--组件属性-->
+<view id="item-{{id}}">组件属性id-{{id}}</view>
+
+<!--数据绑定---控制属性-->
+<view wx:if="{{condition}}">控制属性{{condition}}</view>
+
+<!--数据绑定---三元运算-->
+<view hidden="{{flag ? true : false}}">Hidden--{{flag}}</view>
+
+<!--数据绑定---算数运算-->
+<view>{{a + b}} + {{c}} + d</view>
+
+<!--数据绑定---逻辑判断-->
+<view wx:if="{{length > 5}}">6</view>
+
+<!--数据绑定---字符串运算-->
+<view>{{"Hello  " + name}}</view>
+
+<!--数据绑定---数组组合-->
+<view wx:for="{{[zero, 1, 2, 3, 4, 5, 6]}}">{{item}}</view>
+
+<!--数据绑定---对象-->
+<!--最终组合成的对象是{for: 1, bar: 2}-->
+<template is="objectCombine" data="{{for: x, bar: y}}"></template>
+
+<!--数据绑定---扩展运算符 ... 来将一个对象展开-->
+<!--最终组合成的对象是{a: 1, b: 2, c: 3, d: 4, e: 5}-->
+<template is="objectCombine" data="{{...obj1, ...obj2, e: 5}}"></template>
+
+<!--数据绑定---对象的 key 和 value 相同-->
+<!--最终组合成的对象是{foo: 'my-foo', bar:'my-bar'}-->
+<template is="objectCombine" data="{{foo, bar}}"></template>
+```
+
+对应的逻辑层代码如下:
+
+``` JS
+index.js
+Page({
+  data:{
+    //内容
+    message:'Hello MINA!',
+
+    //组件属性
+    id: 0,
+
+    //控制属性
+    condition: true,
+
+    //三元运算
+    flag:false,
+
+    //算数运算
+    a: 1,
+    b: 2,
+    c: 3,
+
+    //逻辑判断
+    length: 6,
+
+    //字符串运算
+    name: 'MINA',
+
+    //数组组合
+    zero: 0,
+
+    //对象
+    x: 0,
+    y: 1,
+
+    //对象展开
+    obj1: {
+        a: 1,
+        b: 2
+    },
+    obj2: {
+        c: 3,
+        d: 4
+    },
+    e: 5,
+
+    //对象key和value相同
+    foo: 'my-foo',
+    bar: 'my-bar'
+  },
+})
+```
+
+所以视图上的数据都必须用过事件传递给对象，只有用户操作视图，才能获取到数据，并更新对象状态。调用this.setData（）方法实现视图的部分渲染。如下图：
+![视图-对象](/imgs/miniapp/miniapp-view-object.png)
+
+### 05. 小程序之触控事件
+主要是页面交互事件的处理
+
+### 06. 小程序之基础组件篇——视图容器
+
+*** WXML模版 ***
+WXML(WeiXin Markup Language), [语法介绍](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/)
+
+视图层
+- 数据绑定
+- 条件渲染
+- 列表渲染
+- 事件
+
+*** WXSS样式 ***
+小程序布局
+
+*** 样式的优先级 ***
+选择器的优先权:（外部样式）External style sheet <（内部样式）Internal style sheet <（内联样式）Inline style
+
+计算规则：
+1.  内联样式表的权值最高 1000
+2.  ID 选择器的权值为 100
+3.  Class 类选择器的权值为 10
+4.  HTML 标签选择器的权值为 1
+
+Tips:
+CSS 优先级法则:
+    A  选择器都有一个权值，权值越大越优先；
+    B  当权值相等时，后出现的样式表设置要优于先出现的样式表设置；
+    C  创作者的规则高于浏览者：即网页编写者设置的CSS 样式的优先权高于浏览器所设置的样式；
+    D  继承的CSS 样式不如后来指定的CSS 样式；
+    E  在同一组属性设置中标有“!important”规则的优先级最大
+
+**************************
+
+*** Flex布局 ***
+
+
+### 07. 小程序之基础组件篇——基础内容
+### 08. 小程序之基础组件篇——表单组件
+### 09. 小程序之基础组件篇——导航组件
+页面路由
 在小程序中所有页面的路由全部由框架进行管理。
 
 主要了解的概念：
@@ -219,16 +348,8 @@ Tips:
 - 页面底部的 tabBar 由页面决定，即只要是定义为 tabBar 的页面，底部都有 tabBar。
 - 调用页面路由带的参数可以在目标页面的onLoad中获取。
 
-*****************************
 
-#### 数据绑定
-
-
-*****************************
-
-
-
-### 05.开发调试
+### 10. 小程序之拓展篇——调试工具
 如何调试小程序，在开发过程中至关重要，下面图就是：
 
 主要有三种调试工具：
@@ -243,8 +364,18 @@ Tips:
 3. 抓包工具 charles等 
 
 *****************************
+### 11. 小程序之拓展篇——weui-wxss
+[样式框架](https://github.com/Tencent/weui-wxss)
 
-### 06.学习资料
+
+*****************************
+
+
+## 小结
+到此，您对项目还有哪些问题吗？
+
+以下是整理的资源:
+
 [官方开发文档](https://mp.weixin.qq.com/debug/wxadoc/dev/)
  - [页面路由官网资料](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/route.html)
 
@@ -260,9 +391,6 @@ Tips:
 示例代码
  - [页面路由示例代码下载](https://github.com/taoqianbao/tqb-miniapp-guide-route)
  - [页面布局示例代码下载](https://github.com/taoqianbao/tqb-miniapp-flex)
-
-## 小结
-到此，您对项目还有哪些问题吗？
 
 ## 关于作者
 ** 珠峰
