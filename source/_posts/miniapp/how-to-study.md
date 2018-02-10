@@ -25,8 +25,9 @@ categories: 小程序
     - [07. 小程序之基础组件篇之基础内容](#07-小程序之基础组件篇之基础内容)
     - [08. 小程序之基础组件篇之表单组件](#08-小程序之基础组件篇之表单组件)
     - [09. 小程序之基础组件篇之导航组件](#09-小程序之基础组件篇之导航组件)
-    - [10. 小程序之拓展篇之调试工具](#10-小程序之拓展篇之调试工具)
-    - [11. 小程序之拓展篇之样式库weui-wxss](#11-小程序之拓展篇之样式库weui-wxss)
+    - [10. 小程序之其它组件](#10-小程序之其它组件)
+    - [11. 小程序之拓展篇之调试工具](#11-小程序之拓展篇之调试工具)
+    - [12. 小程序之拓展篇之样式库weui-wxss](#12-小程序之拓展篇之样式库weui-wxss)
 - [小结](#小结)
 - [关于作者](#关于作者)
 
@@ -51,11 +52,6 @@ categories: 小程序
 
 ![配置文件图](/imgs/miniapp/miniapp-fileintro.png)
 
-- JSON配置
-- WXML模版
-- WXSS样式
-- JS逻辑交互
-
 *** JSON配置 ***
 这里主要有 
 - app.json
@@ -77,6 +73,11 @@ categories: 小程序
 
 框架提供了自己的视图层描述语言 WXML 和 WXSS，以及基于 JavaScript 的逻辑层框架，并在视图层与逻辑层间提供了数据传输和事件系统，可以让开发者可以方便的聚焦于数据与逻辑上。
 
+- JSON配置
+- WXML模版
+- WXSS样式
+- JS逻辑交互
+
 MVVM
 ![MVVM](/imgs/miniapp/miniapp-mvvm1.png)
 
@@ -85,12 +86,11 @@ MVVM
 
 ### 03. 小程序之生命周期
 
-
 小程序生命周期
 - APP生命周期
 - 页面生命周期
 *****************************
-APP生命周期示例
+*** APP生命周期示例 ***
 
 ``` JS 
 App({
@@ -110,7 +110,7 @@ App({
 })
 ```
 *****************************
-页面生命周期示例
+*** 页面生命周期示例 ***
 
 ``` JS
 //index.js  
@@ -165,18 +165,13 @@ Page({
 ```
 *****************************
 
-
-
 ### 04. 小程序之数据绑定
-*****************************
 
-数据传值
+*** 数据传值 ***
 
 - 页面内
 - 页面与页面之间
 - 父组件与子组件之间
-- 
-
 
 *****************************
 
@@ -238,34 +233,25 @@ Page({
   data:{
     //内容
     message:'Hello MINA!',
-
     //组件属性
     id: 0,
-
     //控制属性
     condition: true,
-
     //三元运算
     flag:false,
-
     //算数运算
     a: 1,
     b: 2,
     c: 3,
-
     //逻辑判断
     length: 6,
-
     //字符串运算
     name: 'MINA',
-
     //数组组合
     zero: 0,
-
     //对象
     x: 0,
     y: 1,
-
     //对象展开
     obj1: {
         a: 1,
@@ -276,7 +262,6 @@ Page({
         d: 4
     },
     e: 5,
-
     //对象key和value相同
     foo: 'my-foo',
     bar: 'my-bar'
@@ -289,8 +274,18 @@ Page({
 
 ### 05. 小程序之触控事件
 主要是页面交互事件的处理
+[官方文档](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/event.html)
 
 ### 06. 小程序之基础组件篇之视图容器
+
+视图容器组件主要有：
+- view
+- scroll-view
+- swiper
+- movable-view
+- cover-view
+
+[官方文档之视图容器](https://mp.weixin.qq.com/debug/wxadoc/dev/component/view.html)
 
 *** WXML模版 ***
 WXML(WeiXin Markup Language), [语法介绍](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/)
@@ -304,8 +299,19 @@ WXML(WeiXin Markup Language), [语法介绍](https://mp.weixin.qq.com/debug/wxad
 *** WXSS样式 ***
 小程序布局
 
-*** 样式的优先级 ***
-选择器的优先权:（外部样式）External style sheet <（内部样式）Internal style sheet <（内联样式）Inline style
+*** CSS盒子布局 ***
+布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。
+它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+
+![css盒子模型](/imgs/css/css-box.png)
+
+*** 弹性盒子Flex布局 ***
+Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 
+[Flex布局示例](https://github.com/taoqianbao/tqb-miniapp-flex)
+
+*** Tips:CSS样式的优先级 ***
+选择器的优先权:
+（外部样式）External style sheet <（内部样式）Internal style sheet <（内联样式）Inline style
 
 计算规则：
 1.  内联样式表的权值最高 1000
@@ -323,12 +329,20 @@ CSS 优先级法则:
 
 **************************
 
-*** Flex布局 ***
-
 
 ### 07. 小程序之基础组件篇之基础内容
+基础组件：icon,text,rich-text,progress
+[官方文档之基础内容篇](https://mp.weixin.qq.com/debug/wxadoc/dev/component/icon.html)
+
 ### 08. 小程序之基础组件篇之表单组件
+表单组件：button,checkbox,form,input,label,picker,picker-view,radio,slider,switch,textarea
+[官方文档之表单组件篇](https://mp.weixin.qq.com/debug/wxadoc/dev/component/button.html)
+
 ### 09. 小程序之基础组件篇之导航组件
+[官方文档之页面导航](https://mp.weixin.qq.com/debug/wxadoc/dev/component/navigator.html)
+
+[官方文档之页面路由](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/route.html)
+
 页面路由
 在小程序中所有页面的路由全部由框架进行管理。
 
@@ -337,7 +351,6 @@ CSS 优先级法则:
 - getCurrentPages()
 - 路由方式：
 
-[页面路由官网资料](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/route.html)
 [页面路由示例代码下载](https://github.com/taoqianbao/tqb-miniapp-guide-route)
 ![示例图](/imgs/miniapp/miniapp-route-demo.png)
 
@@ -349,7 +362,11 @@ Tips:
 - 调用页面路由带的参数可以在目标页面的onLoad中获取。
 
 
-### 10. 小程序之拓展篇之调试工具
+### 10. 小程序之其它组件
+主要有：媒体组件、地图、画布、其它开放能力
+
+
+### 11. 小程序之拓展篇之调试工具
 如何调试小程序，在开发过程中至关重要，下面图就是：
 
 主要有三种调试工具：
@@ -364,7 +381,7 @@ Tips:
 3. 抓包工具 charles等 
 
 *****************************
-### 11. 小程序之拓展篇之样式库weui-wxss
+### 12. 小程序之拓展篇之样式库weui-wxss
 [样式框架](https://github.com/Tencent/weui-wxss)
 
 
