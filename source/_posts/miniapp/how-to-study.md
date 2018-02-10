@@ -351,7 +351,7 @@ CSS 优先级法则:
 - getCurrentPages()
 - 路由方式：
 
-[页面路由示例代码下载](https://github.com/taoqianbao/tqb-miniapp-guide-route)
+[页面路由示例代码下载](https://github.com/taoqianbao/tqb-miniapp-guide)
 ![示例图](/imgs/miniapp/miniapp-route-demo.png)
 
 Tips:
@@ -406,7 +406,7 @@ Tips:
 [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
 
 示例代码
- - [页面路由示例代码下载](https://github.com/taoqianbao/tqb-miniapp-guide-route)
+ - [页面路由示例代码下载](https://github.com/taoqianbao/tqb-miniapp-guide)
  - [页面布局示例代码下载](https://github.com/taoqianbao/tqb-miniapp-flex)
 
 ## 关于作者
