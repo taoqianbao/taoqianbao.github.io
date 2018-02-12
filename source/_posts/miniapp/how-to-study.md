@@ -296,18 +296,47 @@ WXML(WeiXin Markup Language), [语法介绍](https://mp.weixin.qq.com/debug/wxad
 - 列表渲染
 - 事件
 
+**********************
+
 *** WXSS样式 ***
-小程序布局
 
-*** CSS盒子布局 ***
-布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。
-它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+- 1、尺寸单位
+- 2、样式引入
+- 3、选择器
+- 4、小程序布局
 
-![css盒子模型](/imgs/css/css-box.png)
+*** 1、尺寸单位 ***
+WXSS支持的单位有px、rem和rpx，其中rem和rpx可以针对屏幕容器进行适配，px则为固定尺寸。
+其中1rpx=0.5px，在WXSS和WXML中定义的rpx单位最终会转换为在手机端可以识别的rem单位。
 
-*** 弹性盒子Flex布局 ***
-Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 
-[Flex布局示例](https://github.com/taoqianbao/tqb-miniapp-flex)
+建议：开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。
+
+所以工程师拿到750的设计稿，在PS中量取的容器大小，可以直接定义为rpx，不需要进行2倍尺寸的换算。
+
+``` JS
+view {
+  font-size:26rpx;
+  width:400rpx;
+  height:400rpx;
+}
+```
+
+  备注：rpx的单位不光在样式中会自适应，写在WXML的style里也会根据屏幕自适应。
+
+*** 2、样式引入 ***
+看到很多文章说小程序不支持样式的@import，其实官方公布的第一个正式开发者工具就已经支持了。
+
+``` JS
+import "../wxss/common.wxss";
+```
+
+*** 3、选择器 ***
+
+小程序支持的选择器在官方公布的文档中包括:
+.class、#id、 element、element,element、::after(注意是双冒号)、::before 这6种选择器。
+经过测试，小程序对于:first-child、:last-child、.class-a .class-b{}，甚至更多层级的嵌套都是支持的。
+不过官方并不推荐级联的这种写法，因为考虑到后面切Native的扩展可能，会没办法支持级联选择。
+所以保险起见，不建议.class-a .class-b{}这种级联的写法，以免后期工具过滤导致页面错乱。
 
 *** Tips:CSS样式的优先级 ***
 选择器的优先权:
@@ -326,6 +355,25 @@ CSS 优先级法则:
     C  创作者的规则高于浏览者：即网页编写者设置的CSS 样式的优先权高于浏览器所设置的样式；
     D  继承的CSS 样式不如后来指定的CSS 样式；
     E  在同一组属性设置中标有“!important”规则的优先级最大
+
+**********************
+*** 4、小程序布局 ***
+
+*** CSS盒子布局 ***
+布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。
+它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+
+![css盒子模型](/imgs/css/css-box.png)
+
+*** 弹性盒子Flex布局 ***
+Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 
+[Flex布局示例](https://github.com/taoqianbao/tqb-miniapp-flex)
+
+*** 5、注意点 ***
+- WXSS中是不能引入本地资源的, 只能使用线上资源（模拟器是可以，但是别信），可以使用base64。
+- app.wxss 和每个 page 的wxss 的覆盖关系是: 如果有同名 rule 的话，page 会覆盖 app 的，不是merge是覆盖
+- WXSS的 rule 是不支持集联的。(兼容考虑)
+
 
 **************************
 
@@ -368,6 +416,7 @@ Tips:
 
 ### 11. 小程序之拓展篇之调试工具
 如何调试小程序，在开发过程中至关重要，下面图就是：
+[官方文档调试篇](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/debug.html)
 
 主要有三种调试工具：
 1. 小程序开发工具
@@ -394,20 +443,22 @@ Tips:
 以下是整理的资源:
 
 [官方开发文档](https://mp.weixin.qq.com/debug/wxadoc/dev/)
- - [页面路由官网资料](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/route.html)
-
+- [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
+- [页面路由官网资料](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/route.html)
+- [官方文档调试篇](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/debug.html)
 
 学习资料
- - [样式优选级](http://www.cnblogs.com/xugang/archive/2010/09/24/1833760.html)
- - [flex布局语法](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool)
- - [flex布局实战](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
-
-
-[开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
+- [样式优选级](http://www.cnblogs.com/xugang/archive/2010/09/24/1833760.html)
+- [flex布局语法](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool)
+- [flex布局实战](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
 
 示例代码
- - [页面路由示例代码下载](https://github.com/taoqianbao/tqb-miniapp-guide)
- - [页面布局示例代码下载](https://github.com/taoqianbao/tqb-miniapp-flex)
+- [页面路由示例代码下载](https://github.com/taoqianbao/tqb-miniapp-guide)
+- [页面布局示例代码下载](https://github.com/taoqianbao/tqb-miniapp-flex)
+
+前端基础
+- [CSS样式](http://www.w3school.com.cn/cssref/index.asp)
+- [CSS](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)
 
 ## 关于作者
 ** 珠峰
