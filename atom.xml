@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://taoqianbao.github.io/"/>
-  <updated>2018-02-12T06:37:39.000Z</updated>
+  <updated>2018-03-06T07:23:13.000Z</updated>
   <id>http://taoqianbao.github.io/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>教你如何在Git Commit时输出漂亮的文档</title>
+    <link href="http://taoqianbao.github.io/2018/03/06/git/git-cz/"/>
+    <id>http://taoqianbao.github.io/2018/03/06/git/git-cz/</id>
+    <published>2018-03-06T07:18:16.000Z</published>
+    <updated>2018-03-06T07:23:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不知道大家有没有观察过那些在Github上Star数位居前列的项目，它们无一例外的都拥有完善的文档体系和高覆盖的测试用例。要做到完善没有规范肯定是不行的，代码要有代码的规范，协作要有协作的规范。我们今天要说的主题就是关于Git中记录Commit Message的参考规范。</p><!-- TOC --><ul><li><a href="#前言">前言</a></li><li><a href="#正文">正文</a><ul><li><a href="#commit规范">Commit规范</a></li><li><a href="#commit-message-格式">Commit Message 格式</a></li><li><a href="#实践利器">实践利器</a></li></ul></li><li><a href="#小结">小结</a></li><li><a href="#关于作者">关于作者</a></li></ul><!-- /TOC --><a id="more"></a><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Commit规范"><a href="#Commit规范" class="headerlink" title="Commit规范"></a>Commit规范</h3><p>顺着思路，这一步应该给方案了，方案就是上图AngularJS项目中用到的Git Commit Guidelines。</p><h3 id="Commit-Message-格式"><a href="#Commit-Message-格式" class="headerlink" title="Commit Message 格式"></a>Commit Message 格式</h3><p><type>(<scope>): <subject><br>&lt;空行&gt;</subject></scope></type></p><p><body><br>&lt;空行&gt;</body></p><footer><p>上面是一次Commit后Message格式规范，分成标题，内容详情，结尾三个部分，各有各的用处，没有多余项。</p><p>头部即首行，是可以直接在页面中预览的部分，入上面图中所示，一共有三个部分<type>，<scope>，<subject>，含义分别如下</subject></scope></type></p><p><strong><em> Type: </em></strong></p><ul><li>feat：新功能（feature）</li><li>fix：修补bug</li><li>docs：文档（documentation）</li><li>style： 格式（不影响代码运行的变动）</li><li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li><li>test：增加测试</li><li>chore：构建过程或辅助工具的变动</li><li>Scope</li></ul><p>用来说明本次Commit影响的范围，即简要说明修改会涉及的部分。这个本来是选填项，但从AngularJS实际项目中可以看出基本上也成了必填项了。</p><p><strong><em> Subject </em></strong></p><p>用来简要描述本次改动，概述就好了，因为后面还会在Body里给出具体信息。并且最好遵循下面三条:</p><p>以动词开头，使用第一人称现在时，比如change，而不是changed或changes</p><p>首字母不要大写</p><p>结尾不用句号(.)</p><p><strong><em> Body </em></strong></p><p><body>里的内容是对上面subject里内容的展开，在此做更加详尽的描述，内容里应该包含修改动机和修改前后的对比。</body></p><p><strong><em> Footer </em></strong><br>footer里的主要放置不兼容变更和Issue关闭的信息</p><p><strong><em> Revert </em></strong></p><p>此外如果需要撤销之前的Commit，那么本次Commit Message中必须以revert：开头，后面紧跟前面描述的Header部分，格式不变。并且，Body部分的格式也是固定的，必须要记录撤销前Commit的SHA值。</p><h3 id="实践利器"><a href="#实践利器" class="headerlink" title="实践利器"></a>实践利器</h3><p>上面就是AngularJS目前的Commit规范，相信第一次接触的话不免会有些头大，这时如果有什么能Step by Step的提醒或者可视化的演示就好了。OK，你来对地儿了，现在就来说说如何把规范变为可执行的具体步骤！</p><p><strong><em> 安装利器Commitiz </em></strong> </p><p>为了让我们能把这些规范应用到实际使用中，我们要借助于Commitizen这个Node工具，它会在我们Commit的过程中更具规范的内容来引导我们如何一步一步实施规范。当然，规范这种东西就没有唯一的，各家有各家的不同，这一点当然也被该工具想到了，你也可以自定义一份自己的规范，以插件的形式让Commitizen来根据自家规范提醒你。</p><p><strong><em> 安装 </em></strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g commitizen</span><br></pre></td></tr></table></figure></p><p><strong><em> 配置 </em></strong> </p><p>上一步我们在全局范围内安装了commitizen，之后我们就可以在Git仓库中配置我们的Commit规范了。打开项目执行如下命令:</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commitizen init cz-conventional-changelog --save --save-exact</span><br></pre></td></tr></table></figure><p>上面的cz-conventional-changelog就是AngularJS的规范，其它的规范你可以自行到官网上找找看，不行就自己花时间拟定一份吧。此命令帮你完成了下载cz-conventional-changelog规范，配置package.json(添加依赖和配置应用规范)，想看具体改动打开package.json即可。</p><p><strong><em> 使用 </em></strong> </p><p>至此就算完整的安装完了，之后在需要git commit的地方更换成git cz指令即可呼出Commit的交互界面，来step by step的提醒你上面规范的各处该怎么填，是在不明在自己建一个项目练习几次就好了。顺手贴张动图，没看到文末的同学可惜了。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p></footer>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;不知道大家有没有观察过那些在Github上Star数位居前列的项目，它们无一例外的都拥有完善的文档体系和高覆盖的测试用例。要做到完善没有规范肯定是不行的，代码要有代码的规范，协作要有协作的规范。我们今天要说的主题就是关于Git中记录Commit Message的参考规范。&lt;/p&gt;
+&lt;!-- TOC --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#前言&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#正文&quot;&gt;正文&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#commit规范&quot;&gt;Commit规范&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#commit-message-格式&quot;&gt;Commit Message 格式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#实践利器&quot;&gt;实践利器&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#小结&quot;&gt;小结&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#关于作者&quot;&gt;关于作者&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- /TOC --&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="http://taoqianbao.github.io/categories/git/"/>
+    
+    
+      <category term="git" scheme="http://taoqianbao.github.io/tags/git/"/>
+    
+      <category term="commit" scheme="http://taoqianbao.github.io/tags/commit/"/>
+    
+      <category term="giz-cz" scheme="http://taoqianbao.github.io/tags/giz-cz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6</title>
+    <link href="http://taoqianbao.github.io/2018/02/24/javascript/es6-start/"/>
+    <id>http://taoqianbao.github.io/2018/02/24/javascript/es6-start/</id>
+    <published>2018-02-24T09:39:43.000Z</published>
+    <updated>2018-02-24T09:43:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做项目之前，需要搭建一个舒适的开发环境。选择es6不仅是为了尝鲜，更是为了跟上潮流，强迫自己学习新语法，最大化的利用好语言的优势。</p><ol><li>最小／最方便搭建的开发环境</li><li>自动编译／打包</li><li>测试</li></ol><a id="more"></a><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>本阶段先完成第一部分，即搭建一个es6的开发环境，需要监控文件变化，自动重启。解决方案就是nodemon+babel。</p><p>nodemon和babel的介绍</p><p>nodemon是一个nodejs应用的自动监控工具，会监听文件修改，自动重启。</p><p>nodemon官网</p><p>Nodemon is a utility that will monitor for any changes in your source and automatically restart your server.<br>babel是一个javascript编译器，可以将es6或者更新的js语言版本转换成es5或者更低，从而达到语法兼容的目的。</p><p>Babel · The compiler for writing next generation JavaScript</p><p>具体搭建步骤</p><ol><li>全局安装两个必要的cli工具<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g nodemon babel-cli</span><br></pre></td></tr></table></figure></li></ol><p>其中i是install的简写。</p><ol><li>初始化package.json<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></li></ol><p>初始化完成后会得到一个package.json文件</p><ol><li>安装两个babel插件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D babel-preset-es2015 babel-preset-stage-0</span><br></pre></td></tr></table></figure></li></ol><p>-D 是 –save-dev的简写</p><p>用babel-preset-stage-0是为了支持async/await，这个是es7的语法，但是考虑到这是异步的较好解决方案，项目中会用到，因此加上了。</p><ol><li><p>写.babelrc</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"stage-0"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>添加dev script命令</p></li></ol><p>修改package.json中的scripts字段为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"nodemon --exec babel-node index.js"</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p><ol><li>创建index.js文件</li></ol><p>这里为了测试async/await，贴一段经典代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="number">123</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> testAsync = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line"><span class="keyword">const</span> t = <span class="keyword">await</span> f();</span><br><span class="line">  <span class="built_in">console</span>.log(t);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">testAsync();</span><br></pre></td></tr></table></figure></p><p>至此一个最简单的es6开发环境完成了，创建好index.js文件，运行使用以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure></p><p>输出如下图<br><img src="https://pic4.zhimg.com/v2-ee0e0dd7145e908444870a665163983e_r.jpg" alt="pic"></p><p>至此已经完成了第一部分：最小／最方便搭建的开发环境的搭建，至于后面两部分，等有需求了再升级当前环境。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;做项目之前，需要搭建一个舒适的开发环境。选择es6不仅是为了尝鲜，更是为了跟上潮流，强迫自己学习新语法，最大化的利用好语言的优势。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;最小／最方便搭建的开发环境&lt;/li&gt;
+&lt;li&gt;自动编译／打包&lt;/li&gt;
+&lt;li&gt;测试&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>全栈开发之NODEJS服务区搭建向导</title>
@@ -50,9 +112,9 @@
       <category term="web" scheme="http://taoqianbao.github.io/categories/web/"/>
     
     
-      <category term="全栈" scheme="http://taoqianbao.github.io/tags/%E5%85%A8%E6%A0%88/"/>
-    
       <category term="nodejs" scheme="http://taoqianbao.github.io/tags/nodejs/"/>
+    
+      <category term="全栈" scheme="http://taoqianbao.github.io/tags/%E5%85%A8%E6%A0%88/"/>
     
   </entry>
   
@@ -554,9 +616,9 @@
       <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
     
     
-      <category term="lifecycle" scheme="http://taoqianbao.github.io/tags/lifecycle/"/>
-    
       <category term="vue" scheme="http://taoqianbao.github.io/tags/vue/"/>
+    
+      <category term="lifecycle" scheme="http://taoqianbao.github.io/tags/lifecycle/"/>
     
   </entry>
   
@@ -587,58 +649,6 @@
       <category term="css" scheme="http://taoqianbao.github.io/tags/css/"/>
     
       <category term="javascript" scheme="http://taoqianbao.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WEB开发常见效果插件收藏整理</title>
-    <link href="http://taoqianbao.github.io/2016/11/15/javascript/plugins-one/"/>
-    <id>http://taoqianbao.github.io/2016/11/15/javascript/plugins-one/</id>
-    <published>2016-11-15T02:18:34.000Z</published>
-    <updated>2018-01-17T06:19:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>web开发中常常有轮播图等效果，常见的开源项目很多，做一个整理</p><a id="more"></a><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><h3 id="Slider-实现"><a href="#Slider-实现" class="headerlink" title="Slider 实现"></a>Slider 实现</h3><p>多页翻屏滑动的效果有很多开源的实现，当然希望尽量的简单自己实现也不是很复杂。我们选择的是百度开源的 iSlider，iSlider 是一款非常优秀的翻页滑动组件。除此之外，还有很多成熟的开源实现可选用：</p><ul><li><a href="http://www.swiper.com.cn" target="_blank" rel="noopener">swiper</a></li><li><a href="https://github.com/cubiq/iscroll" target="_blank" rel="noopener">iscroll</a></li><li><a href="https://github.com/alvarotrigo/fullPage.js/" target="_blank" rel="noopener">fullpage.js</a> </li><li><a href="https://github.com/lukehaas/Scrollify" target="_blank" rel="noopener">Scrollify</a></li><li><a href="https://github.com/peachananr/onepage-scroll" target="_blank" rel="noopener">onepage-scroll</a> </li></ul><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;web开发中常常有轮播图等效果，常见的开源项目很多，做一个整理&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://taoqianbao.github.io/categories/Javascript/"/>
-    
-    
-      <category term="web" scheme="http://taoqianbao.github.io/tags/web/"/>
-    
-      <category term="javascript" scheme="http://taoqianbao.github.io/tags/javascript/"/>
-    
-      <category term="js" scheme="http://taoqianbao.github.io/tags/js/"/>
-    
-      <category term="plugins" scheme="http://taoqianbao.github.io/tags/plugins/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技术管理之备份策略</title>
-    <link href="http://taoqianbao.github.io/2016/11/10/itm/backup/"/>
-    <id>http://taoqianbao.github.io/2016/11/10/itm/backup/</id>
-    <published>2016-11-10T14:11:20.000Z</published>
-    <updated>2018-01-10T14:17:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>备份策略指确定需备份的内容、备份时间及备份方式。</p><a id="more"></a><h3 id="一、缺乏统一的备份策略"><a href="#一、缺乏统一的备份策略" class="headerlink" title="一、缺乏统一的备份策略"></a>一、缺乏统一的备份策略</h3><h4 id="一是备份日程表。"><a href="#一是备份日程表。" class="headerlink" title="一是备份日程表。"></a>一是备份日程表。</h4><p>IT管理人员应该分析各个信息化方案(如数据库、文件服务器等等)的数据量、数据增量、备份窗口等因素，制定可行的备份日程表。在制定备份日程表的时候，需要注意两点。首先备份日程表必须以书面的形式确认下来，特别是企业信息化应用比较多的情况下。这方便后续的追踪。其次备份日程表可能需要根据实际的情况进行调整。如可能在某天对数据库中的数据进行来大规模的更新，此时就需要做一个临时的完全备份。相关的信息需要在日程表中反映出来，以利于后续的维护。最后是日程表中要反映一些特定的日期。如对于一般企业来说，会有十一、年假等长假。这些假期中由于长期没有人员，容易出现断电等问题。在这种情况下，最好能够在放假之前对数据进行一次完全备份，以备不时之需。这些因素都应该在备份日程表中反映出来，以免到时候漏掉。</p><h4 id="二是规划系统备份的时间。"><a href="#二是规划系统备份的时间。" class="headerlink" title="二是规划系统备份的时间。"></a>二是规划系统备份的时间。</h4><p>由于备份时会耗用比较多的资源，如服务器的内存、CPU资源。进行远程备份时，还会占用带宽等等。为此对于数据备份的时候也要进行合理的规划。特别是有多个系统的数据都要进行远程备份时，最好在时间上能够错开，以提高备份的效率。如可以先估计一下某个应用备份的时间，然后可以在空闲时段内进行分段备份。建议最好能够将备份的时间设置在企业下班后。此时访问系统的人员会少的多，甚至一个用户也没有。此时进行数据备份，即使耗时比较长，也不会对用户造成很大的影响。</p><h3 id="二、缺乏有效的培训"><a href="#二、缺乏有效的培训" class="headerlink" title="二、缺乏有效的培训"></a>二、缺乏有效的培训</h3><p>在灾难恢复方案的实施过程中，有些企业缺乏对项目管理人员的培训。笔者在跟企业一些的IT人员沟通的过程中，发现不少项目管理员人对于数据备份与恢复的措施一知半解。有的甚至不清楚在数据还原之前测试的重要性。由于缺乏有效的培训，会给后续的数据恢复带来很大的安全隐患。</p><h3 id="三、没有对备份的数据不定时的进行恢复测试"><a href="#三、没有对备份的数据不定时的进行恢复测试" class="headerlink" title="三、没有对备份的数据不定时的进行恢复测试"></a>三、没有对备份的数据不定时的进行恢复测试</h3><p>备份的数据是否可用呢?很多系统管理员太过于相信自己的能力，认为备份文件不会出现问题。结果呢，等到真的需要用到备份文件时，才发现备份文件损坏了，无法使用。此时以前的一些工作就都会竹篮子打水一场空了。</p><h3 id="四、忽略了硬件设备的检查"><a href="#四、忽略了硬件设备的检查" class="headerlink" title="四、忽略了硬件设备的检查"></a>四、忽略了硬件设备的检查</h3><p>有些项目管理员会犯顾此失彼的毛病。如可能非常重视数据备份文件的安全性，但是却忽略了硬件设备的问题。虽然说通常情况下，只要系统正常运行，硬件一般不会出现问题。但是当某些意外情况发生时，就可能对硬件出现损害。此时就需要着重检查一下硬件是否出现故障。<br>为了保障硬件设备工作正常，最好能够在数据备份设备上设置一些报警系统。如当备份设备如硬盘上出现坏扇区时能够自动报告给管理员，或者当存储空间快耗竭时自动报告。这些报警措施可以简化硬件设备的监督工作。<br>总之对于数据灾难恢复策略来说，备份文件、软件、硬件一样重要，缺一不可。其中任何一项出现故障时，就可能导致在遇到意外情况时无法正常恢复数据。为此这四个环节在实际工作中，项目管理员必须一一的落实下去，切不可马虎了事。</p><h3 id="常见的备份策略类型"><a href="#常见的备份策略类型" class="headerlink" title="常见的备份策略类型"></a>常见的备份策略类型</h3><p>常见的备份策略有完全备份、增量备份、差异备份三种类型。作以简单介绍：</p><h4 id="1、完全备份-Full-Backup-："><a href="#1、完全备份-Full-Backup-：" class="headerlink" title="1、完全备份(Full Backup)："></a>1、完全备份(Full Backup)：</h4><p>　　每次对数据进行完整的备份。当发生数据丢失的灾难情况时，完全备份无需依赖其他信息，即可实现100%数据恢复，其恢复时间最短且操作最方便；</p><h4 id="2、增量备份-Incremental-Backup-："><a href="#2、增量备份-Incremental-Backup-：" class="headerlink" title="2、增量备份(Incremental Backup)："></a>2、增量备份(Incremental Backup)：</h4><p>　　只有那些在上次完全备份或者增量备份后被修改了的文件才会被备份。优点是备份数据量小，需要的时间短，缺点是恢复的时候需要依赖之前的备份记录，出问题的风险较大；</p><h4 id="3、差异备份-Differential-Backup-："><a href="#3、差异备份-Differential-Backup-：" class="headerlink" title="3、差异备份(Differential Backup)："></a>3、差异备份(Differential Backup)：</h4><p>　　备份那些自从上次完全备份之后被修改过的文件。因此从差异备份中恢复数据的时间较短，因为只需要两份数据——最后一次完全备份和最后一次差异备份，缺点是每次备份需要的时间较长。</p><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;备份策略指确定需备份的内容、备份时间及备份方式。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="TechManage" scheme="http://taoqianbao.github.io/categories/TechManage/"/>
-    
-    
-      <category term="备份" scheme="http://taoqianbao.github.io/tags/%E5%A4%87%E4%BB%BD/"/>
-    
-      <category term="策略" scheme="http://taoqianbao.github.io/tags/%E7%AD%96%E7%95%A5/"/>
     
   </entry>
   

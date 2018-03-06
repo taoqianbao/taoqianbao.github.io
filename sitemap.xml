@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://taoqianbao.github.io/2018/03/06/git/git-cz/</loc>
+    
+    <lastmod>2018-03-06T07:23:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/02/27/nodejs/nodejs-index/</loc>
+    
+    <lastmod>2018-02-27T08:44:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2016/02/27/javascript/js-starter/</loc>
+    
+    <lastmod>2018-02-27T08:32:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://taoqianbao.github.io/2018/02/24/javascript/es6-start/</loc>
+    
+    <lastmod>2018-02-24T09:43:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://taoqianbao.github.io/2018/02/12/web/how-to-install-node-envs/</loc>
     
     <lastmod>2018-02-12T06:37:39.000Z</lastmod>

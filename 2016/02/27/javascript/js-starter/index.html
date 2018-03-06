@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Javascript入门指引 | 致力于拯救世界的IT农民工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言JavaScript，一种高级编程语言，通过解释执行，是一门动态类型，面向对象（基于原型）的直译语言。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、FireFox、Safari、Opera）支持。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命">
+<meta name="keywords" content="js,入门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript入门指引">
+<meta property="og:url" content="http://taoqianbao.github.io/2016/02/27/javascript/js-starter/index.html">
+<meta property="og:site_name" content="致力于拯救世界的IT农民工">
+<meta property="og:description" content="前言JavaScript，一种高级编程语言，通过解释执行，是一门动态类型，面向对象（基于原型）的直译语言。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、FireFox、Safari、Opera）支持。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命">
+<meta property="og:updated_time" content="2018-02-27T08:32:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript入门指引">
+<meta name="twitter:description" content="前言JavaScript，一种高级编程语言，通过解释执行，是一门动态类型，面向对象（基于原型）的直译语言。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、FireFox、Safari、Opera）支持。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命">
+  
+    <link rel="alternate" href="/atom.xml" title="致力于拯救世界的IT农民工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <meta name="test" value="{&#34;title&#34;:&#34;致力于拯救世界的IT农民工&#34;,&#34;subtitle&#34;:&#34;朱胜峰的网络事件&#34;,&#34;description&#34;:&#34;I love programming and I am very passionate about it. I have been coding for 10+ years now. Like C,ASP,PHP,C#,JavaScript...&#34;,&#34;author&#34;:&#34;Peter Zhu&#34;,&#34;language&#34;:null,&#34;timezone&#34;:null,&#34;url&#34;:&#34;http://taoqianbao.github.io&#34;,&#34;root&#34;:&#34;/&#34;,&#34;permalink&#34;:&#34;:year/:month/:day/:title/&#34;,&#34;permalink_defaults&#34;:null,&#34;source_dir&#34;:&#34;source&#34;,&#34;public_dir&#34;:&#34;public&#34;,&#34;tag_dir&#34;:&#34;tags&#34;,&#34;archive_dir&#34;:&#34;archives&#34;,&#34;category_dir&#34;:&#34;categories&#34;,&#34;code_dir&#34;:&#34;downloads/code&#34;,&#34;i18n_dir&#34;:&#34;:lang&#34;,&#34;skip_render&#34;:null,&#34;new_post_name&#34;:&#34;:title.md&#34;,&#34;default_layout&#34;:&#34;post&#34;,&#34;titlecase&#34;:false,&#34;external_link&#34;:true,&#34;filename_case&#34;:0,&#34;render_drafts&#34;:false,&#34;post_asset_folder&#34;:false,&#34;relative_link&#34;:false,&#34;future&#34;:true,&#34;highlight&#34;:{&#34;enable&#34;:true,&#34;auto_detect&#34;:false,&#34;line_number&#34;:true,&#34;tab_replace&#34;:null,&#34;first_line_number&#34;:&#34;always1&#34;},&#34;default_category&#34;:&#34;uncategorized&#34;,&#34;category_map&#34;:null,&#34;tag_map&#34;:null,&#34;date_format&#34;:&#34;YYYY-MM-DD&#34;,&#34;time_format&#34;:&#34;HH:mm:ss&#34;,&#34;per_page&#34;:10,&#34;pagination_dir&#34;:&#34;page&#34;,&#34;theme&#34;:&#34;landscape&#34;,&#34;deploy&#34;:{&#34;type&#34;:&#34;git&#34;,&#34;repo&#34;:&#34;https://github.com/taoqianbao/taoqianbao.github.io.git&#34;,&#34;branch&#34;:&#34;master&#34;},&#34;ignore&#34;:[],&#34;index_generator&#34;:{&#34;per_page&#34;:10,&#34;order_by&#34;:&#34;-date&#34;,&#34;path&#34;:&#34;&#34;},&#34;category_generator&#34;:{&#34;per_page&#34;:10},&#34;archive_generator&#34;:{&#34;per_page&#34;:10,&#34;yearly&#34;:true,&#34;monthly&#34;:true,&#34;daily&#34;:false},&#34;feed&#34;:{&#34;type&#34;:&#34;atom&#34;,&#34;limit&#34;:20,&#34;hub&#34;:&#34;&#34;,&#34;content&#34;:true,&#34;content_limit&#34;:140,&#34;content_limit_delim&#34;:&#34;&#34;,&#34;path&#34;:&#34;atom.xml&#34;},&#34;sitemap&#34;:{&#34;path&#34;:&#34;sitemap.xml&#34;},&#34;tag_generator&#34;:{&#34;per_page&#34;:10},&#34;marked&#34;:{&#34;gfm&#34;:true,&#34;pedantic&#34;:false,&#34;sanitize&#34;:false,&#34;tables&#34;:true,&#34;breaks&#34;:true,&#34;smartLists&#34;:true,&#34;smartypants&#34;:true,&#34;modifyAnchors&#34;:&#34;&#34;,&#34;autolink&#34;:true},&#34;server&#34;:{&#34;port&#34;:4000,&#34;log&#34;:false,&#34;ip&#34;:&#34;0.0.0.0&#34;,&#34;compress&#34;:false,&#34;header&#34;:true}}" />
+  
+    <link href="/source-code-pro/source-code-pro.css" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fcd070861fea890c12eabf775bd8e240";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner" style="display:none">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">致力于拯救世界的IT农民工</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">朱胜峰的网络事件</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/about">About Me</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/taoqianbao">GITHUB(@me)</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://taoqianbao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript/js-starter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/27/javascript/js-starter/" class="article-date">
+  <time datetime="2016-02-27T08:03:30.000Z" itemprop="datePublished">2016-02-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript入门指引
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JavaScript，一种高级编程语言，通过解释执行，是一门动态类型，面向对象（基于原型）的直译语言。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、FireFox、Safari、Opera）支持。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。它提供语法来操控文本，数组，日期以及正则表达式等，不支持I/O，比如网络，存储和图形等，但这些都可以由它的宿主a环境提供支持。</p>
+<!-- TOC -->
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#正文">正文</a><ul>
+<li><a href="#背景">背景</a></li>
+<li><a href="#前端级别思考">前端级别思考</a></li>
+<li><a href="#推荐书目">推荐书目</a></li>
+<li><a href="#在线课程">在线课程</a></li>
+<li><a href="#视频教程">视频教程</a></li>
+<li><a href="#应用推荐">应用推荐</a></li>
+<li><a href="#标准文档">标准文档</a></li>
+<li><a href="#在线资源">在线资源</a></li>
+<li><a href="#实践项目">实践项目</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+</li>
+<li><a href="#小结">小结</a></li>
+<li><a href="#关于作者">关于作者</a></li>
+</ul>
+<!-- /TOC -->
+<a id="more"></a>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>虽然JavaScript与Java这门语言不管是在名字上，或是在语法上都有很多相似性，但这两门编程语言从设计之初就有很大的不同，JavaScript的语言设计主要受到了Self（一种基于原型的编程语言）和Scheme（一门函数式编程语言）的影响[5]。在语法结构上它又与C语言有很多相似（例如if条件语句、while循环、switch语句、do-while循环等）。</p>
+<p>在客户端，JavaScript在传统意义上被实现为一种解释语言，但在最近，它已经可以被即时编译（JIT）执行。随着最新的HTML5和CSS3语言标准的推行它还可用于游戏、桌面和移动应用程序的开发和在服务器端网络环境运行，如Node.js。</p>
+<p>1995年，当时在网景公司就职的布兰登·艾克正为Netscape Navigator 2.0浏览器开发的一门名为LiveScript的脚本语言，后来网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上java这个编程语言“热词”，将其临时改名为“JavaScript”，日后这成为大众对这门语言有诸多误解的原因之一。</p>
+<p>JavaScript推出后在浏览器上大获成功，微软公司在不久后就为IE浏览器推出了JScript，以与处于市场领导地位的网景产品同台竞争。JScript也是一种JavaScript实现，这两个JavaScript语言版本在浏览器端共存意味着语言标准化的缺失，对这门语言进行标准化被提上了日程，在1997年，由网景、昇阳、微软、宝蓝等公司组织及个人组成的技术委员会在ECMA（欧洲计算机制造商协会）确定定义了一种名叫ECMAScript的新脚本语言标准，规范名为ECMA-262。JavaScript成为了ECMAScript的实现之一。</p>
+<p>完整的JavaScript实现应该包含三个部分，即ECMAScript（语言核心）、DOM（文档对象模型）、BOM（浏览器对象模型）。</p>
+<h3 id="前端级别思考"><a href="#前端级别思考" class="headerlink" title="前端级别思考"></a>前端级别思考</h3><pre><code>Winter：P5 看承担 P6 看深度 P7 看体系 P8 看规划 P9 看创造
+</code></pre><ul>
+<li>P5(前端开发工程师)：独立执行，娴熟运用</li>
+<li>P6(高级前端开发工程师)：主动执行，辅助团队</li>
+<li>P7(技术专家)：融会贯通，自有一套</li>
+<li>P8(高级技术专家)：锐意进取，运筹帷幄</li>
+<li>P9(资深技术专家)：无中生有。可以看下 @玉伯 <a href="https://zhuanlan.zhihu.com/p/32782686" target="_blank" rel="noopener">『从前端技术到体验科技（附演讲视频）』</a> 以及他们的<a href="https://www.zhihu.com/question/263685257" target="_blank" rel="noopener">『 参加第一届蚂蚁体验科技大会 SEE Conf 2018 是什么体验？』</a></li>
+<li>P10(研究员)越往上越不要自我局限，我们首先是工程师，而前端只是你的一个出发点，不要成为你的界限。</li>
+</ul>
+<h3 id="推荐书目"><a href="#推荐书目" class="headerlink" title="推荐书目"></a>推荐书目</h3><p><a href="https://book.douban.com/subject/5337333/" target="_blank" rel="noopener">深入浅出JavaScript（中文版）</a><br><a href="https://book.douban.com/subject/5402021/" target="_blank" rel="noopener">Eloquent JavaScript</a><br><a href="https://book.douban.com/subject/10549733/" target="_blank" rel="noopener">JavaScript权威指南(第6版)</a><br><a href="https://book.douban.com/subject/10546125/" target="_blank" rel="noopener">JavaScript高级程序设计（第3版）</a><br><a href="https://book.douban.com/subject/3590768/" target="_blank" rel="noopener">JavaScript语言精粹</a><br><a href="https://book.douban.com/subject/11506062/" target="_blank" rel="noopener">JavaScript模式</a><br><a href="https://book.douban.com/subject/26351021/" target="_blank" rel="noopener">你不知道的JavaScript（上卷）</a><br><a href="https://book.douban.com/subject/10569608/" target="_blank" rel="noopener">jQuery基础教程（第3版）</a><br><a href="https://book.douban.com/subject/10792216/" target="_blank" rel="noopener">锋利的jQuery</a><br><a href="https://github.com/getify/You-Dont-Know-JS" target="_blank" rel="noopener">You Don’t Know JS (book series)</a></p>
+<h3 id="在线课程"><a href="#在线课程" class="headerlink" title="在线课程"></a>在线课程</h3><p><a href="http://www.w3school.com.cn/js/" target="_blank" rel="noopener">W3School JS教程</a><br><a href="http://www.runoob.com/js/js-tutorial.html" target="_blank" rel="noopener">JS 菜鸟教程</a><br><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="noopener">JS 廖雪峰教程</a><br><a href="http://javascript.ruanyifeng.com/" target="_blank" rel="noopener">JS 阮一峰教程</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript" target="_blank" rel="noopener">MDN 重新介绍JavaScript</a><br><a href="http://www.htmldog.com/guides/javascript/" target="_blank" rel="noopener">JavaScript Tutorials</a>                </p>
+<h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p><a href="http://study.163.com/course/introduction.htm%3FcourseId%3D224014%23/courseDetail" target="_blank" rel="noopener">精通JavaScript开发</a><br><a href="http://www.jikexueyuan.com/course/javascript/2-0-0-0/" target="_blank" rel="noopener">JavaScript视频教程</a><br><a href="https://www.youtube.com/watch%3Fv%3DXL9Ri8pO68w" target="_blank" rel="noopener">Youtube JavaScript Tutorial for Absolute Beginners</a></p>
+<h3 id="应用推荐"><a href="#应用推荐" class="headerlink" title="应用推荐"></a>应用推荐</h3><p>(IOS&amp;English ONLY)<br><a href="https://appsto.re/cn/RsAY4.i" target="_blank" rel="noopener">Learn JavaScript by Sololearn Inc</a><br><a href="https://appsto.re/cn/Vvt4X.i" target="_blank" rel="noopener">L2Code JavaScript – Learn to Code JavaScript by SparkNET Interactive</a><br><a href="https://appsto.re/cn/C4TLdb.i" target="_blank" rel="noopener">Mimo: Learn how to code through interactive tutorials and quizzes! by Johannes Berger</a><br><a href="https://appsto.re/cn/5lwBab.i" target="_blank" rel="noopener">Learn JavaScript by Examples by Pretonic</a>               </p>
+<h3 id="标准文档"><a href="#标准文档" class="headerlink" title="标准文档"></a>标准文档</h3><p><a href="https://github.com/airbnb/javascript&quot;" target="_blank" rel="noopener">Airbnb JS代码规范</a><br><a href="https://github.com/coodict/javascript-in-one-pic/blob/master/README-zh.md" target="_blank" rel="noopener">Javascript in one pic 中文版</a><br><a href="https://www.w3.org/standards/techs/css%23w3c_all" target="_blank" rel="noopener">W3C CSS CURRENT STATUS</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics" target="_blank" rel="noopener">MDN JavaScript基础</a>        </p>
+<h3 id="在线资源"><a href="#在线资源" class="headerlink" title="在线资源"></a>在线资源</h3><p><a href="http://www.daqianduan.com/nav" target="_blank" rel="noopener">大前端导航</a><br><a href="https://github.com/moklick/frontend-stuff" target="_blank" rel="noopener">Frontend Stuff</a><br><a href="https://frontend.directory/" target="_blank" rel="noopener">Frontend directory</a><br><a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions" target="_blank" rel="noopener">Frontend Interview Questions</a></p>
+<h3 id="实践项目"><a href="#实践项目" class="headerlink" title="实践项目"></a>实践项目</h3><p><a href="https://github.com/sethvincent/javascripting" target="_blank" rel="noopener">GitHub - sethvincent/javascripting: Learn JavaScript by adventuring around in the terminal.</a></p>
+<p><a href="https://freecodecamp.cn/challenges/comment-your-javascript-code" target="_blank" rel="noopener">FCC中文JS系列关卡</a>                </p>
+<p><a href="http://blog.csdn.net/ljianhui/article/details/11100625" target="_blank" rel="noopener">初窥Linux 之 我最常用的20条命令</a></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://zh.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">维基百科 JavaScript</a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>
+
+      
+
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://taoqianbao.github.io/2016/02/27/javascript/js-starter/" data-id="cjefbw6hh001yzee3t9ostytk" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/27/nodejs/nodejs-index/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Node.js入门知识系列索引
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/05/links/fe/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">网络资源之前端</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ITPMP/">ITPMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TechManage/">TechManage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/">WEB</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5/">h5</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lesson/">lesson</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/links/">links</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/macos/">macos</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AMD/">AMD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARIA/">ARIA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMD/">CMD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ITPMP/">ITPMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOJ/">OOJ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/">WEB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apply/">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/call/">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commit/">commit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/">commonjs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concepts/">concepts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/defer/">defer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dialog/">dialog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eventloop/">eventloop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/">frontend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/giz-cz/">giz-cz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/h5/">h5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/">interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lesson/">lesson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lifecycle/">lifecycle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/media/">media</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/news/">news</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/">package</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/path/">path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance/">performance</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pg/">pg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugins/">plugins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/preload/">preload</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/">project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rem/">rem</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/snippet/">snippet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sticky/">sticky</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport/">viewport</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/worker/">worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码段/">代码段</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/优化/">优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入门/">入门</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全栈/">全栈</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/备份/">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能/">性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理想/">理想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略/">策略</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题/">问题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/题目/">题目</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/AMD/" style="font-size: 11.43px;">AMD</a> <a href="/tags/ARIA/" style="font-size: 10px;">ARIA</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/CMD/" style="font-size: 11.43px;">CMD</a> <a href="/tags/CSS/" style="font-size: 11.43px;">CSS</a> <a href="/tags/ES6/" style="font-size: 11.43px;">ES6</a> <a href="/tags/H5/" style="font-size: 14.29px;">H5</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/ITPMP/" style="font-size: 10px;">ITPMP</a> <a href="/tags/JS/" style="font-size: 15.71px;">JS</a> <a href="/tags/Javascript/" style="font-size: 18.57px;">Javascript</a> <a href="/tags/OOJ/" style="font-size: 12.86px;">OOJ</a> <a href="/tags/OOP/" style="font-size: 12.86px;">OOP</a> <a href="/tags/WEB/" style="font-size: 12.86px;">WEB</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/commit/" style="font-size: 10px;">commit</a> <a href="/tags/commonjs/" style="font-size: 11.43px;">commonjs</a> <a href="/tags/concepts/" style="font-size: 10px;">concepts</a> <a href="/tags/css/" style="font-size: 12.86px;">css</a> <a href="/tags/defer/" style="font-size: 10px;">defer</a> <a href="/tags/dialog/" style="font-size: 10px;">dialog</a> <a href="/tags/eventloop/" style="font-size: 10px;">eventloop</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/giz-cz/" style="font-size: 10px;">giz-cz</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/h5/" style="font-size: 12.86px;">h5</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/js/" style="font-size: 12.86px;">js</a> <a href="/tags/lesson/" style="font-size: 10px;">lesson</a> <a href="/tags/lifecycle/" style="font-size: 11.43px;">lifecycle</a> <a href="/tags/macos/" style="font-size: 10px;">macos</a> <a href="/tags/media/" style="font-size: 11.43px;">media</a> <a href="/tags/news/" style="font-size: 10px;">news</a> <a href="/tags/nodejs/" style="font-size: 11.43px;">nodejs</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/performance/" style="font-size: 11.43px;">performance</a> <a href="/tags/pg/" style="font-size: 10px;">pg</a> <a href="/tags/plugins/" style="font-size: 10px;">plugins</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/preload/" style="font-size: 10px;">preload</a> <a href="/tags/project/" style="font-size: 10px;">project</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/snippet/" style="font-size: 10px;">snippet</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sticky/" style="font-size: 10px;">sticky</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/web/" style="font-size: 17.14px;">web</a> <a href="/tags/worker/" style="font-size: 10px;">worker</a> <a href="/tags/代码段/" style="font-size: 10px;">代码段</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/全栈/" style="font-size: 10px;">全栈</a> <a href="/tags/备份/" style="font-size: 10px;">备份</a> <a href="/tags/小程序/" style="font-size: 10px;">小程序</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/理想/" style="font-size: 10px;">理想</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a> <a href="/tags/面试/" style="font-size: 14.29px;">面试</a> <a href="/tags/题目/" style="font-size: 12.86px;">题目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12/">December 2006</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/06/git/git-cz/">教你如何在Git Commit时输出漂亮的文档</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/24/javascript/es6-start/">ES6</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/12/web/how-to-install-node-envs/">全栈开发之NODEJS服务区搭建向导</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/08/miniapp/how-to-study/">小程序开发之入门基础知识</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/02/javascript/javascript-concepts/">必须知道的javascript概念题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Peter Zhu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/about" class="mobile-nav-link">About Me</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/taoqianbao" class="mobile-nav-link">GITHUB(@me)</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
