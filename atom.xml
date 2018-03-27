@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://taoqianbao.github.io/"/>
-  <updated>2018-03-27T01:16:41.000Z</updated>
+  <updated>2018-03-27T01:19:57.000Z</updated>
   <id>http://taoqianbao.github.io/</id>
   
   <author>
@@ -21,17 +21,16 @@
     <link href="http://taoqianbao.github.io/2018/03/27/nodejs/nodejs-upgrade/"/>
     <id>http://taoqianbao.github.io/2018/03/27/nodejs/nodejs-upgrade/</id>
     <published>2018-03-27T01:14:30.000Z</published>
-    <updated>2018-03-27T01:16:41.000Z</updated>
+    <updated>2018-03-27T01:19:57.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>npm更新和nodejs更新</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>更新你已经安装的NPM库，这个很简单，只需要运行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update -g</span><br></pre></td></tr></table></figure></p><p>更新Nodejs自身。一直依赖我都是下载最新版的源码，然后make install，及其繁琐。其实只需要运行以下2个命令即可：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n </span><br><span class="line">n latest</span><br></pre></td></tr></table></figure><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>npm更新和nodejs更新</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>更新你已经安装的NPM库，这个很简单，只需要运行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update -g</span><br></pre></td></tr></table></figure></p><p>更新Nodejs自身。一直依赖我都是下载最新版的源码，然后make install，及其繁琐。其实只需要运行以下2个命令即可：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n </span><br><span class="line">n latest</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>** 珠峰<br>WEB开发与管理相结合，注重技术与应用结合。现居上海。 </p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;npm更新和nodejs更新&lt;/p&gt;
-&lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=
-      
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;npm更新和nodejs更新&lt;/p&gt;
+&lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;更新你已经安装的NPM库，这个很简单，只需要运行。&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm update -g&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;更新Nodejs自身。一直依赖我都是下载最新版的源码，然后make install，及其繁琐。其实只需要运行以下2个命令即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g n &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;n latest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
