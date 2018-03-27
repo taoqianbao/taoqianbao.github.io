@@ -23,6 +23,8 @@ npm install -g n
 n latest
 ```
 
+<!--more-->
+
 ## 小结
 
 ## 关于作者
